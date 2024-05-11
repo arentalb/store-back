@@ -3,7 +3,7 @@ import userService from "../service/userService.js";
 import bcrypt from "bcrypt";
 import createToken from "../utils/createToken.js";
 
-const createUser = expressAsyncHandler(async (req, res) => {
+const registerUser = expressAsyncHandler(async (req, res) => {
     const {username, email, password} = req.body;
 
     const userExists = await userService.checkIfUserExistByEmail(email);
@@ -29,4 +29,4 @@ const createUser = expressAsyncHandler(async (req, res) => {
     }
 });
 
-export default {createUser};
+export default {registerUser};
