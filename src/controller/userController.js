@@ -147,6 +147,27 @@ const getUserById = expressAsyncHandler(async (req, res) => {
     res.status(404).json({ message: "User not found" });
   }
 });
+
+const updateUserById = expressAsyncHandler(async (req, res) => {
+  const id = req.params.id;
+  const user = await userService.getUserProfile(id);
+
+  if (user) {
+    user.username = req.body.username || user.username;
+    user.email = req.body.email || user.email;
+    user.isAdmin = Boolean(req.body.isAdmin);
+
+    const updatedUser = await user.save();
+    res.json({
+      _id: updatedUser._id,
+      username: updatedUser.username,
+      email: updatedUser.email,
+      isAdmin: updatedUser.isAdmin,
+    });
+  } else {
+    res.status(404).json({ message: "User profile not found " });
+  }
+});
 export default {
   registerUser,
   loginUser,
@@ -156,4 +177,5 @@ export default {
   updateCurrentUserProfile,
   deleteUser,
   getUserById,
+  updateUserById,
 };

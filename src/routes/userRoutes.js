@@ -13,5 +13,6 @@ router.get("/profile", authenticate, userController.getCurrentUserProfile);
 router.put("/profile", authenticate, userController.updateCurrentUserProfile);
 router.delete("/:id", authenticate, authorizeAdmin, userController.deleteUser);
 router.get("/:id", authenticate, authorizeAdmin, userController.getUserById);
+router.put("/:id", authenticate, authorizeAdmin, userController.updateUserById);
 
 export default router;
