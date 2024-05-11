@@ -60,4 +60,12 @@ const loginUser = expressAsyncHandler(async (req, res) => {
 
 
 });
-export default {registerUser, loginUser};
+const logoutUser = expressAsyncHandler(async (req, res) => {
+    res.cookie("jwt", "", {
+        httpOnly: true,
+        expires: new Date(0)
+    })
+    res.status(200).json({message: "Logout successfully"});
+});
+
+export default {registerUser, loginUser, logoutUser};
