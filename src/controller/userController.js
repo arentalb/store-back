@@ -85,9 +85,37 @@ const getCurrentUserProfile = expressAsyncHandler(async (req, res) => {
             email: user.email
         });
     } else {
-        res.status(200).json({message: "User profile not found "});
+        res.status(404).json({message: "User profile not found "});
     }
 
 });
 
-export default {registerUser, loginUser, logoutUser, getAllUser, getCurrentUserProfile};
+const updateCurrentUserProfile = expressAsyncHandler(async (req, res) => {
+    const id = req.user._id
+    const user = await userService.getUserProfile(id)
+
+    if (user) {
+        user.username = req.body.username || user.username
+        user.email = req.body.email || user.email
+
+        if (req.body.password) {
+            const salt = await bcrypt.genSalt();
+            user.password = await bcrypt.hash(req.body.password, salt)
+        }
+        const updatedUser = await user.save()
+        res.json({
+            _id: updatedUser._id,
+            username: updatedUser.username,
+            email: updatedUser.email,
+            isAdmin: updatedUser.isAdmin
+        })
+
+    } else {
+        res.status(404).json({message: "User profile not found "});
+    }
+
+
+});
+
+
+export default {registerUser, loginUser, logoutUser, getAllUser, getCurrentUserProfile, updateCurrentUserProfile};
