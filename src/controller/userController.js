@@ -5,6 +5,9 @@ import createToken from "../utils/createToken.js";
 
 const registerUser = expressAsyncHandler(async (req, res) => {
     const {username, email, password} = req.body;
+    if (!username || !email || !password) {
+        res.status(400).json({message: "Please provide all inputs"});
+    }
 
     const userExists = await userService.checkIfUserExistByEmail(email);
     if (userExists) {
@@ -29,4 +32,32 @@ const registerUser = expressAsyncHandler(async (req, res) => {
     }
 });
 
-export default {registerUser};
+const loginUser = expressAsyncHandler(async (req, res) => {
+    const {email, password} = req.body
+    if (!email || !password) {
+        res.status(400).json({message: "Please provide all inputs"});
+        return
+    }
+    const existingUser = await userService.checkIfUserExistByEmail(email)
+    if (existingUser) {
+
+        const isPasswordValid = await bcrypt.compare(password, existingUser.password)
+        if (isPasswordValid) {
+            createToken(res, existingUser._id)
+            const userResponse = {
+                _id: existingUser._id,
+                username: existingUser.username,
+                email: existingUser.email,
+                isAdmin: existingUser.isAdmin,
+            };
+            res.status(201).json(userResponse);
+        } else {
+            res.status(401).json({message: "Wrong password"});
+        }
+    } else {
+        res.status(404).json({message: "User dose not exists "});
+    }
+
+
+});
+export default {registerUser, loginUser};
