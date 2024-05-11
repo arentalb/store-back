@@ -132,6 +132,21 @@ const deleteUser = expressAsyncHandler(async (req, res) => {
   }
 });
 
+const getUserById = expressAsyncHandler(async (req, res) => {
+  const id = req.params.id;
+  if (!id) {
+    res.status(400).json({ message: "Provide user id" });
+    return;
+  }
+
+  const user = await userService.getUserProfile(id);
+
+  if (user) {
+    res.status(201).json(user);
+  } else {
+    res.status(404).json({ message: "User not found" });
+  }
+});
 export default {
   registerUser,
   loginUser,
@@ -140,4 +155,5 @@ export default {
   getCurrentUserProfile,
   updateCurrentUserProfile,
   deleteUser,
+  getUserById,
 };

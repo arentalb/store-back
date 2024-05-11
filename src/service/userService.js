@@ -28,7 +28,7 @@ async function createUser(userDetails) {
 
 async function getAllUser() {
   try {
-    return await userModel.find();
+    return await userModel.find().select("-password");
   } catch (error) {
     throw new Error("Error fetching all user");
   }
@@ -36,7 +36,7 @@ async function getAllUser() {
 
 async function getUserProfile(id) {
   try {
-    return await userModel.findById(id);
+    return await userModel.findById(id).select("-password");
   } catch (error) {
     throw new Error("Error fetching profile");
   }
