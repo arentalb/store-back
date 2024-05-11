@@ -9,7 +9,7 @@ const registerUser = expressAsyncHandler(async (req, res) => {
         res.status(400).json({message: "Please provide all inputs"});
     }
 
-    const userExists = await userService.checkIfUserExistByEmail(email);
+    const userExists = await userService.getUserByEmail(email);
     if (userExists) {
         res.status(409).json({message: "User already exists with that email"});
     } else {
@@ -38,7 +38,7 @@ const loginUser = expressAsyncHandler(async (req, res) => {
         res.status(400).json({message: "Please provide all inputs"});
         return
     }
-    const existingUser = await userService.checkIfUserExistByEmail(email)
+    const existingUser = await userService.getUserByEmail(email)
     if (existingUser) {
 
         const isPasswordValid = await bcrypt.compare(password, existingUser.password)
