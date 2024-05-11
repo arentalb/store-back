@@ -118,4 +118,36 @@ const updateCurrentUserProfile = expressAsyncHandler(async (req, res) => {
 });
 
 
-export default {registerUser, loginUser, logoutUser, getAllUser, getCurrentUserProfile, updateCurrentUserProfile};
+const deleteUser = expressAsyncHandler(async (req, res) => {
+    const id = req.params.id
+    if (!id) {
+        res.status(400).json({message: "Provide user id"});
+        return
+    }
+
+    const user = await userService.getUserProfile(id)
+
+    if (user) {
+        if (user.isAdmin) {
+            res.status(400).json({message: "Admin user can not be deleted"});
+            return
+        }
+        await userService.deleteUser(id)
+        res.status(201).json({message: "user removed"});
+
+    } else {
+        res.status(404).json({message: "User not found "});
+    }
+
+
+});
+
+export default {
+    registerUser,
+    loginUser,
+    logoutUser,
+    getAllUser,
+    getCurrentUserProfile,
+    updateCurrentUserProfile,
+    deleteUser
+};

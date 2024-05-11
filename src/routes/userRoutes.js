@@ -11,5 +11,6 @@ router.post("/logout", userController.logoutUser);
 router.get("/all", authenticate, authorizeAdmin, userController.getAllUser);
 router.get("/profile", authenticate, userController.getCurrentUserProfile);
 router.put("/profile", authenticate, userController.updateCurrentUserProfile);
+router.delete("/:id", authenticate, authorizeAdmin, userController.deleteUser);
 
 export default router;

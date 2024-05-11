@@ -44,4 +44,13 @@ async function getUserProfile(id) {
     }
 }
 
-export default {getUserByEmail, createUser, getUserById, getAllUser, getUserProfile};
+async function deleteUser(id) {
+    try {
+        return await userModel.deleteOne({_id: id});
+    } catch (error) {
+        throw new Error("Error deleting user");
+    }
+}
+
+
+export default {getUserByEmail, createUser, getUserById, getAllUser, getUserProfile, deleteUser};
