@@ -9,5 +9,6 @@ router.post("/login", userController.loginUser);
 router.post("/logout", userController.logoutUser);
 
 router.get("/all", authenticate, authorizeAdmin, userController.getAllUser);
+router.get("/profile", authenticate, userController.getCurrentUserProfile);
 
 export default router;

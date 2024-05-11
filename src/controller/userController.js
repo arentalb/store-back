@@ -74,4 +74,20 @@ const getAllUser = expressAsyncHandler(async (req, res) => {
     res.status(201).json(allUsers);
 });
 
-export default {registerUser, loginUser, logoutUser, getAllUser};
+
+const getCurrentUserProfile = expressAsyncHandler(async (req, res) => {
+    const id = req.user._id
+    const user = await userService.getUserProfile(id)
+    if (user) {
+        res.status(201).json({
+            _id: user._id,
+            username: user.username,
+            email: user.email
+        });
+    } else {
+        res.status(200).json({message: "User profile not found "});
+    }
+
+});
+
+export default {registerUser, loginUser, logoutUser, getAllUser, getCurrentUserProfile};

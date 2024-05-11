@@ -36,4 +36,12 @@ async function getAllUser() {
     }
 }
 
-export default {getUserByEmail, createUser, getUserById, getAllUser};
+async function getUserProfile(id) {
+    try {
+        return await userModel.findById(id);
+    } catch (error) {
+        throw new Error("Error fetching profile");
+    }
+}
+
+export default {getUserByEmail, createUser, getUserById, getAllUser, getUserProfile};
