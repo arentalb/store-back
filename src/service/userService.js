@@ -8,6 +8,16 @@ async function getUserByEmail(email) {
     }
 }
 
+async function getUserById(id) {
+    try {
+        //do not include password field
+        return await userModel.findById(id).select("-password");
+    } catch (error) {
+        throw new Error("Database error during find user by id ");
+    }
+}
+
+
 async function createUser(userDetails) {
     try {
         const a = await userModel.create(userDetails);
@@ -17,4 +27,13 @@ async function createUser(userDetails) {
     }
 }
 
-export default {getUserByEmail, createUser};
+async function getAllUser() {
+    try {
+
+        return await userModel.find();
+    } catch (error) {
+        throw new Error("Error fetching all user");
+    }
+}
+
+export default {getUserByEmail, createUser, getUserById, getAllUser};

@@ -68,4 +68,10 @@ const logoutUser = expressAsyncHandler(async (req, res) => {
     res.status(200).json({message: "Logout successfully"});
 });
 
-export default {registerUser, loginUser, logoutUser};
+const getAllUser = expressAsyncHandler(async (req, res) => {
+
+    const allUsers = await userService.getAllUser()
+    res.status(201).json(allUsers);
+});
+
+export default {registerUser, loginUser, logoutUser, getAllUser};
