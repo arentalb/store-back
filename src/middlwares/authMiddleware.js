@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import expressAsyncHandler from "express-async-handler";
 import userService from "../service/userService.js";
+import { sendFailure } from "../utils/resposeSender.js";
 
 const authenticate = expressAsyncHandler(async (req, res, next) => {
   let token = req.cookies.jwt;
@@ -11,11 +12,12 @@ const authenticate = expressAsyncHandler(async (req, res, next) => {
       req.user = await userService.getUserById(decode.userId);
       next();
     } catch (error) {
-      res.status(401).json({ message: "Not authorized ,token failed." });
+      sendFailure(res, "Not authorized ,token failed.", 401);
+
       next();
     }
   } else {
-    res.status(401).json({ message: "Not authorized , no token." });
+    sendFailure(res, "Not authorized , no token.", 401);
     next();
   }
 });
@@ -24,7 +26,7 @@ const authorizeAdmin = expressAsyncHandler(async (req, res, next) => {
   if (req.user && req.user.isAdmin) {
     next();
   } else {
-    res.status(401).json({ message: "Not authorized as admin" });
+    sendFailure(res, "Not authorized as admin", 401);
     next();
   }
 });

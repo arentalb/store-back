@@ -2,6 +2,7 @@ import expressAsyncHandler from "express-async-handler";
 import userService from "../service/userService.js";
 import bcrypt from "bcrypt";
 import createToken from "../utils/createToken.js";
+import { sendError, sendFailure, sendSuccess } from "../utils/resposeSender.js";
 
 const registerUser = expressAsyncHandler(async (req, res) => {
   const { username, email, password } = req.body;
@@ -11,7 +12,7 @@ const registerUser = expressAsyncHandler(async (req, res) => {
 
   const userExists = await userService.getUserByEmail(email);
   if (userExists) {
-    res.status(409).json({ message: "User already exists with that email" });
+    sendFailure(res, "User already exists with that email", 409);
   } else {
     const salt = await bcrypt.genSalt();
     const hashedPassword = await bcrypt.hash(password, salt);
@@ -28,13 +29,13 @@ const registerUser = expressAsyncHandler(async (req, res) => {
       email: newUser.email,
       isAdmin: newUser.isAdmin,
     };
-    res.status(201).json(userResponse);
+    sendSuccess(res, userResponse, 201);
   }
 });
 const loginUser = expressAsyncHandler(async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
-    res.status(400).json({ message: "Please provide all inputs" });
+    sendFailure(res, "Please provide all inputs", 400);
     return;
   }
   const existingUser = await userService.getUserByEmail(email);
@@ -51,12 +52,12 @@ const loginUser = expressAsyncHandler(async (req, res) => {
         email: existingUser.email,
         isAdmin: existingUser.isAdmin,
       };
-      res.status(201).json(userResponse);
+      sendSuccess(res, userResponse, 201);
     } else {
-      res.status(401).json({ message: "Wrong password" });
+      sendFailure(res, "Wrong password", 401);
     }
   } else {
-    res.status(404).json({ message: "User dose not exists " });
+    sendFailure(res, "User dose not exists ", 404);
   }
 });
 const logoutUser = expressAsyncHandler(async (req, res) => {
@@ -64,20 +65,21 @@ const logoutUser = expressAsyncHandler(async (req, res) => {
     httpOnly: true,
     expires: new Date(0),
   });
-  res.status(200).json({ message: "Logout successfully" });
+  sendSuccess(res, "Logout successfully", 200);
 });
 
 const getProfile = expressAsyncHandler(async (req, res) => {
   const id = req.user._id;
   const user = await userService.getUserById(id);
   if (user) {
-    res.status(201).json({
+    const responseData = {
       _id: user._id,
       username: user.username,
       email: user.email,
-    });
+    };
+    sendSuccess(res, responseData, 201);
   } else {
-    res.status(404).json({ message: "User profile not found " });
+    sendFailure(res, "User profile not found ", 404);
   }
 });
 const updateProfile = expressAsyncHandler(async (req, res) => {
@@ -100,27 +102,27 @@ const updateProfile = expressAsyncHandler(async (req, res) => {
       isAdmin: updatedUser.isAdmin,
     });
   } else {
-    res.status(404).json({ message: "User profile not found " });
+    sendFailure(res, "User profile not found ", 404);
   }
 });
 
 const getAllUser = expressAsyncHandler(async (req, res) => {
   const allUsers = await userService.getAllUser();
-  res.status(201).json(allUsers);
+  sendSuccess(res, allUsers, 201);
 });
 const getUserById = expressAsyncHandler(async (req, res) => {
   const id = req.params.id;
   if (!id) {
-    res.status(400).json({ message: "Provide user id" });
+    sendError(res, "Provide user id", 400);
     return;
   }
 
   const user = await userService.getUserById(id);
 
   if (user) {
-    res.status(201).json(user);
+    sendSuccess(res, user, 201);
   } else {
-    res.status(404).json({ message: "User not found" });
+    sendFailure(res, "User not found", 404);
   }
 });
 const updateUserById = expressAsyncHandler(async (req, res) => {
@@ -133,20 +135,21 @@ const updateUserById = expressAsyncHandler(async (req, res) => {
     user.isAdmin = Boolean(req.body.isAdmin);
 
     const updatedUser = await user.save();
-    res.json({
+    const resposeData = {
       _id: updatedUser._id,
       username: updatedUser.username,
       email: updatedUser.email,
       isAdmin: updatedUser.isAdmin,
-    });
+    };
+    sendSuccess(res, resposeData, 201);
   } else {
-    res.status(404).json({ message: "User profile not found " });
+    sendFailure(res, "User profile not found ", 404);
   }
 });
 const deleteUserById = expressAsyncHandler(async (req, res) => {
   const id = req.params.id;
   if (!id) {
-    res.status(400).json({ message: "Provide user id" });
+    sendFailure(res, "Provide user id", 400);
     return;
   }
 
@@ -154,13 +157,14 @@ const deleteUserById = expressAsyncHandler(async (req, res) => {
 
   if (user) {
     if (user.isAdmin) {
-      res.status(400).json({ message: "Admin user can not be deleted" });
+      sendFailure(res, "Admin user can not be deleted", 400);
+
       return;
     }
     await userService.deleteUser(id);
-    res.status(201).json({ message: "user removed" });
+    sendSuccess(res, "User removed", 201);
   } else {
-    res.status(404).json({ message: "User not found " });
+    sendFailure(res, "User not found ", 404);
   }
 });
 
