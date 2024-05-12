@@ -1,10 +1,10 @@
 import userModel from "../models/userModel.js";
 
-async function getUserByEmail(email) {
+async function getAllUser() {
   try {
-    return await userModel.findOne({ email });
+    return await userModel.find().select("-password");
   } catch (error) {
-    throw new Error("Database error during email check");
+    throw new Error("Error fetching all user");
   }
 }
 
@@ -17,28 +17,20 @@ async function getUserById(id) {
   }
 }
 
+async function getUserByEmail(email) {
+  try {
+    return await userModel.findOne({ email });
+  } catch (error) {
+    throw new Error("Database error during email check");
+  }
+}
+
 async function createUser(userDetails) {
   try {
     const a = await userModel.create(userDetails);
     return a;
   } catch (error) {
     throw new Error("Error creating user");
-  }
-}
-
-async function getAllUser() {
-  try {
-    return await userModel.find().select("-password");
-  } catch (error) {
-    throw new Error("Error fetching all user");
-  }
-}
-
-async function getUserProfile(id) {
-  try {
-    return await userModel.findById(id).select("-password");
-  } catch (error) {
-    throw new Error("Error fetching profile");
   }
 }
 
@@ -55,6 +47,5 @@ export default {
   createUser,
   getUserById,
   getAllUser,
-  getUserProfile,
   deleteUser,
 };

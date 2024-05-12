@@ -31,7 +31,6 @@ const registerUser = expressAsyncHandler(async (req, res) => {
     res.status(201).json(userResponse);
   }
 });
-
 const loginUser = expressAsyncHandler(async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
@@ -68,14 +67,9 @@ const logoutUser = expressAsyncHandler(async (req, res) => {
   res.status(200).json({ message: "Logout successfully" });
 });
 
-const getAllUser = expressAsyncHandler(async (req, res) => {
-  const allUsers = await userService.getAllUser();
-  res.status(201).json(allUsers);
-});
-
-const getCurrentUserProfile = expressAsyncHandler(async (req, res) => {
+const getProfile = expressAsyncHandler(async (req, res) => {
   const id = req.user._id;
-  const user = await userService.getUserProfile(id);
+  const user = await userService.getUserById(id);
   if (user) {
     res.status(201).json({
       _id: user._id,
@@ -86,10 +80,9 @@ const getCurrentUserProfile = expressAsyncHandler(async (req, res) => {
     res.status(404).json({ message: "User profile not found " });
   }
 });
-
-const updateCurrentUserProfile = expressAsyncHandler(async (req, res) => {
+const updateProfile = expressAsyncHandler(async (req, res) => {
   const id = req.user._id;
-  const user = await userService.getUserProfile(id);
+  const user = await userService.getUserById(id);
 
   if (user) {
     user.username = req.body.username || user.username;
@@ -111,27 +104,10 @@ const updateCurrentUserProfile = expressAsyncHandler(async (req, res) => {
   }
 });
 
-const deleteUser = expressAsyncHandler(async (req, res) => {
-  const id = req.params.id;
-  if (!id) {
-    res.status(400).json({ message: "Provide user id" });
-    return;
-  }
-
-  const user = await userService.getUserProfile(id);
-
-  if (user) {
-    if (user.isAdmin) {
-      res.status(400).json({ message: "Admin user can not be deleted" });
-      return;
-    }
-    await userService.deleteUser(id);
-    res.status(201).json({ message: "user removed" });
-  } else {
-    res.status(404).json({ message: "User not found " });
-  }
+const getAllUser = expressAsyncHandler(async (req, res) => {
+  const allUsers = await userService.getAllUser();
+  res.status(201).json(allUsers);
 });
-
 const getUserById = expressAsyncHandler(async (req, res) => {
   const id = req.params.id;
   if (!id) {
@@ -139,7 +115,7 @@ const getUserById = expressAsyncHandler(async (req, res) => {
     return;
   }
 
-  const user = await userService.getUserProfile(id);
+  const user = await userService.getUserById(id);
 
   if (user) {
     res.status(201).json(user);
@@ -147,10 +123,9 @@ const getUserById = expressAsyncHandler(async (req, res) => {
     res.status(404).json({ message: "User not found" });
   }
 });
-
 const updateUserById = expressAsyncHandler(async (req, res) => {
   const id = req.params.id;
-  const user = await userService.getUserProfile(id);
+  const user = await userService.getUserById(id);
 
   if (user) {
     user.username = req.body.username || user.username;
@@ -168,14 +143,35 @@ const updateUserById = expressAsyncHandler(async (req, res) => {
     res.status(404).json({ message: "User profile not found " });
   }
 });
+const deleteUserById = expressAsyncHandler(async (req, res) => {
+  const id = req.params.id;
+  if (!id) {
+    res.status(400).json({ message: "Provide user id" });
+    return;
+  }
+
+  const user = await userService.getUserById(id);
+
+  if (user) {
+    if (user.isAdmin) {
+      res.status(400).json({ message: "Admin user can not be deleted" });
+      return;
+    }
+    await userService.deleteUser(id);
+    res.status(201).json({ message: "user removed" });
+  } else {
+    res.status(404).json({ message: "User not found " });
+  }
+});
+
 export default {
   registerUser,
   loginUser,
   logoutUser,
   getAllUser,
-  getCurrentUserProfile,
-  updateCurrentUserProfile,
-  deleteUser,
+  getProfile,
+  updateProfile,
+  deleteUserById,
   getUserById,
   updateUserById,
 };
