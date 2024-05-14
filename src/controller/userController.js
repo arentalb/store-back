@@ -95,12 +95,7 @@ const updateProfile = expressAsyncHandler(async (req, res) => {
       user.password = await bcrypt.hash(req.body.password, salt);
     }
     const updatedUser = await user.save();
-    res.json({
-      _id: updatedUser._id,
-      username: updatedUser.username,
-      email: updatedUser.email,
-      isAdmin: updatedUser.isAdmin,
-    });
+    sendSuccess(res ,updatedUser,201)
   } else {
     sendFailure(res, "User profile not found ", 404);
   }
