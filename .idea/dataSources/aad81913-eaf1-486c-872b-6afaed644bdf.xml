@@ -12,38 +12,59 @@
     <schema id="7" parent="1" name="marketDB"/>
     <schema id="8" parent="1" name="mongoose"/>
     <schema id="9" parent="1" name="practice"/>
-    <table id="10" parent="9" name="users"/>
-    <column id="11" parent="10" name="_id">
+    <table id="10" parent="9" name="categories"/>
+    <table id="11" parent="9" name="users"/>
+    <column id="12" parent="10" name="_id">
       <DasType>ObjectId|12s</DasType>
       <Position>1</Position>
     </column>
-    <column id="12" parent="10" name="__v">
+    <column id="13" parent="10" name="createdAt">
+      <DasType>ISODate|91s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="14" parent="10" name="name">
+      <DasType>String|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="15" parent="10" name="updatedAt">
+      <DasType>ISODate|91s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="16" parent="10" name="__v">
       <DasType>Int32|4s</DasType>
       <Position>2</Position>
     </column>
-    <column id="13" parent="10" name="createdAt">
+    <column id="17" parent="11" name="_id">
+      <DasType>ObjectId|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="18" parent="11" name="__v">
+      <DasType>Int32|4s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="19" parent="11" name="createdAt">
       <DasType>ISODate|91s</DasType>
-      <Position>3</Position>
+      <Position>1</Position>
     </column>
-    <column id="14" parent="10" name="email">
+    <column id="20" parent="11" name="password">
       <DasType>String|12s</DasType>
-      <Position>4</Position>
+      <Position>1</Position>
     </column>
-    <column id="15" parent="10" name="isAdmin">
+    <column id="21" parent="11" name="updatedAt">
+      <DasType>ISODate|91s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="22" parent="11" name="email">
+      <DasType>String|12s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="23" parent="11" name="username">
+      <DasType>String|12s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="24" parent="11" name="isAdmin">
       <DasType>Boolean|12s</DasType>
-      <Position>5</Position>
-    </column>
-    <column id="16" parent="10" name="password">
-      <DasType>String|12s</DasType>
-      <Position>6</Position>
-    </column>
-    <column id="17" parent="10" name="updatedAt">
-      <DasType>ISODate|91s</DasType>
-      <Position>7</Position>
-    </column>
-    <column id="18" parent="10" name="username">
-      <DasType>String|12s</DasType>
-      <Position>8</Position>
+      <Position>3</Position>
     </column>
   </database-model>
 </dataSource>

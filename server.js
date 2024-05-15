@@ -5,6 +5,7 @@ import { connectDB } from "./src/config/db.js";
 import userRoutes from "./src/routes/userRoutes.js";
 import cookieParser from "cookie-parser";
 import { sendError, sendFailure } from "./src/utils/resposeSender.js";
+import categoryRoutes from "./src/routes/categoryRoutes.js";
 
 dotenv.config();
 const PORT = process.env.PORT || 5000;
@@ -18,7 +19,7 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
 server.use("/api/user", userRoutes);
-server.use("/api/test", userRoutes);
+server.use("/api/category", categoryRoutes);
 
 server.use((err, req, res, next) => {
   console.log(err);
