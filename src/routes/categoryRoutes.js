@@ -7,12 +7,26 @@ const router = express.Router();
 //everyone
 
 //user
-router.get("/", authenticate,categoryController.getCategories);
+router.get("/", authenticate, categoryController.getCategories);
 
 //admin
-router.post("/", authenticate, authorizeAdmin, categoryController.createCategory);
-router.put("/:id", authenticate, authorizeAdmin, categoryController.updateCategory);
- router.delete("/:id", authenticate, authorizeAdmin,categoryController.deleteCategory);
-
+router.post(
+  "/",
+  authenticate,
+  authorizeAdmin,
+  categoryController.createCategory,
+);
+router.put(
+  "/:id",
+  authenticate,
+  authorizeAdmin,
+  categoryController.updateCategory,
+);
+router.delete(
+  "/:id",
+  authenticate,
+  authorizeAdmin,
+  categoryController.deleteCategory,
+);
 
 export default router;
