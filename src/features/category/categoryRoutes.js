@@ -1,6 +1,9 @@
-import { authenticate, authorizeAdmin } from "../middlwares/authMiddleware.js";
+import {
+  authenticate,
+  authorizeAdmin,
+} from "../../middlwares/authMiddleware.js";
 import express from "express";
-import categoryController from "../controller/categoryController.js";
+import categoryController from "./categoryController.js";
 
 const router = express.Router();
 

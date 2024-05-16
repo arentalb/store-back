@@ -1,8 +1,12 @@
 import expressAsyncHandler from "express-async-handler";
-import userService from "../service/userService.js";
+import userService from "./userService.js";
 import bcrypt from "bcrypt";
-import createToken from "../utils/createToken.js";
-import { sendError, sendFailure, sendSuccess } from "../utils/resposeSender.js";
+import createToken from "../../utils/createToken.js";
+import {
+  sendError,
+  sendFailure,
+  sendSuccess,
+} from "../../utils/resposeSender.js";
 
 const registerUser = expressAsyncHandler(async (req, res) => {
   const { username, email, password } = req.body;

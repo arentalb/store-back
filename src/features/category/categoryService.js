@@ -1,4 +1,4 @@
-import categoryModel from "../models/categoryModel.js";
+import categoryModel from "./categoryModel.js";
 
 async function getCategoryById(id) {
   try {

@@ -1,6 +1,6 @@
 import expressAsyncHandler from "express-async-handler";
-import { sendFailure, sendSuccess } from "../utils/resposeSender.js";
-import categoryService from "../service/categoryService.js";
+import { sendFailure, sendSuccess } from "../../utils/resposeSender.js";
+import categoryService from "./categoryService.js";
 
 const getCategories = expressAsyncHandler(async (req, res) => {
   const categories = await categoryService.getCategories();

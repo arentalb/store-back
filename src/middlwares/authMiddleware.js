@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import expressAsyncHandler from "express-async-handler";
-import userService from "../service/userService.js";
+import userService from "../features/user/userService.js";
 import { sendFailure } from "../utils/resposeSender.js";
 
 const authenticate = expressAsyncHandler(async (req, res, next) => {

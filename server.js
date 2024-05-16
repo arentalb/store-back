@@ -2,12 +2,12 @@ import express from "express";
 import dotenv from "dotenv";
 
 import { connectDB } from "./src/config/db.js";
-import userRoutes from "./src/routes/userRoutes.js";
+import userRoutes from "./src/features/user/userRoutes.js";
 import uploadRoutes from "./src/utils/fileupload.js";
 
 import cookieParser from "cookie-parser";
 import { sendError, sendFailure } from "./src/utils/resposeSender.js";
-import categoryRoutes from "./src/routes/categoryRoutes.js";
+import categoryRoutes from "./src/features/category/categoryRoutes.js";
 import path from "path";
 
 dotenv.config();
