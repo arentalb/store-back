@@ -1,9 +1,5 @@
-import express from "express";
 import multer from "multer";
 import path from "path";
-import { sendFailure, sendSuccess } from "./resposeSender.js";
-
-const router = express.Router();
 
 // Set storage engine for multer
 const storage = multer.diskStorage({
@@ -11,7 +7,7 @@ const storage = multer.diskStorage({
   filename: (req, file, cb) => {
     cb(
       null,
-      file.fieldname + "-" + Date.now() + path.extname(file.originalname),
+      file.originalname + "-" + Date.now() + path.extname(file.originalname),
     );
   },
 });
@@ -23,12 +19,12 @@ const upload = multer({
   fileFilter: (req, file, cb) => {
     checkFileType(file, cb);
   },
-}).single("image");
+});
 
 // Check file type
 function checkFileType(file, cb) {
   // Allowed file extensions
-  const filetypes = /jpeg|jpg|png|gif/;
+  const filetypes = /jpeg|jpg|png|gif|avif|webp/;
   // Check file extension
   const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
   // Check MIME type
@@ -37,23 +33,33 @@ function checkFileType(file, cb) {
   if (mimetype && extname) {
     return cb(null, true);
   } else {
-    cb("Error: Images Only!");
+    return cb(new Error("Error: Images Only!"));
   }
 }
 
-// Handle file upload via POST request
-router.post("/", (req, res) => {
-  upload(req, res, (err) => {
-    if (err) {
-      sendFailure(res, err || "Error uploading file", 401);
-    } else {
-      if (req.file === undefined) {
-        sendFailure(res, "No file selected!", 401);
-      } else {
-        sendSuccess(res, `uploads/${req.file.filename}`, 200);
-      }
-    }
-  });
-});
+//how use it
+// server.post("/newWay", upload.single("image"), (req, res) => {
+//   const { name } = req.body;
+//   const image = req.file ? req.file.filename : null;
+//
+//   const pro = { name, image };
+//   sendSuccess(res, pro);
+// });
 
-export default router;
+//use it separately
+// // Handle file upload via POST request
+// router.post("/", (req, res) => {
+//   upload(req, res, (err) => {
+//     if (err) {
+//       sendFailure(res, err || "Error uploading file", 401);
+//     } else {
+//       if (req.file === undefined) {
+//         sendFailure(res, "No file selected!", 401);
+//       } else {
+//         sendSuccess(res, `/uploads/${req.file.filename}`, 200);
+//       }
+//     }
+//   });
+// });
+
+export default upload;

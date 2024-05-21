@@ -4,13 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Reformat files">
-      <change afterPath="$PROJECT_DIR$/src/controller/uploadController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/fileupload.js" afterDir="false" />
+    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Change file structure">
+      <change afterPath="$PROJECT_DIR$/src/features/product/productController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/product/productModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/product/productRoutes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/product/productService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/arduino-32642637462347.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/cocooile-32648632486.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/earthbeutu-3284682482439234.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/headphone-986349862498.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/hilamide-3284682634.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/pscontroller-12348914312.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aad81913-eaf1-486c-872b-6afaed644bdf.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aad81913-eaf1-486c-872b-6afaed644bdf.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/fileupload.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/fileupload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/image-1715857684958.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/image-1715857823707.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/myFile-1715857636672.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,8 +74,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Click\Documents\devlopment\fullstack\practice\pracice-back\src\utils" />
-      <recent name="C:\Users\Click\AppData\Roaming\JetBrains\WebStorm2023.1\scratches\product" />
+      <recent name="C:\Users\Click\Documents\devlopment\fullstack\practice\pracice-back\src\middlwares" />
+      <recent name="C:\Users\Click\Documents\devlopment\fullstack\practice\pracice-back\src\features\product" />
+      <recent name="C:\Users\Click\Documents\devlopment\fullstack\practice\pracice-back\src\features" />
+      <recent name="C:\Users\Click\Documents\devlopment\fullstack\practice\pracice-back\src\user" />
+      <recent name="C:\Users\Click\Documents\devlopment\fullstack\practice\pracice-back\src\category" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start:dev">
@@ -113,7 +127,16 @@
       <workItem from="1715760881526" duration="3370000" />
       <workItem from="1715765604716" duration="7783000" />
       <workItem from="1715804450328" duration="2328000" />
-      <workItem from="1715853444866" duration="4023000" />
+      <workItem from="1715853444866" duration="14468000" />
+      <workItem from="1715871002888" duration="1479000" />
+      <workItem from="1715936093325" duration="6467000" />
+      <workItem from="1715975507420" duration="566000" />
+      <workItem from="1715988132549" duration="6000" />
+      <workItem from="1716002269244" duration="462000" />
+      <workItem from="1716025653493" duration="345000" />
+      <workItem from="1716229529775" duration="202000" />
+      <workItem from="1716229752609" duration="16000" />
+      <workItem from="1716287735549" duration="17257000" />
     </task>
     <task id="LOCAL-00001" summary="IDE configuration files">
       <option name="closed" value="true" />
@@ -147,7 +170,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715804672650</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Implement file uploading functionality">
+      <option name="closed" value="true" />
+      <created>1715857947741</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1715857947741</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Change file structure">
+      <option name="closed" value="true" />
+      <created>1715858090011</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1715858090011</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,6 +208,8 @@
     <MESSAGE value="Fix a bug" />
     <MESSAGE value="Implement the category functionalities" />
     <MESSAGE value="Reformat files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reformat files" />
+    <MESSAGE value="Implement file uploading functionality" />
+    <MESSAGE value="Change file structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change file structure" />
   </component>
 </project>
