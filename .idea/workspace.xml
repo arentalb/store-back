@@ -4,24 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Change file structure">
-      <change afterPath="$PROJECT_DIR$/src/features/product/productController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/product/productModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/product/productRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/product/productService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/arduino-32642637462347.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/cocooile-32648632486.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/earthbeutu-3284682482439234.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/headphone-986349862498.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/hilamide-3284682634.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/pscontroller-12348914312.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aad81913-eaf1-486c-872b-6afaed644bdf.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aad81913-eaf1-486c-872b-6afaed644bdf.xml" afterDir="false" />
+    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Implement file upload with CRUD operation for products">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/fileupload.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/fileupload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/image-1715857684958.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/image-1715857823707.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/myFile-1715857636672.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/product/productController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/product/productController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/product/productRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/product/productRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/product/productService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/product/productService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +50,7 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\Click\\Documents\\devlopment\\fullstack\\practice\\pracice-back\\node_modules\\prettier&quot;,
     &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -136,7 +123,10 @@
       <workItem from="1716025653493" duration="345000" />
       <workItem from="1716229529775" duration="202000" />
       <workItem from="1716229752609" duration="16000" />
-      <workItem from="1716287735549" duration="17257000" />
+      <workItem from="1716287735549" duration="19298000" />
+      <workItem from="1716325338464" duration="770000" />
+      <workItem from="1716378619696" duration="3091000" />
+      <workItem from="1716384528467" duration="884000" />
     </task>
     <task id="LOCAL-00001" summary="IDE configuration files">
       <option name="closed" value="true" />
@@ -186,7 +176,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715858090011</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Implement file upload with CRUD operation for products">
+      <option name="closed" value="true" />
+      <created>1716314014428</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1716314014428</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,6 +208,7 @@
     <MESSAGE value="Reformat files" />
     <MESSAGE value="Implement file uploading functionality" />
     <MESSAGE value="Change file structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change file structure" />
+    <MESSAGE value="Implement file upload with CRUD operation for products" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement file upload with CRUD operation for products" />
   </component>
 </project>

@@ -12,6 +12,7 @@ const router = express.Router();
 
 //user
 router.get("/", authenticate, productController.getAllProducts);
+router.get("/new", authenticate, productController.getNewProducts);
 router.get("/:id", authenticate, productController.getProductById);
 
 //admin

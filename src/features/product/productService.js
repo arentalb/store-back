@@ -20,6 +20,15 @@ async function getProductById(id) {
   }
 }
 
+async function getNewProducts() {
+  try {
+    return await ProductModel.find().sort({ createdAt: -1 }).limit(4);
+  } catch (error) {
+    console.log(error);
+    throw new Error("Error finding new products");
+  }
+}
+
 async function createProduct(product) {
   try {
     return await ProductModel.create({ ...product });
@@ -62,4 +71,5 @@ export default {
   deleteProduct,
   getProductById,
   getAllProducts,
+  getNewProducts,
 };

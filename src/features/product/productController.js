@@ -23,6 +23,14 @@ const getProductById = expressAsyncHandler(async (req, res) => {
     sendError(res, error.message, 500);
   }
 });
+const getNewProducts = expressAsyncHandler(async (req, res) => {
+  try {
+    const newProducts = await productService.getNewProducts();
+    sendSuccess(res, newProducts, 201);
+  } catch (error) {
+    sendError(res, error.message, 500);
+  }
+});
 
 const createProduct = expressAsyncHandler(async (req, res) => {
   const { name, brand, quantity, category, description, price, countInStock } =
@@ -119,6 +127,7 @@ const deleteProduct = expressAsyncHandler(async (req, res) => {
 export default {
   getAllProducts,
   getProductById,
+  getNewProducts,
   createProduct,
   updateProduct,
   deleteProduct,
