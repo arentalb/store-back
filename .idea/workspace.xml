@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Implement file upload with CRUD operation for products">
+    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Implement getting newest products">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/product/productController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/product/productController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/product/productRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/product/productRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/product/productService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/product/productService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -126,7 +125,7 @@
       <workItem from="1716287735549" duration="19298000" />
       <workItem from="1716325338464" duration="770000" />
       <workItem from="1716378619696" duration="3091000" />
-      <workItem from="1716384528467" duration="884000" />
+      <workItem from="1716384528467" duration="7521000" />
     </task>
     <task id="LOCAL-00001" summary="IDE configuration files">
       <option name="closed" value="true" />
@@ -184,7 +183,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716314014428</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Implement getting newest products">
+      <option name="closed" value="true" />
+      <created>1716386707803</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1716386707803</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,6 +216,7 @@
     <MESSAGE value="Implement file uploading functionality" />
     <MESSAGE value="Change file structure" />
     <MESSAGE value="Implement file upload with CRUD operation for products" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement file upload with CRUD operation for products" />
+    <MESSAGE value="Implement getting newest products" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement getting newest products" />
   </component>
 </project>

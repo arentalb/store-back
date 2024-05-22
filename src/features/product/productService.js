@@ -1,4 +1,5 @@
 import ProductModel from "./productModel.js";
+import CategoryModel from "../category/categoryModel.js";
 
 async function getAllProducts() {
   try {
@@ -26,6 +27,24 @@ async function getNewProducts() {
   } catch (error) {
     console.log(error);
     throw new Error("Error finding new products");
+  }
+}
+
+async function getProductCategory(categoryName) {
+  try {
+    const category = await CategoryModel.findOne({ name: categoryName });
+    if (!category) {
+      throw new Error("Category does not exist");
+    }
+
+    const products = await ProductModel.find({ category: category._id })
+      .sort({ price: -1 })
+      .exec();
+
+    return products;
+  } catch (error) {
+    console.log(error);
+    throw error;
   }
 }
 
@@ -72,4 +91,5 @@ export default {
   getProductById,
   getAllProducts,
   getNewProducts,
+  getProductCategory,
 };

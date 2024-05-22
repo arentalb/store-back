@@ -8,12 +8,23 @@ import productService from "./productService.js";
 
 const getAllProducts = expressAsyncHandler(async (req, res) => {
   try {
-    const allProducts = await productService.getAllProducts();
-    sendSuccess(res, allProducts, 201);
+    let { category } = req.query;
+    if (category) {
+      const filteredProducts =
+        await productService.getProductCategory(category);
+      if (!filteredProducts || filteredProducts.length === 0) {
+        sendFailure(res, "Products for this category do not exist", 404);
+      }
+      sendSuccess(res, filteredProducts, 200);
+    } else {
+      const allProducts = await productService.getAllProducts();
+      sendSuccess(res, allProducts, 200);
+    }
   } catch (error) {
-    sendError(res, error.message, 500);
+    sendFailure(res, error.message, 404);
   }
 });
+
 const getProductById = expressAsyncHandler(async (req, res) => {
   try {
     const productId = req.params.id;
