@@ -11,6 +11,7 @@ import categoryRoutes from "./src/features/category/categoryRoutes.js";
 
 import path from "path";
 import productRoutes from "./src/features/product/productRoutes.js";
+import orderRoutes from "./src/features/order/orderRoutes.js";
 
 dotenv.config();
 const PORT = process.env.PORT || 5000;
@@ -27,6 +28,7 @@ server.use("/api/user", userRoutes);
 server.use("/api/category", categoryRoutes);
 server.use("/api/product", productRoutes);
 server.use("/api/cart", cartRoutes);
+server.use("/api/order", orderRoutes);
 
 const __dirname = path.resolve();
 server.use("/uploads", express.static(path.join(__dirname + "/uploads")));

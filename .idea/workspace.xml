@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Implement CRUD for cart functionality">
+      <change afterPath="$PROJECT_DIR$/src/features/order/orderController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/order/orderModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/order/orderRoutes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/order/orderService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aad81913-eaf1-486c-872b-6afaed644bdf.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aad81913-eaf1-486c-872b-6afaed644bdf.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/cart/cartService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/cart/cartService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +129,7 @@
       <workItem from="1716287735549" duration="19298000" />
       <workItem from="1716325338464" duration="770000" />
       <workItem from="1716378619696" duration="3091000" />
-      <workItem from="1716384528467" duration="12464000" />
+      <workItem from="1716384528467" duration="14633000" />
     </task>
     <task id="LOCAL-00001" summary="IDE configuration files">
       <option name="closed" value="true" />
@@ -206,7 +211,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716402618299</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Implement CRUD for cart functionality">
+      <option name="closed" value="true" />
+      <created>1716406705547</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1716406705547</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
