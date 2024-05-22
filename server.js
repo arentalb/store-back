@@ -6,7 +6,9 @@ import userRoutes from "./src/features/user/userRoutes.js";
 
 import cookieParser from "cookie-parser";
 import { sendError, sendFailure } from "./src/utils/resposeSender.js";
+import cartRoutes from "./src/features/cart/cartRoutes.js";
 import categoryRoutes from "./src/features/category/categoryRoutes.js";
+
 import path from "path";
 import productRoutes from "./src/features/product/productRoutes.js";
 
@@ -24,6 +26,7 @@ server.use(express.urlencoded({ extended: true }));
 server.use("/api/user", userRoutes);
 server.use("/api/category", categoryRoutes);
 server.use("/api/product", productRoutes);
+server.use("/api/cart", cartRoutes);
 
 const __dirname = path.resolve();
 server.use("/uploads", express.static(path.join(__dirname + "/uploads")));
