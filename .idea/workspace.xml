@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Implement order functionality in user">
-      <change afterPath="$PROJECT_DIR$/data.js" afterDir="false" />
+    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Add data and data script">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/aad81913-eaf1-486c-872b-6afaed644bdf.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aad81913-eaf1-486c-872b-6afaed644bdf.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/arduino-32642637462347.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/cocooile-32648632486.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/earthbeutu-3284682482439234.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/headphone-986349862498.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/hilamide-3284682634.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/photo-1486401899868-0e435ed85128.avif-1716313318742.avif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/photo-1526170375885-4d8ecf77b99f.avif-1716317280980.avif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/pscontroller-12348914312.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +125,8 @@
       <workItem from="1716325338464" duration="770000" />
       <workItem from="1716378619696" duration="3091000" />
       <workItem from="1716384528467" duration="15618000" />
-      <workItem from="1716466490914" duration="10278000" />
+      <workItem from="1716466490914" duration="11530000" />
+      <workItem from="1716483036863" duration="461000" />
     </task>
     <task id="LOCAL-00001" summary="IDE configuration files">
       <option name="closed" value="true" />
@@ -248,7 +240,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716473329749</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Add data and data script">
+      <option name="closed" value="true" />
+      <created>1716480532136</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1716480532136</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,6 +279,7 @@
     <MESSAGE value="Implement order functionality" />
     <MESSAGE value="Implement order functionality in admin" />
     <MESSAGE value="Implement order functionality in user" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement order functionality in user" />
+    <MESSAGE value="Add data and data script" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add data and data script" />
   </component>
 </project>

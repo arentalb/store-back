@@ -29,6 +29,9 @@ server.use("/api/category", categoryRoutes);
 server.use("/api/product", productRoutes);
 server.use("/api/cart", cartRoutes);
 server.use("/api/order", orderRoutes);
+server.use("/isup", (req, res) => {
+  res.send("Server is up and works");
+});
 
 const __dirname = path.resolve();
 server.use("/uploads", express.static(path.join(__dirname + "/uploads")));
