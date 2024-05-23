@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Implement order functionality in admin">
+    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Implement order functionality in user">
+      <change afterPath="$PROJECT_DIR$/data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aad81913-eaf1-486c-872b-6afaed644bdf.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aad81913-eaf1-486c-872b-6afaed644bdf.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/order/orderController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/order/orderController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/order/orderRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/order/orderRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/order/orderService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/order/orderService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middlwares/authMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middlwares/authMiddleware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/arduino-32642637462347.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/cocooile-32648632486.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/earthbeutu-3284682482439234.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/headphone-986349862498.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/hilamide-3284682634.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/photo-1486401899868-0e435ed85128.avif-1716313318742.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/photo-1526170375885-4d8ecf77b99f.avif-1716317280980.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/pscontroller-12348914312.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,11 +68,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Click\Documents\devlopment\fullstack\practice\pracice-back" />
       <recent name="C:\Users\Click\Documents\devlopment\fullstack\practice\pracice-back\src\middlwares" />
       <recent name="C:\Users\Click\Documents\devlopment\fullstack\practice\pracice-back\src\features\product" />
       <recent name="C:\Users\Click\Documents\devlopment\fullstack\practice\pracice-back\src\features" />
       <recent name="C:\Users\Click\Documents\devlopment\fullstack\practice\pracice-back\src\user" />
-      <recent name="C:\Users\Click\Documents\devlopment\fullstack\practice\pracice-back\src\category" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start:dev">
@@ -128,7 +134,7 @@
       <workItem from="1716325338464" duration="770000" />
       <workItem from="1716378619696" duration="3091000" />
       <workItem from="1716384528467" duration="15618000" />
-      <workItem from="1716466490914" duration="5956000" />
+      <workItem from="1716466490914" duration="10278000" />
     </task>
     <task id="LOCAL-00001" summary="IDE configuration files">
       <option name="closed" value="true" />
@@ -234,7 +240,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716467932692</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Implement order functionality in user">
+      <option name="closed" value="true" />
+      <created>1716473329749</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1716473329749</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,6 +278,7 @@
     <MESSAGE value="Implement CRUD for cart functionality" />
     <MESSAGE value="Implement order functionality" />
     <MESSAGE value="Implement order functionality in admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement order functionality in admin" />
+    <MESSAGE value="Implement order functionality in user" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement order functionality in user" />
   </component>
 </project>
