@@ -11,5 +11,19 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
+    <data-source name="@supermarket.f2fjmdj.mongodb.net" uuid="ec1de4da-8b2b-4ae2-8a02-60dee9056edb">
+      <database-info product="Mongo DB" version="7.0.8" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.18" dbms="MONGO" exact-version="7.0.8" exact-driver-version="1.18" />
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>arentalb00</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="schema">
+            <name qname="@" />
+            <name qname="supermarket" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
+    </data-source>
   </component>
 </project>

@@ -12,6 +12,7 @@ import categoryRoutes from "./src/features/category/categoryRoutes.js";
 import path from "path";
 import productRoutes from "./src/features/product/productRoutes.js";
 import orderRoutes from "./src/features/order/orderRoutes.js";
+import cors from "cors";
 
 dotenv.config();
 const PORT = process.env.PORT || 5000;
@@ -19,6 +20,13 @@ const PORT = process.env.PORT || 5000;
 await connectDB();
 
 const server = express();
+server.use(
+  cors({
+    origin: "https://supermarket-aren.netlify.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  }),
+);
 server.use(cookieParser());
 
 server.use(express.json());

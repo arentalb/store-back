@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Add data and data script">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aad81913-eaf1-486c-872b-6afaed644bdf.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aad81913-eaf1-486c-872b-6afaed644bdf.xml" afterDir="false" />
+    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Add test route to check if server is up">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -126,7 +127,10 @@
       <workItem from="1716378619696" duration="3091000" />
       <workItem from="1716384528467" duration="15618000" />
       <workItem from="1716466490914" duration="11530000" />
-      <workItem from="1716483036863" duration="461000" />
+      <workItem from="1716483036863" duration="904000" />
+      <workItem from="1716484295368" duration="6782000" />
+      <workItem from="1716501017168" duration="1116000" />
+      <workItem from="1716502162175" duration="989000" />
     </task>
     <task id="LOCAL-00001" summary="IDE configuration files">
       <option name="closed" value="true" />
@@ -248,7 +252,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716480532136</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Add test route to check if server is up">
+      <option name="closed" value="true" />
+      <created>1716483953303</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1716483953303</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,7 +271,24 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -280,6 +309,7 @@
     <MESSAGE value="Implement order functionality in admin" />
     <MESSAGE value="Implement order functionality in user" />
     <MESSAGE value="Add data and data script" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add data and data script" />
+    <MESSAGE value="Add test route to check if server is up" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add test route to check if server is up" />
   </component>
 </project>
