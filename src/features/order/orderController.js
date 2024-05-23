@@ -15,6 +15,33 @@ const createOrderFromCart = expressAsyncHandler(async (req, res) => {
   }
 });
 
+const getAllOrders = expressAsyncHandler(async (req, res) => {
+  try {
+    const orders = await orderService.getAllOrders();
+    sendSuccess(res, orders);
+  } catch (error) {
+    sendError(res, "Failed to fetch orders", 500, error);
+  }
+});
+const getOrderById = expressAsyncHandler(async (req, res) => {
+  try {
+    const order = await orderService.getOrderById(req.params.id);
+    sendSuccess(res, order);
+  } catch (error) {
+    sendError(res, "Failed to fetch order details", 500, error);
+  }
+});
+const updateOrderStatus = expressAsyncHandler(async (req, res) => {
+  try {
+    const order = await orderService.updateOrderStatus(req.params.id, req.body);
+    sendSuccess(res, order);
+  } catch (error) {
+    sendError(res, "Failed to update order status", 500, error);
+  }
+});
 export default {
   createOrderFromCart,
+  getAllOrders,
+  getOrderById,
+  updateOrderStatus,
 };

@@ -1,5 +1,6 @@
 import CartModel from "../cart/cartModel.js";
 import OrderModel from "./orderModel.js";
+import orderModel from "./orderModel.js";
 
 const createOrderFromCart = async (userId, shippingAddress) => {
   const cart = await CartModel.findOne({ userId }).populate("items.productId");
@@ -35,6 +36,34 @@ const createOrderFromCart = async (userId, shippingAddress) => {
   return order;
 };
 
+const getAllOrders = async () => {
+  return await orderModel.find().populate("userId", "name email");
+};
+
+const getOrderById = async (orderId) => {
+  return await orderModel
+    .findById(orderId)
+    .populate("userId", "name email")
+    .populate("items.productId", "name price");
+};
+
+const updateOrderStatus = async (orderId, updateData) => {
+  const order = await orderModel.findById(orderId);
+  if (!order) {
+    throw new Error("Order not found");
+  }
+
+  Object.keys(updateData).forEach((key) => {
+    order[key] = updateData[key];
+  });
+
+  await order.save();
+  return order;
+};
+
 export default {
   createOrderFromCart,
+  getAllOrders,
+  getOrderById,
+  updateOrderStatus,
 };
