@@ -60,10 +60,24 @@ const updateOrderStatus = async (orderId, updateData) => {
   await order.save();
   return order;
 };
+const getUserOrders = async (userId) => {
+  return await orderModel.find({ userId }).populate("items.productId");
+};
+const getUserOrderDetail = async (userId, orderId) => {
+  const order = await orderModel
+    .findOne({ userId, _id: orderId })
+    .populate("items.productId");
+  if (!order) {
+    throw new Error("Order not found");
+  }
+  return order;
+};
 
 export default {
   createOrderFromCart,
   getAllOrders,
   getOrderById,
   updateOrderStatus,
+  getUserOrders,
+  getUserOrderDetail,
 };

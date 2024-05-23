@@ -10,11 +10,15 @@ const router = express.Router();
 //everyone
 
 //user
-router.post("/", authenticate, orderController.createOrderFromCart);
+router.get("/myorders", authenticate, orderController.getUserOrders);
+router.get("/myorder/:id", authenticate, orderController.getUserOrderDetail);
+
+router.post("/myorders/new", authenticate, orderController.createOrderFromCart);
 
 //admin
-router.get("/", authenticate, authorizeAdmin, orderController.getAllOrders);
+router.get("/all", authenticate, authorizeAdmin, orderController.getAllOrders);
 router.get("/:id", authenticate, authorizeAdmin, orderController.getOrderById);
+
 router.put(
   "/:id",
   authenticate,

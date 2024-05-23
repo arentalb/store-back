@@ -18,7 +18,6 @@ const authenticate = expressAsyncHandler(async (req, res, next) => {
     }
   } else {
     sendFailure(res, "Not authorized , no token.", 401);
-    next();
   }
 });
 
