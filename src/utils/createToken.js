@@ -7,8 +7,8 @@ function createToken(res, userId) {
 
   res.cookie("jwt", token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV !== "development", // Should be true if you are using HTTPS
-    sameSite: process.env.NODE_ENV === "development" ? "lax" : "none", // 'none' for cross-domain cookies in production
+    secure: process.env.NODE_ENV !== "development", // Use secure in production
+    sameSite: "lax", // Use 'lax' instead of 'none'
     maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
   });
 
