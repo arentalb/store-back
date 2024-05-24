@@ -11,7 +11,8 @@ import {
 const registerUser = expressAsyncHandler(async (req, res) => {
   const { username, email, password } = req.body;
   if (!username || !email || !password) {
-    res.status(400).json({ message: "Please provide all inputs" });
+    sendFailure(res, "Please provide all inputs", 400);
+    return;
   }
 
   const userExists = await userService.getUserByEmail(email);
@@ -26,12 +27,13 @@ const registerUser = expressAsyncHandler(async (req, res) => {
       email,
       password: hashedPassword,
     });
-    createToken(res, newUser._id);
+    const token = createToken(newUser._id);
     const userResponse = {
       _id: newUser._id,
       username: newUser.username,
       email: newUser.email,
       isAdmin: newUser.isAdmin,
+      token,
     };
     sendSuccess(res, userResponse, 201);
   }
@@ -49,26 +51,23 @@ const loginUser = expressAsyncHandler(async (req, res) => {
       existingUser.password,
     );
     if (isPasswordValid) {
-      createToken(res, existingUser._id);
+      const token = createToken(existingUser._id);
       const userResponse = {
         _id: existingUser._id,
         username: existingUser.username,
         email: existingUser.email,
         isAdmin: existingUser.isAdmin,
+        token,
       };
       sendSuccess(res, userResponse, 201);
     } else {
       sendFailure(res, "Wrong password", 401);
     }
   } else {
-    sendFailure(res, "User dose not exists ", 404);
+    sendFailure(res, "User does not exist", 404);
   }
 });
 const logoutUser = expressAsyncHandler(async (req, res) => {
-  res.cookie("jwt", "", {
-    httpOnly: true,
-    expires: new Date(0),
-  });
   sendSuccess(res, "Logout successfully", 200);
 });
 
