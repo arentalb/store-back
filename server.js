@@ -22,7 +22,7 @@ await connectDB();
 const server = express();
 server.use(
   cors({
-    origin: "https://supermarket-aren.netlify.app",
+    origin: "https://supermarket-front-m1ll.onrender.com",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   }),
