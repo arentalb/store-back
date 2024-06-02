@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Change the option of teh jwt in production">
-      <change afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/errorHandler.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/errors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aad81913-eaf1-486c-872b-6afaed644bdf.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aad81913-eaf1-486c-872b-6afaed644bdf.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ec1de4da-8b2b-4ae2-8a02-60dee9056edb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ec1de4da-8b2b-4ae2-8a02-60dee9056edb.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pracice-back.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/supermarket-back.iml" afterDir="false" />
+    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Refactor the server and app and error handling">
+      <change afterPath="$PROJECT_DIR$/src/utils/catchAsync.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/resposeSender.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/resposeSender.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +141,7 @@
       <workItem from="1716484295368" duration="6782000" />
       <workItem from="1716501017168" duration="1116000" />
       <workItem from="1716502162175" duration="4002000" />
-      <workItem from="1717351468734" duration="2001000" />
+      <workItem from="1717351468734" duration="2493000" />
     </task>
     <task id="LOCAL-00001" summary="IDE configuration files">
       <option name="closed" value="true" />
@@ -293,7 +287,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716509082174</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Refactor the server and app and error handling">
+      <option name="closed" value="true" />
+      <created>1717353584419</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1717353584419</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -345,6 +347,7 @@
     <MESSAGE value="Add test route to check if server is up" />
     <MESSAGE value="Add cors to let teh frontend access the server" />
     <MESSAGE value="Change the option of teh jwt in production" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change the option of teh jwt in production" />
+    <MESSAGE value="Refactor the server and app and error handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor the server and app and error handling" />
   </component>
 </project>

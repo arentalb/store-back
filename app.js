@@ -13,8 +13,9 @@ import cartRoutes from "./src/features/cart/cartRoutes.js";
 import orderRoutes from "./src/features/order/orderRoutes.js";
 import errorHandler from "./src/utils/errorHandler.js";
 import {GeneralError} from "./src/utils/errors.js";
+import express from "express"
+import path from "path";
 
-const express = require("express");
 const app = express();
 
 if (process.env.NODE_ENV === "development") {
@@ -49,9 +50,8 @@ app.use(express.json());
 app.use(xssClean());
 app.use(helmet());
 
-app.use(express.static(`${__dirname}/public`));
-//const __dirname = path.resolve();
-// server.use("/uploads", express.static(path.join(__dirname + "/uploads")));
+const __dirname = path.resolve();
+app.use("/public", express.static(path.join(__dirname + "/public")));
 
 
 app.use("/api/user", userRoutes);
