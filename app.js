@@ -1,3 +1,5 @@
+// server.js (or app.js)
+import express from "express";
 import mongoSanitize from "express-mongo-sanitize";
 import rateLimit from "express-rate-limit";
 import cookieParser from "cookie-parser";
@@ -6,21 +8,16 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cors from "cors";
 import hpp from "hpp";
-import userRoutes from "./src/features/user/userRoutes.js";
-import categoryRoutes from "./src/features/category/categoryRoutes.js";
-import productRoutes from "./src/features/product/productRoutes.js";
-import cartRoutes from "./src/features/cart/cartRoutes.js";
-import orderRoutes from "./src/features/order/orderRoutes.js";
-import errorHandler from "./src/utils/errorHandler.js";
-import {GeneralError} from "./src/utils/errors.js";
-import express from "express"
 import path from "path";
+import errorHandler from "./src/utils/errorHandler.js";
+import routes from "./src/routes.js";
 
 const app = express();
 
 if (process.env.NODE_ENV === "development") {
     app.use(morgan("dev"));
 }
+
 const limiter = rateLimit({
     max: 100,
     windowMs: 60 * 60 * 1000,
@@ -53,17 +50,7 @@ app.use(helmet());
 const __dirname = path.resolve();
 app.use("/public", express.static(path.join(__dirname + "/public")));
 
-
-app.use("/api/user", userRoutes);
-app.use("/api/category", categoryRoutes);
-app.use("/api/product", productRoutes);
-app.use("/api/cart", cartRoutes);
-app.use("/api/order", orderRoutes);
-
-
-app.all("*", (req, res, next) => {
-    next(new GeneralError(`Cannot find ${req.originalUrl} on this server`, 404));
-});
+app.use("/api", routes);
 
 app.use(errorHandler);
 
