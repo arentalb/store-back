@@ -11,11 +11,15 @@ import hpp from "hpp";
 import path from "path";
 import GlobalErrorHandler from "./src/utils/AppErrorHandler.js";
 import routes from "./src/routes.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 
 if (process.env.NODE_ENV === "development") {
     app.use(morgan("dev"));
+    console.log("mordgan")
 }
 
 const limiter = rateLimit({
@@ -50,7 +54,7 @@ app.use(helmet());
 const __dirname = path.resolve();
 app.use("/public", express.static(path.join(__dirname + "/public")));
 
-app.use("/api", routes);
+app.use("/api/v1", routes);
 
 app.use(GlobalErrorHandler);
 

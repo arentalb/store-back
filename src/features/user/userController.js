@@ -2,7 +2,7 @@ import bcrypt from "bcrypt";
 import {sendSuccess,} from "../../utils/resposeSender.js";
 import catchAsync from "../../utils/catchAsync.js";
 import AppError from "../../utils/AppError.js";
-import userModel from "./userModel.js";
+import userModel from "./User.js";
 
 
 const getProfile = catchAsync(async (req, res) => {

@@ -4,20 +4,20 @@
     <root id="1">
       <ServerVersion>7.0.11</ServerVersion>
     </root>
-    <schema id="2" parent="1" name="admin"/>
-    <schema id="3" parent="1" name="local"/>
-    <schema id="4" parent="1" name="supermarket"/>
-    <schema id="5" parent="1" name="supermarketDev"/>
-    <table id="6" parent="4" name="carts"/>
-    <table id="7" parent="4" name="categories"/>
-    <table id="8" parent="4" name="orders"/>
-    <table id="9" parent="4" name="products"/>
-    <table id="10" parent="4" name="users"/>
-    <table id="11" parent="5" name="carts"/>
-    <table id="12" parent="5" name="categories"/>
-    <table id="13" parent="5" name="orders"/>
-    <table id="14" parent="5" name="products"/>
-    <table id="15" parent="5" name="users"/>
+    <schema id="2" parent="1" name="supermarket"/>
+    <schema id="3" parent="1" name="supermarketDev"/>
+    <schema id="4" parent="1" name="admin"/>
+    <schema id="5" parent="1" name="local"/>
+    <table id="6" parent="2" name="carts"/>
+    <table id="7" parent="2" name="categories"/>
+    <table id="8" parent="2" name="orders"/>
+    <table id="9" parent="2" name="products"/>
+    <table id="10" parent="2" name="users"/>
+    <table id="11" parent="3" name="carts"/>
+    <table id="12" parent="3" name="categories"/>
+    <table id="13" parent="3" name="orders"/>
+    <table id="14" parent="3" name="products"/>
+    <table id="15" parent="3" name="users"/>
     <column id="16" parent="6" name="_id">
       <DasType>ObjectId|12s</DasType>
       <Position>1</Position>

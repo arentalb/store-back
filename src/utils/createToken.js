@@ -1,11 +1,16 @@
 import jwt from "jsonwebtoken";
 
-function createToken(userId) {
-  const token = jwt.sign({ userId }, process.env.JWT_SECRET, {
-    expiresIn: "30d",
-  });
+const createToken = (userId) => {
+    const accessToken = jwt.sign({id: userId}, process.env.JWT_SECRET, {
+        expiresIn: process.env.JWT_EXPIRES_IN,
+    });
 
-  return token;
-}
+    const refreshToken = jwt.sign({id: userId}, process.env.JWT_REFRESH_SECRET, {
+        expiresIn: process.env.JWT_REFRESH_EXPIRES_IN,
+    });
 
-export default createToken;
+    return {accessToken, refreshToken};
+};
+
+
+export default createToken

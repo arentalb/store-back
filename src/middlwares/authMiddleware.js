@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import expressAsyncHandler from "express-async-handler";
 import {sendFailure} from "../utils/resposeSender.js";
-import userModel from "../features/user/userModel.js";
+import userModel from "../features/user/User.js";
 
 const authenticate = expressAsyncHandler(async (req, res, next) => {
     const token = req.headers.authorization?.split(" ")[1];
