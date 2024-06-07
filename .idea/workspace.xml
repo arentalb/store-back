@@ -4,25 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Refactor the user related files">
-      <change afterPath="$PROJECT_DIR$/src/features/user/User.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/email.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/10db62f7-4b29-47b9-886c-4ff92f996812.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/10db62f7-4b29-47b9-886c-4ff92f996812.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1d40b904-2431-4c47-8cc8-4fb4c1450c3c.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/66719cb0-4273-478f-a3d0-85b52fd1b791.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/66719cb0-4273-478f-a3d0-85b52fd1b791/storage_v2/_src_/schema/test.kkQ2AA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ec1de4da-8b2b-4ae2-8a02-60dee9056edb.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ec1de4da-8b2b-4ae2-8a02-60dee9056edb/storage_v2/_src_/schema/test.kkQ2AA.meta" beforeDir="false" />
+    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Implement authentication functionality">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/user/auth/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/user/auth/authController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/user/auth/authRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/user/auth/authRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/user/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/user/userController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/user/userModel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/user/userRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/user/userRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/middlwares/authMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middlwares/authMiddleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/createToken.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/createToken.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +145,7 @@
       <workItem from="1717687786898" duration="1913000" />
       <workItem from="1717689733500" duration="8446000" />
       <workItem from="1717719400694" duration="4075000" />
-      <workItem from="1717758130281" duration="13729000" />
+      <workItem from="1717758130281" duration="21137000" />
     </task>
     <task id="LOCAL-00001" summary="IDE configuration files">
       <option name="closed" value="true" />
@@ -336,7 +323,23 @@
       <option name="project" value="LOCAL" />
       <updated>1717723551844</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Implement authentication functionality">
+      <option name="closed" value="true" />
+      <created>1717777415691</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1717777415691</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Implement authentication functionality">
+      <option name="closed" value="true" />
+      <created>1717784467214</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1717784467214</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,6 +394,7 @@
     <MESSAGE value="Refactor the server and app and error handling" />
     <MESSAGE value="Extract routes into a separate file for better modularity and code organization" />
     <MESSAGE value="Refactor the user related files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor the user related files" />
+    <MESSAGE value="Implement authentication functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement authentication functionality" />
   </component>
 </project>

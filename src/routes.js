@@ -10,7 +10,7 @@ import AppError from "./utils/AppError.js";
 const router = express.Router();
 
 router.use("/auth", authRoutes);
-router.use("/user", userRoutes);
+router.use("/users", userRoutes);
 router.use("/category", categoryRoutes);
 router.use("/product", productRoutes);
 router.use("/cart", cartRoutes);

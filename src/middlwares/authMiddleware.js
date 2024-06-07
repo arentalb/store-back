@@ -1,30 +1,59 @@
-import jwt from "jsonwebtoken";
-import expressAsyncHandler from "express-async-handler";
-import {sendFailure} from "../utils/resposeSender.js";
-import userModel from "../features/user/User.js";
+import jwt from "jsonwebtoken"
+import User from "../features/user/User.js"
+import catchAsync from "../utils/catchAsync.js"
+import AppError from "../utils/AppError.js"
 
-const authenticate = expressAsyncHandler(async (req, res, next) => {
-    const token = req.headers.authorization?.split(" ")[1];
+// Middleware to protect routes
+export const authenticate = catchAsync(async (req, res, next) => {
+    // Check if the authorization header exists and starts with "Bearer "
+    let token = "";
+    if (
+        req.headers.authorization &&
+        req.headers.authorization.startsWith("Bearer ")
+    ) {
+        // Extract the token from the authorization header
+        token = req.headers.authorization.split(" ")[1];
+    }
 
-    if (token) {
-        try {
-            const decode = jwt.verify(token, process.env.JWT_SECRET);
-            req.user = await userModel.find({_id: decode.userId});
-            next();
-        } catch (error) {
-            sendFailure(res, "Not authorized, token failed.", 401);
+    // If no token is provided, throw an error
+    if (!token) {
+        throw new AppError("You are not logged in, please log in first!", 401);
+    }
+
+    // Verify the token using the JWT secret
+    const decoded = await jwt.verify(token, process.env.JWT_SECRET);
+
+    // Check if the user still exists
+    const freshUser = await User.findById(decoded.id);
+    if (!freshUser) {
+        throw new AppError("The token owner no longer exists", 401);
+    }
+
+    // // Check if the user changed their password after the token was issued
+    // if (await freshUser.changedPasswordAfter(decoded.iat)) {
+    //     throw new AppError("User recently changed password", 401);
+    // }
+
+    // Attach the user to the request object
+    req.user = freshUser;
+    next(); // Proceed to the next middleware or route handler
+});
+
+// Middleware to restrict access to specific roles
+export const authorizeTo = (...roles) => {
+    // roles is an array of allowed roles, e.g., ["admin", "user"]
+    return (req, res, next) => {
+        // Check if the user's role is included in the allowed roles
+        if (!roles.includes(req.user.role)) {
+            throw new AppError("You don't have permission for this operation", 403);
         }
-    } else {
-        sendFailure(res, "Not authorized, no token.", 401);
-    }
-});
+        next(); // Proceed to the next middleware or route handler
+    };
+};
 
-const authorizeAdmin = expressAsyncHandler(async (req, res, next) => {
-    if (req.user && req.user.isAdmin) {
+export const authorizeAdmin = () => {
+    return (req, res, next) => {
+
         next();
-    } else {
-        sendFailure(res, "Not authorized as admin", 401);
-    }
-});
-
-export {authenticate, authorizeAdmin};
+    };
+};
