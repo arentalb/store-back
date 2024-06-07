@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Refactor the server and app and error handling">
-      <change afterPath="$PROJECT_DIR$/src/utils/catchAsync.js" afterDir="false" />
+    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Refactor the user related files">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/resposeSender.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/resposeSender.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/user/auth/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/user/auth/authController.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,39 +41,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "code.cleanup.on.save": "true",
-    "last_opened_file_path": "C:/Users/Click/Documents/devlopment/fullstack/supermarket/supermarket-back/src/utils",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\Click\\Documents\\devlopment\\fullstack\\practice\\pracice-back\\node_modules\\prettier",
-    "rearrange.code.on.save": "true",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Click/Documents/devlopment/fullstack/supermarket/supermarket-back/src/utils&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\Click\\Documents\\devlopment\\fullstack\\practice\\pracice-back\\node_modules\\prettier&quot;,
+    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mongo"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mongo&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Click\Documents\devlopment\fullstack\supermarket\supermarket-back\src\utils" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Click\Documents\devlopment\fullstack\supermarket\supermarket-back\src" />
+      <recent name="C:\Users\Click\Documents\devlopment\fullstack\supermarket\supermarket-back\src\features\user" />
       <recent name="C:\Users\Click\Documents\devlopment\fullstack\practice\pracice-back" />
       <recent name="C:\Users\Click\Documents\devlopment\fullstack\practice\pracice-back\src\middlwares" />
       <recent name="C:\Users\Click\Documents\devlopment\fullstack\practice\pracice-back\src\features\product" />
-      <recent name="C:\Users\Click\Documents\devlopment\fullstack\practice\pracice-back\src\features" />
-      <recent name="C:\Users\Click\Documents\devlopment\fullstack\practice\pracice-back\src\user" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start:dev">
@@ -142,6 +141,9 @@
       <workItem from="1716501017168" duration="1116000" />
       <workItem from="1716502162175" duration="4002000" />
       <workItem from="1717351468734" duration="2493000" />
+      <workItem from="1717687786898" duration="1913000" />
+      <workItem from="1717689733500" duration="8446000" />
+      <workItem from="1717719400694" duration="3961000" />
     </task>
     <task id="LOCAL-00001" summary="IDE configuration files">
       <option name="closed" value="true" />
@@ -295,7 +297,23 @@
       <option name="project" value="LOCAL" />
       <updated>1717353584419</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Extract routes into a separate file for better modularity and code organization">
+      <option name="closed" value="true" />
+      <created>1717698305588</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1717698305588</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Refactor the user related files">
+      <option name="closed" value="true" />
+      <created>1717722066758</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1717722066759</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,7 +335,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="refactor" />
                       </list>
                     </value>
                   </entry>
@@ -348,6 +366,8 @@
     <MESSAGE value="Add cors to let teh frontend access the server" />
     <MESSAGE value="Change the option of teh jwt in production" />
     <MESSAGE value="Refactor the server and app and error handling" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor the server and app and error handling" />
+    <MESSAGE value="Extract routes into a separate file for better modularity and code organization" />
+    <MESSAGE value="Refactor the user related files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor the user related files" />
   </component>
 </project>

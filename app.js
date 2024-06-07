@@ -9,7 +9,7 @@ import helmet from "helmet";
 import cors from "cors";
 import hpp from "hpp";
 import path from "path";
-import errorHandler from "./src/utils/errorHandler.js";
+import GlobalErrorHandler from "./src/utils/AppErrorHandler.js";
 import routes from "./src/routes.js";
 
 const app = express();
@@ -52,6 +52,6 @@ app.use("/public", express.static(path.join(__dirname + "/public")));
 
 app.use("/api", routes);
 
-app.use(errorHandler);
+app.use(GlobalErrorHandler);
 
 export default app;

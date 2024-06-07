@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="@localhost" uuid="aad81913-eaf1-486c-872b-6afaed644bdf">
+    <data-source source="LOCAL" name="Supermarket DB" uuid="10db62f7-4b29-47b9-886c-4ff92f996812">
       <driver-ref>mongo</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.dbschema.MongoJdbcDriver</jdbc-driver>
-      <jdbc-url>mongodb://localhost:27017</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
-    <data-source source="LOCAL" name="@supermarket.f2fjmdj.mongodb.net" uuid="ec1de4da-8b2b-4ae2-8a02-60dee9056edb">
-      <driver-ref>mongo</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.dbschema.MongoJdbcDriver</jdbc-driver>
-      <jdbc-url>mongodb+srv://supermarket.f2fjmdj.mongodb.net/?retryWrites=true&amp;w=majority&amp;appName=supermarket :27017</jdbc-url>
+      <jdbc-url>mongodb+srv://supermarket.f2fjmdj.mongodb.net/?retryWrites=true&amp;w=majority&amp;appName=supermarket</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
