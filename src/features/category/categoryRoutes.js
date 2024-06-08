@@ -1,7 +1,4 @@
-import {
-  authenticate,
-  authorizeAdmin,
-} from "../../middlwares/authMiddleware.js";
+import {authenticate, authorizeTo,} from "../../middlwares/authMiddleware.js";
 import express from "express";
 import categoryController from "./categoryController.js";
 
@@ -14,22 +11,22 @@ router.get("/", authenticate, categoryController.getCategories);
 
 //admin
 router.post(
-  "/",
-  authenticate,
-  authorizeAdmin,
-  categoryController.createCategory,
+    "/",
+    authenticate,
+    authorizeTo('Admin', 'SuperAdmin'),
+    categoryController.createCategory,
 );
 router.put(
-  "/:id",
-  authenticate,
-  authorizeAdmin,
-  categoryController.updateCategory,
+    "/:id",
+    authenticate,
+    authorizeTo('Admin', 'SuperAdmin'),
+    categoryController.updateCategory,
 );
 router.delete(
-  "/:id",
-  authenticate,
-  authorizeAdmin,
-  categoryController.deleteCategory,
+    "/:id",
+    authenticate,
+    authorizeTo('Admin', 'SuperAdmin'),
+    categoryController.deleteCategory,
 );
 
 export default router;

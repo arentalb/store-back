@@ -10,8 +10,8 @@ router.put('/me', authenticate, userController.updateProfile);
 router.put('/change-password', authenticate, userController.changePassword);
 
 // Admin Routes
-router.get('/admin', authenticate, authorizeTo('admin', 'SuperAdmin'), userController.getAllUsers);
-router.get('/admin/:id', authenticate, authorizeTo('admin', 'SuperAdmin'), userController.getUserById);
+router.get('/admin', authenticate, authorizeTo('Admin', 'SuperAdmin'), userController.getAllUsers);
+router.get('/admin/:id', authenticate, authorizeTo('Admin', 'SuperAdmin'), userController.getUserById);
 
 // Super Admin Routes
 router.put('/admin/:id', authenticate, authorizeTo('SuperAdmin'), userController.updateUser);
