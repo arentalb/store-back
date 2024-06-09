@@ -1,40 +1,60 @@
 import express from "express";
-import {
-  authenticate,
-  authorizeAdmin,
-} from "../../middlwares/authMiddleware.js";
+
 import productController from "./productController.js";
+import {authenticate, authorizeTo} from "../../middlwares/authMiddleware.js";
 import upload from "../../utils/fileupload.js";
 
 const router = express.Router();
 
-//everyone
+// Public routes
+router.get("/", productController.getAllProducts); // Get all products
+router.get("/new", productController.getNewProducts); // Get new products
+router.get("/:id", productController.getProductById); // Get product by ID
 
-//user
-router.get("/", authenticate, productController.getAllProducts);
-router.get("/new", authenticate, productController.getNewProducts);
-router.get("/:id", authenticate, productController.getProductById);
+// Routes accessible to authenticated users
+router.get("/search/:query", authenticate, productController.searchProducts); // Search products by query
 
-//admin
+// Routes accessible to admins only
 router.post(
-  "/",
-  authenticate,
-  authorizeAdmin,
-  upload.single("image"),
-  productController.createProduct,
+    "/",
+    authenticate,
+    authorizeTo("Admin", "SuperAdmin"),
+    upload.fields([{
+        name: 'coverImage', maxCount: 1
+    }, {
+        name: 'images', maxCount: 5
+    }]),
+    productController.createProduct
 );
 router.put(
-  "/:id",
-  authenticate,
-  authorizeAdmin,
-  upload.single("image"),
-  productController.updateProduct,
+    "/:id",
+    authenticate,
+    authorizeTo("Admin", "SuperAdmin"),
+    upload.fields([{
+        name: 'coverImage', maxCount: 1
+    }, {
+        name: 'images', maxCount: 5
+    }]),
+    productController.updateProduct
 );
 router.delete(
-  "/:id",
-  authenticate,
-  authorizeAdmin,
-  productController.deleteProduct,
+    "/:id",
+    authenticate,
+    authorizeTo("Admin", "SuperAdmin"),
+    productController.deleteProduct
+);
+
+// Routes for managing product reviews
+router.post(
+    "/:id/reviews",
+    authenticate,
+    productController.addReview
+);
+router.delete(
+    "/:id/reviews/:reviewId",
+    authenticate,
+    authorizeTo("Admin", "SuperAdmin"),
+    productController.deleteReview
 );
 
 export default router;

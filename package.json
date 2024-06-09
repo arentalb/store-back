@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "import": "node data/importer-script.js --import",
+    "delete": "node data/importer-script.js --delete"
   },
   "keywords": [],
   "author": "",

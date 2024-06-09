@@ -1,187 +1,156 @@
-import expressAsyncHandler from "express-async-handler";
-import {
-  sendError,
-  sendFailure,
-  sendSuccess,
-} from "../../utils/resposeSender.js";
-import productService from "./productService.js";
+import {sendSuccess,} from "../../utils/resposeSender.js";
+import Product from "./Product.js";
+import catchAsync from "../../utils/catchAsync.js";
+import AppError from "../../utils/AppError.js";
+import {deleteImage} from "../../utils/fileupload.js";
 
-const getAllProducts = expressAsyncHandler(async (req, res) => {
-  try {
-    let { category } = req.query;
-    if (category) {
-      const filteredProducts =
-        await productService.getProductCategory(category);
-      if (!filteredProducts || filteredProducts.length === 0) {
-        sendFailure(res, "Products for this category do not exist", 404);
-      }
-      sendSuccess(res, filteredProducts, 200);
-    } else {
-      const allProducts = await productService.getAllProducts();
-      sendSuccess(res, allProducts, 200);
-    }
-  } catch (error) {
-    sendFailure(res, error.message, 404);
-  }
-});
+const getAllProducts = catchAsync(async (req, res) => {
+    const allProducts = await Product.find()
+        .populate("category", "name _id") // Populate the 'category' field with 'name' and '_id'
+        .sort({createdAt: -1});
+    sendSuccess(res, allProducts, 200);
+})
+const getProductById = catchAsync(async (req, res) => {
 
-const getProductById = expressAsyncHandler(async (req, res) => {
-  try {
     const productId = req.params.id;
-    const allProducts = await productService.getProductById(productId);
+    const allProducts = await Product.findById(productId).populate("category", "name _id")
     sendSuccess(res, allProducts, 201);
-  } catch (error) {
-    sendError(res, error.message, 500);
-  }
+
 });
-const getNewProducts = expressAsyncHandler(async (req, res) => {
-  try {
-    const newProducts = await productService.getNewProducts();
+const getNewProducts = catchAsync(async (req, res) => {
+    const newProducts = await Product.find().sort({createdAt: -1}).limit(4);
     sendSuccess(res, newProducts, 201);
-  } catch (error) {
-    sendError(res, error.message, 500);
-  }
+
+});
+const searchProducts = catchAsync(async (req, res) => {
+
+    sendSuccess(res, "searchProducts", 201);
+
+
 });
 
-const createProduct = expressAsyncHandler(async (req, res) => {
-  const { name, brand, quantity, category, description, price, countInStock } =
-    req.body;
+const createProduct = catchAsync(async (req, res) => {
+    const {name, description, category, tags, stock, price} = req.body;
 
-  const image = req.file ? req.file.filename : null;
-  const product = req.body;
-  switch (true) {
-    case !name:
-      return sendFailure(res, "Name is required ", 404);
-    case !image:
-      return sendFailure(res, "Image is required ", 404);
-    case !brand:
-      return sendFailure(res, "Brand is required ", 404);
-    case !quantity:
-      return sendFailure(res, "Quantity is required ", 404);
-    case !category:
-      return sendFailure(res, "Category is required ", 404);
-    case !description:
-      return sendFailure(res, "Description is required ", 404);
-    case !price:
-      return sendFailure(res, "Price is required ", 404);
-    case !countInStock:
-      return sendFailure(res, "CountInStock is required ", 404);
-  }
+    // Access uploaded files and handle potential errors
+    const coverImage = req.files.coverImage ? req.files.coverImage[0] : null;
+    const otherImages = req.files.images ? req.files.images.map(file => file.path) : [];
 
-  try {
-    const createdProduct = await productService.createProduct({
-      ...product,
-      image: `/uploads/${req.file.filename}`,
-    });
-    sendSuccess(res, createdProduct, 201);
-  } catch (error) {
-    return sendError(res, error.message, 404);
-  }
-});
-const updateProduct = expressAsyncHandler(async (req, res) => {
-  const { name, brand, quantity, category, description, price, countInStock } =
-    req.body;
-
-  const image = req.file ? req.file.filename : null;
-
-  switch (true) {
-    case !name:
-      return sendFailure(res, "Name is required ", 404);
-    case !brand:
-      return sendFailure(res, "Brand is required ", 404);
-    case !quantity:
-      return sendFailure(res, "Quantity is required ", 404);
-    case !category:
-      return sendFailure(res, "Category is required ", 404);
-    case !description:
-      return sendFailure(res, "Description is required ", 404);
-    case !price:
-      return sendFailure(res, "Price is required ", 404);
-    case !countInStock:
-      return sendFailure(res, "CountInStock is required ", 404);
-  }
-
-  let product = req.body;
-
-  if (image) {
-    product = { image: `/uploads/${req.file.filename}`, ...product };
-  }
-  try {
-    const productId = req.params.id;
-
-    const updatedProduct = await productService.updateProduct(
-      productId,
-      product,
-    );
-    sendSuccess(res, updatedProduct, 201);
-  } catch (error) {
-    return sendError(res, error.message, 404);
-  }
-});
-
-const deleteProduct = expressAsyncHandler(async (req, res) => {
-  try {
-    const productId = req.params.id;
-    console.log(productId);
-    const foundedProduct = productService.getProductById(productId);
-    if (!foundedProduct) {
-      sendFailure(res, "Could not find product to be deleted", 403);
-    } else {
-      const deletedProduct = await productService.deleteProduct(productId);
-      sendSuccess(res, "Product deleted", 201);
+    // Ensure coverImage is provided
+    if (!coverImage) {
+        throw new AppError("Cover image is required.", 400);
     }
-  } catch (error) {
-    sendError(res, error.message, 500);
-  }
+
+    const newProduct = new Product({
+        name,
+        description,
+        category,
+        tags,
+        stock,
+        price,
+        coverImage: coverImage.path,
+        images: otherImages,
+    });
+
+    const savedProduct = await newProduct.save();
+    sendSuccess(res, savedProduct, 201);
+});
+
+const updateProduct = catchAsync(async (req, res) => {
+    const {id} = req.params;
+    const {name, description, category, tags, stock, price, deletedImages} = req.body;
+
+
+    // Access uploaded files and handle potential errors
+    const coverImage = req.files?.coverImage ? req.files.coverImage[0] : null;
+    const newImages = req.files?.images ? req.files.images.map((file) => file.path) : [];
+
+
+    // Find the product to update
+    const product = await Product.findById(id);
+    if (!product) {
+        throw new AppError("Product not found.", 404);
+    }
+
+    // Update product fields
+    product.name = name || product.name;
+    product.description = description || product.description;
+    product.category = category || product.category;
+    product.tags = tags || product.tags;
+    product.stock = stock || product.stock;
+    product.price = price || product.price;
+
+    // Update cover image if provided
+    if (coverImage) {
+        // Delete the old cover image from the server if it exists
+        if (product.coverImage) {
+            deleteImage(product.coverImage)
+        }
+        product.coverImage = coverImage.path;
+    }
+
+    console.log(deletedImages)
+    // Handle deleted images
+    if (deletedImages) {
+
+        const imagesToDelete = Array.isArray(deletedImages) ? deletedImages : [deletedImages];
+        imagesToDelete.forEach((imgPath) => {
+            // Remove the image from the product's images array
+            const imgIndex = product.images.indexOf(imgPath);
+            if (imgIndex > -1) {
+                product.images.splice(imgIndex, 1);
+                // Delete the image from the server
+                deleteImage(imgPath)
+            }
+        });
+    }
+
+
+    // Add new images if provided
+    if (newImages.length > 0) {
+        product.images.push(...newImages);
+    }
+
+    // Save the updated product
+    const updatedProduct = await product.save();
+    sendSuccess(res, updatedProduct, 200);
+});
+
+const deleteProduct = catchAsync(async (req, res) => {
+
+    const foundedProduct = await Product.findById(req.params.id)
+    deleteImage(foundedProduct.coverImage)
+    foundedProduct.images.forEach((imgPath) => {
+        deleteImage(imgPath)
+    });
+    await Product.deleteOne({_id: req.params.id})
+    sendSuccess(res, "Product deleted", 201);
+
+
+});
+
+// other
+const deleteReview = catchAsync(async (req, res) => {
+
+    sendSuccess(res, "deleteReview", 201);
+
+
+});
+const addReview = catchAsync(async (req, res) => {
+
+    sendSuccess(res, "addReview", 201);
+
+
 });
 
 export default {
-  getAllProducts,
-  getProductById,
-  getNewProducts,
-  createProduct,
-  updateProduct,
-  deleteProduct,
+    getAllProducts,
+    getProductById,
+    getNewProducts,
+    createProduct,
+    updateProduct,
+    deleteProduct,
+    searchProducts,
+    addReview,
+    deleteReview,
 };
-
-// const addProductReview = expressAsyncHandler(async (req, res) => {
-//   try {
-//     const productId = req.params.id;
-//     const rating = req.body.rating;
-//     const comment = req.body.comment;
-//
-//     if (!rating || !comment) {
-//       sendFailure(res, "Please provide both comment and rating ");
-//     }
-//
-//     const product = await productService.getProductById(productId);
-//
-//     if (product) {
-//       const alreadyReviewed = product.reviews.find(
-//         (r) => r.user.toString() === req.user._id.toString(),
-//       );
-//       if (alreadyReviewed) {
-//         sendFailure(res, "You already reviewed this product ", 400);
-//       }
-//       const review = {
-//         name: req.user.username,
-//         rating: Number(rating),
-//         comment,
-//         user: req.user._id,
-//       };
-//       product.reviews.push(review);
-//       product.numReviews = product.reviews.length;
-//       product.rating =
-//         product.reviews.reduce((acc, item) => {
-//           return item.rating + acc;
-//         }, 0) / product.reviews.length;
-//
-//       const savedReview = await product.save();
-//       sendSuccess(res, savedReview, 201);
-//     } else {
-//       sendFailure(res, "This product dose not exists ", 400);
-//     }
-//   } catch (error) {
-//     sendError(res, error.message, 500);
-//   }
-// });

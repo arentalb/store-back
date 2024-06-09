@@ -52,7 +52,7 @@ app.use(xssClean());
 app.use(helmet());
 
 const __dirname = path.resolve();
-app.use("/public", express.static(path.join(__dirname + "/public")));
+app.use("/public/images", express.static(path.join(__dirname + "/public/images")));
 
 app.use("/api/v1", routes);
 

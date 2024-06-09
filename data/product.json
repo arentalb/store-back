@@ -1,0 +1,182 @@
+[
+  {
+    "name": "Wireless Headphones",
+    "description": "High-quality wireless headphones with noise cancellation and long battery life.",
+    "category": "6664c0f4621a661583a6bbef",
+    "reviews": [
+      {
+        "user": "666326b0c20c4e93b30a86f3",
+        "rating": 4,
+        "comment": "Excellent sound quality, but the battery life could be better."
+      },
+      {
+        "user": "66632658c20c4e93b30a86e9",
+        "rating": 5,
+        "comment": "Best headphones I've ever owned!"
+      }
+    ],
+    "coverImage": "https://example.com/images/wireless-headphones.jpg",
+    "images": [
+      "https://example.com/images/wireless-headphones-1.jpg",
+      "https://example.com/images/wireless-headphones-2.jpg"
+    ],
+    "price": 99.99,
+    "stock": 150,
+    "tags": [
+      "electronics",
+      "audio",
+      "wireless"
+    ],
+    "averageRating": 4.5
+  },
+  {
+    "name": "Ergonomic Office Chair",
+    "description": "Comfortable ergonomic office chair with lumbar support and adjustable height.",
+    "category": "6664c0f4621a661583a6bbf0",
+    "reviews": [
+      {
+        "user": "666326b0c20c4e93b30a86f3",
+        "rating": 5,
+        "comment": "Very comfortable and great for long working hours."
+      },
+      {
+        "user": "66632658c20c4e93b30a86e9",
+        "rating": 4,
+        "comment": "Good chair, but the assembly instructions were unclear."
+      }
+    ],
+    "coverImage": "https://example.com/images/ergonomic-office-chair.jpg",
+    "images": [
+      "https://example.com/images/ergonomic-office-chair-1.jpg",
+      "https://example.com/images/ergonomic-office-chair-2.jpg"
+    ],
+    "price": 199.99,
+    "stock": 75,
+    "tags": [
+      "furniture",
+      "office",
+      "ergonomic"
+    ],
+    "averageRating": 4.5
+  },
+  {
+    "name": "Standing Desk",
+    "description": "Adjustable standing desk with a large work surface and smooth height adjustment.",
+    "category": "6664c0f4621a661583a6bbf0",
+    "reviews": [
+      {
+        "user": "666326b0c20c4e93b30a86f3",
+        "rating": 5,
+        "comment": "Perfect for my home office, easy to adjust and very sturdy."
+      },
+      {
+        "user": "66632658c20c4e93b30a86e9",
+        "rating": 4,
+        "comment": "Good desk, but a bit expensive."
+      }
+    ],
+    "coverImage": "https://example.com/images/standing-desk.jpg",
+    "images": [
+      "https://example.com/images/standing-desk-1.jpg",
+      "https://example.com/images/standing-desk-2.jpg"
+    ],
+    "price": 299.99,
+    "stock": 50,
+    "tags": [
+      "furniture",
+      "office",
+      "adjustable"
+    ],
+    "averageRating": 4.5
+  },
+  {
+    "name": "Gaming Mouse",
+    "description": "High-precision gaming mouse with customizable buttons and RGB lighting.",
+    "category": "6664c0f4621a661583a6bbf1",
+    "reviews": [
+      {
+        "user": "666326b0c20c4e93b30a86f3",
+        "rating": 5,
+        "comment": "Super responsive and great for gaming."
+      },
+      {
+        "user": "66632658c20c4e93b30a86e9",
+        "rating": 4,
+        "comment": "Love the customizable buttons, but the software could be better."
+      }
+    ],
+    "coverImage": "https://example.com/images/gaming-mouse.jpg",
+    "images": [
+      "https://example.com/images/gaming-mouse-1.jpg",
+      "https://example.com/images/gaming-mouse-2.jpg"
+    ],
+    "price": 49.99,
+    "stock": 200,
+    "tags": [
+      "electronics",
+      "gaming",
+      "accessories"
+    ],
+    "averageRating": 4.5
+  },
+  {
+    "name": "Bluetooth Speaker",
+    "description": "Portable Bluetooth speaker with excellent sound quality and waterproof design.",
+    "category": "6664c0f4621a661583a6bbef",
+    "reviews": [
+      {
+        "user": "666326b0c20c4e93b30a86f3",
+        "rating": 5,
+        "comment": "Perfect for outdoor activities, sound is amazing!"
+      },
+      {
+        "user": "66632658c20c4e93b30a86e9",
+        "rating": 4,
+        "comment": "Great speaker, but battery life could be longer."
+      }
+    ],
+    "coverImage": "https://example.com/images/bluetooth-speaker.jpg",
+    "images": [
+      "https://example.com/images/bluetooth-speaker-1.jpg",
+      "https://example.com/images/bluetooth-speaker-2.jpg"
+    ],
+    "price": 79.99,
+    "stock": 120,
+    "tags": [
+      "electronics",
+      "audio",
+      "portable"
+    ],
+    "averageRating": 4.5
+  },
+  {
+    "name": "Mechanical Keyboard",
+    "description": "Durable mechanical keyboard with tactile switches and customizable RGB backlighting.",
+    "category": "6664c0f4621a661583a6bbf1",
+    "reviews": [
+      {
+        "user": "666326b0c20c4e93b30a86f3",
+        "rating": 5,
+        "comment": "Typing feels great, and the RGB lighting is awesome."
+      },
+      {
+        "user": "66632658c20c4e93b30a86e9",
+        "rating": 4,
+        "comment": "Excellent build quality, but it's a bit noisy."
+      }
+    ],
+    "coverImage": "https://example.com/images/mechanical-keyboard.jpg",
+    "images": [
+      "https://example.com/images/mechanical-keyboard-1.jpg",
+      "https://example.com/images/mechanical-keyboard-2.jpg"
+    ],
+    "price": 89.99,
+    "stock": 100,
+    "tags": [
+      "electronics",
+      "computer accessories",
+      "gaming"
+    ],
+    "averageRating": 4.5
+  }
+]
