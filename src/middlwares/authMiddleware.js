@@ -50,10 +50,3 @@ export const authorizeTo = (...roles) => {
         next(); // Proceed to the next middleware or route handler
     };
 };
-
-export const authorizeAdmin = () => {
-    return (req, res, next) => {
-
-        next();
-    };
-};

@@ -14,7 +14,7 @@ router.use("/users", userRoutes);
 router.use("/category", categoryRoutes);
 router.use("/products", productRoutes);
 router.use("/carts", cartRoutes);
-router.use("/order", orderRoutes);
+router.use("/orders", orderRoutes);
 
 router.all("*", (req, res, next) => {
     next(new AppError(`Cannot find ${req.originalUrl} on this server`, 404));

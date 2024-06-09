@@ -4,21 +4,21 @@
     <root id="1">
       <ServerVersion>7.0.11</ServerVersion>
     </root>
-    <schema id="2" parent="1" name="admin"/>
-    <schema id="3" parent="1" name="local"/>
-    <schema id="4" parent="1" name="supermarket"/>
-    <schema id="5" parent="1" name="supermarketDev"/>
-    <table id="6" parent="4" name="carts"/>
-    <table id="7" parent="4" name="categories"/>
-    <table id="8" parent="4" name="orders"/>
-    <table id="9" parent="4" name="products"/>
-    <table id="10" parent="4" name="users"/>
-    <table id="11" parent="5" name="carts"/>
-    <table id="12" parent="5" name="categories"/>
-    <table id="13" parent="5" name="orders"/>
-    <table id="14" parent="5" name="products"/>
-    <table id="15" parent="5" name="reviews"/>
-    <table id="16" parent="5" name="users"/>
+    <schema id="2" parent="1" name="supermarket"/>
+    <schema id="3" parent="1" name="supermarketDev"/>
+    <schema id="4" parent="1" name="admin"/>
+    <schema id="5" parent="1" name="local"/>
+    <table id="6" parent="2" name="carts"/>
+    <table id="7" parent="2" name="categories"/>
+    <table id="8" parent="2" name="orders"/>
+    <table id="9" parent="2" name="products"/>
+    <table id="10" parent="2" name="users"/>
+    <table id="11" parent="3" name="carts"/>
+    <table id="12" parent="3" name="categories"/>
+    <table id="13" parent="3" name="orders"/>
+    <table id="14" parent="3" name="products"/>
+    <table id="15" parent="3" name="reviews"/>
+    <table id="16" parent="3" name="users"/>
     <column id="17" parent="6" name="_id">
       <DasType>ObjectId|12s</DasType>
       <Position>1</Position>
@@ -235,167 +235,307 @@
       <DasType>String|12s</DasType>
       <Position>1</Position>
     </column>
-    <column id="71" parent="12" name="_id">
+    <column id="71" parent="11" name="_id">
       <DasType>ObjectId|12s</DasType>
       <Position>1</Position>
     </column>
-    <column id="72" parent="12" name="__v">
+    <column id="72" parent="11" name="__v">
       <DasType>Int32|4s</DasType>
       <Position>1</Position>
     </column>
-    <column id="73" parent="12" name="createdAt">
+    <column id="73" parent="11" name="createdAt">
       <DasType>ISODate|91s</DasType>
       <Position>1</Position>
     </column>
-    <column id="74" parent="12" name="name">
-      <DasType>String|12s</DasType>
+    <column id="74" parent="11" name="items">
+      <DasType>list|4999545s</DasType>
       <Position>1</Position>
     </column>
-    <column id="75" parent="12" name="updatedAt">
-      <DasType>ISODate|91s</DasType>
-      <Position>1</Position>
-    </column>
-    <column id="76" parent="14" name="_id">
+    <column id="75" parent="11" name="items._id">
       <DasType>ObjectId|12s</DasType>
       <Position>1</Position>
     </column>
-    <column id="77" parent="14" name="__v">
-      <DasType>Int32|4s</DasType>
-      <Position>1</Position>
-    </column>
-    <column id="78" parent="14" name="averageRating">
-      <DasType>Int32|4s</DasType>
-      <Position>1</Position>
-    </column>
-    <column id="79" parent="14" name="createdAt">
-      <DasType>ISODate|91s</DasType>
-      <Position>1</Position>
-    </column>
-    <column id="80" parent="14" name="name">
+    <column id="76" parent="11" name="items.name">
       <DasType>String|12s</DasType>
       <Position>1</Position>
     </column>
-    <column id="81" parent="14" name="updatedAt">
-      <DasType>ISODate|91s</DasType>
-      <Position>1</Position>
-    </column>
-    <column id="82" parent="14" name="coverImage">
-      <DasType>String|12s</DasType>
-      <Position>1</Position>
-    </column>
-    <column id="83" parent="14" name="images">
-      <DasType>Array|2003s</DasType>
-      <Position>1</Position>
-    </column>
-    <column id="84" parent="14" name="price">
+    <column id="77" parent="11" name="items.price">
       <DasType>Int32|4s</DasType>
       <Position>1</Position>
     </column>
-    <column id="85" parent="14" name="stock">
-      <DasType>Int32|4s</DasType>
-      <Position>1</Position>
-    </column>
-    <column id="86" parent="14" name="tags">
-      <DasType>Array|2003s</DasType>
-      <Position>2</Position>
-    </column>
-    <column id="87" parent="14" name="category">
+    <column id="78" parent="11" name="items.product">
       <DasType>ObjectId|12s</DasType>
-      <Position>2</Position>
+      <Position>1</Position>
     </column>
-    <column id="88" parent="14" name="description">
+    <column id="79" parent="11" name="items.quantity">
+      <DasType>Int32|4s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="80" parent="11" name="updatedAt">
+      <DasType>ISODate|91s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="81" parent="11" name="user">
+      <DasType>ObjectId|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="82" parent="11" name="items.coverImage">
       <DasType>String|12s</DasType>
       <Position>2</Position>
     </column>
-    <column id="89" parent="15" name="_id">
+    <column id="83" parent="11" name="items.updatedAt">
+      <DasType>ISODate|91s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="84" parent="11" name="items.createdAt">
+      <DasType>ISODate|91s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="85" parent="12" name="_id">
       <DasType>ObjectId|12s</DasType>
       <Position>1</Position>
     </column>
-    <column id="90" parent="15" name="__v">
+    <column id="86" parent="12" name="__v">
       <DasType>Int32|4s</DasType>
       <Position>1</Position>
     </column>
-    <column id="91" parent="15" name="comment">
+    <column id="87" parent="12" name="createdAt">
+      <DasType>ISODate|91s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="88" parent="12" name="name">
       <DasType>String|12s</DasType>
       <Position>1</Position>
     </column>
-    <column id="92" parent="15" name="createdAt">
+    <column id="89" parent="12" name="updatedAt">
       <DasType>ISODate|91s</DasType>
       <Position>1</Position>
     </column>
-    <column id="93" parent="15" name="product">
+    <column id="90" parent="13" name="_id">
       <DasType>ObjectId|12s</DasType>
       <Position>1</Position>
     </column>
-    <column id="94" parent="15" name="updatedAt">
+    <column id="91" parent="13" name="createdAt">
       <DasType>ISODate|91s</DasType>
       <Position>1</Position>
     </column>
-    <column id="95" parent="15" name="user">
-      <DasType>ObjectId|12s</DasType>
-      <Position>1</Position>
-    </column>
-    <column id="96" parent="15" name="rating">
-      <DasType>Int32|4s</DasType>
-      <Position>2</Position>
-    </column>
-    <column id="97" parent="16" name="_id">
-      <DasType>ObjectId|12s</DasType>
-      <Position>1</Position>
-    </column>
-    <column id="98" parent="16" name="active">
+    <column id="92" parent="13" name="isDelivered">
       <DasType>Boolean|12s</DasType>
       <Position>1</Position>
     </column>
-    <column id="99" parent="16" name="createdAt">
-      <DasType>ISODate|91s</DasType>
+    <column id="93" parent="13" name="items">
+      <DasType>list|4999545s</DasType>
       <Position>1</Position>
     </column>
-    <column id="100" parent="16" name="email">
+    <column id="94" parent="13" name="items._id">
+      <DasType>ObjectId|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="95" parent="13" name="items.name">
       <DasType>String|12s</DasType>
       <Position>1</Position>
     </column>
-    <column id="101" parent="16" name="isVerified">
-      <DasType>Boolean|12s</DasType>
+    <column id="96" parent="13" name="items.price">
+      <DasType>Int32|4s</DasType>
       <Position>1</Position>
     </column>
-    <column id="102" parent="16" name="password">
+    <column id="97" parent="13" name="items.product">
+      <DasType>ObjectId|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="98" parent="13" name="items.quantity">
+      <DasType>Int32|4s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="99" parent="13" name="paymentMethod">
       <DasType>String|12s</DasType>
       <Position>1</Position>
     </column>
-    <column id="103" parent="16" name="updatedAt">
-      <DasType>ISODate|91s</DasType>
+    <column id="100" parent="13" name="shippingAddress">
+      <DasType>Object|4999544s</DasType>
       <Position>1</Position>
     </column>
-    <column id="104" parent="16" name="username">
-      <DasType>String|12s</DasType>
+    <column id="101" parent="13" name="totalPrice">
+      <DasType>Int32|4s</DasType>
       <Position>1</Position>
     </column>
-    <column id="105" parent="16" name="refreshToken">
-      <DasType>String|12s</DasType>
+    <column id="102" parent="13" name="user">
+      <DasType>ObjectId|12s</DasType>
       <Position>1</Position>
     </column>
-    <column id="106" parent="16" name="__v">
+    <column id="103" parent="13" name="__v">
       <DasType>Int32|4s</DasType>
       <Position>2</Position>
     </column>
-    <column id="107" parent="16" name="emailVerificationExpires">
+    <column id="104" parent="13" name="isPaid">
+      <DasType>Boolean|12s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="105" parent="13" name="shippingAddress.city">
+      <DasType>String|12s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="106" parent="13" name="updatedAt">
       <DasType>ISODate|91s</DasType>
       <Position>2</Position>
     </column>
-    <column id="108" parent="16" name="resetPasswordExpires">
+    <column id="107" parent="13" name="shippingAddress.houseNumber">
+      <DasType>String|12s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="108" parent="13" name="shippingAddress.neighborhood">
+      <DasType>String|12s</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="109" parent="13" name="shippingAddress.streetNumber">
+      <DasType>String|12s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="110" parent="14" name="_id">
+      <DasType>ObjectId|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="111" parent="14" name="__v">
+      <DasType>Int32|4s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="112" parent="14" name="createdAt">
+      <DasType>ISODate|91s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="113" parent="14" name="name">
+      <DasType>String|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="114" parent="14" name="updatedAt">
+      <DasType>ISODate|91s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="115" parent="14" name="coverImage">
+      <DasType>String|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="116" parent="14" name="images">
+      <DasType>Array|2003s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="117" parent="14" name="price">
+      <DasType>Int32|4s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="118" parent="14" name="stock">
+      <DasType>Int32|4s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="119" parent="14" name="availableStock">
+      <DasType>String|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="120" parent="14" name="averageRating">
+      <DasType>Int32|4s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="121" parent="14" name="description">
+      <DasType>String|12s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="122" parent="14" name="tags">
+      <DasType>Array|2003s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="123" parent="14" name="category">
+      <DasType>ObjectId|12s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="124" parent="15" name="_id">
+      <DasType>ObjectId|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="125" parent="15" name="__v">
+      <DasType>Int32|4s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="126" parent="15" name="comment">
+      <DasType>String|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="127" parent="15" name="createdAt">
+      <DasType>ISODate|91s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="128" parent="15" name="product">
+      <DasType>ObjectId|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="129" parent="15" name="updatedAt">
+      <DasType>ISODate|91s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="130" parent="15" name="user">
+      <DasType>ObjectId|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="131" parent="15" name="rating">
+      <DasType>Int32|4s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="132" parent="16" name="_id">
+      <DasType>ObjectId|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="133" parent="16" name="active">
+      <DasType>Boolean|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="134" parent="16" name="createdAt">
+      <DasType>ISODate|91s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="135" parent="16" name="email">
+      <DasType>String|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="136" parent="16" name="isVerified">
+      <DasType>Boolean|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="137" parent="16" name="password">
+      <DasType>String|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="138" parent="16" name="refreshToken">
+      <DasType>String|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="139" parent="16" name="updatedAt">
+      <DasType>ISODate|91s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="140" parent="16" name="username">
+      <DasType>String|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="141" parent="16" name="__v">
+      <DasType>Int32|4s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="142" parent="16" name="emailVerificationExpires">
       <DasType>ISODate|91s</DasType>
       <Position>2</Position>
     </column>
-    <column id="109" parent="16" name="emailVerificationToken">
+    <column id="143" parent="16" name="resetPasswordExpires">
+      <DasType>ISODate|91s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="144" parent="16" name="emailVerificationToken">
       <DasType>String|12s</DasType>
       <Position>3</Position>
     </column>
-    <column id="110" parent="16" name="resetPasswordToken">
+    <column id="145" parent="16" name="resetPasswordToken">
       <DasType>String|12s</DasType>
       <Position>3</Position>
     </column>
-    <column id="111" parent="16" name="role">
+    <column id="146" parent="16" name="role">
       <DasType>String|12s</DasType>
       <Position>4</Position>
     </column>

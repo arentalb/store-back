@@ -1,29 +1,22 @@
-import {
-  authenticate,
-  authorizeAdmin,
-} from "../../middlwares/authMiddleware.js";
+import {authenticate, authorizeTo,} from "../../middlwares/authMiddleware.js";
 import express from "express";
 import orderController from "./orderController.js";
+import checkoutController from "./checkoutController.js";
 
 const router = express.Router();
 
-//everyone
-
-//user
-router.get("/myorders", authenticate, orderController.getUserOrders);
-router.get("/myorder/:id", authenticate, orderController.getUserOrderDetail);
-
-router.post("/myorders/new", authenticate, orderController.createOrderFromCart);
+//payment
+router.post("/checkout-session", authenticate, authorizeTo("User"), checkoutController.getCheckoutSession);
+router.get("/success", authenticate, authorizeTo("User"), checkoutController.updateOrderToPaid);
 
 //admin
-router.get("/all", authenticate, authorizeAdmin, orderController.getAllOrders);
-router.get("/:id", authenticate, authorizeAdmin, orderController.getOrderById);
+router.get("/all", authenticate, authorizeTo("Admin", "SuperAdmin"), orderController.getAllOrders);
+router.get("/detail/:id", authenticate, authorizeTo("Admin", "SuperAdmin"), orderController.getOrderById);
+router.put("/:id", authenticate, authorizeTo("Admin", "SuperAdmin"), orderController.updateOrderStatus,);
 
-router.put(
-  "/:id",
-  authenticate,
-  authorizeAdmin,
-  orderController.updateOrderStatus,
-);
+//user
+router.get("/", authenticate, authorizeTo("User"), orderController.getUserOrders);
+router.get("/:id", authenticate, authorizeTo("User"), orderController.getUserOrderDetail);
+router.post("/", authenticate, authorizeTo("User"), orderController.createOrderFromCart);
 
 export default router;
