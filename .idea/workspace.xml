@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Update the apps cord tu use environment variable">
+    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Add test route">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -160,7 +160,7 @@
       <workItem from="1717758130281" duration="21214000" />
       <workItem from="1717843161906" duration="23724000" />
       <workItem from="1717892668173" duration="16478000" />
-      <workItem from="1717928132442" duration="13574000" />
+      <workItem from="1717928132442" duration="14562000" />
     </task>
     <task id="LOCAL-00001" summary="IDE configuration files">
       <option name="closed" value="true" />
@@ -418,7 +418,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717946925544</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Add test route">
+      <option name="closed" value="true" />
+      <created>1717957176547</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1717957176547</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -453,7 +461,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Reformat files" />
     <MESSAGE value="Implement file uploading functionality" />
     <MESSAGE value="Change file structure" />
     <MESSAGE value="Implement file upload with CRUD operation for products" />
@@ -478,6 +485,7 @@
     <MESSAGE value="implement all base features related to cart" />
     <MESSAGE value="implement all base features related to ordering , and basic functionality  checkout with stripe" />
     <MESSAGE value="Update the apps cord tu use environment variable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update the apps cord tu use environment variable" />
+    <MESSAGE value="Add test route" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add test route" />
   </component>
 </project>
