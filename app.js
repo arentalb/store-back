@@ -53,7 +53,9 @@ const __dirname = path.resolve();
 app.use("/public/images", express.static(path.join(__dirname + "/public/images")));
 
 app.use("/api/v1", routes);
-
+app.get("/test", (req, res, next) => {
+    req.send("server is running ")
+})
 app.use(GlobalErrorHandler);
 
 export default app;

@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="implement all base features related to ordering , and basic functionality  checkout with stripe">
+    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Update the apps cord tu use environment variable">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +160,7 @@
       <workItem from="1717758130281" duration="21214000" />
       <workItem from="1717843161906" duration="23724000" />
       <workItem from="1717892668173" duration="16478000" />
-      <workItem from="1717928132442" duration="11862000" />
+      <workItem from="1717928132442" duration="13574000" />
     </task>
     <task id="LOCAL-00001" summary="IDE configuration files">
       <option name="closed" value="true" />
@@ -411,7 +410,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717946226709</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Update the apps cord tu use environment variable">
+      <option name="closed" value="true" />
+      <created>1717946925544</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1717946925544</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -446,7 +453,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implement the category functionalities" />
     <MESSAGE value="Reformat files" />
     <MESSAGE value="Implement file uploading functionality" />
     <MESSAGE value="Change file structure" />
@@ -471,6 +477,7 @@
     <MESSAGE value="implement all base features related to review" />
     <MESSAGE value="implement all base features related to cart" />
     <MESSAGE value="implement all base features related to ordering , and basic functionality  checkout with stripe" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement all base features related to ordering , and basic functionality  checkout with stripe" />
+    <MESSAGE value="Update the apps cord tu use environment variable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update the apps cord tu use environment variable" />
   </component>
 </project>
