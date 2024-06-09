@@ -1,12 +1,13 @@
-import jwt from "jsonwebtoken"
-import User from "../features/user/User.js"
-import catchAsync from "../utils/catchAsync.js"
-import AppError from "../utils/AppError.js"
+import jwt from "jsonwebtoken";
+import User from "../features/user/User.js";
+import catchAsync from "../utils/catchAsync.js";
+import AppError from "../utils/AppError.js";
 
 // Middleware to protect routes
 export const authenticate = catchAsync(async (req, res, next) => {
-    // Check if the authorization header exists and starts with "Bearer "
     let token = "";
+
+    // Check if the authorization header exists and starts with "Bearer "
     if (
         req.headers.authorization &&
         req.headers.authorization.startsWith("Bearer ")
@@ -15,7 +16,12 @@ export const authenticate = catchAsync(async (req, res, next) => {
         token = req.headers.authorization.split(" ")[1];
     }
 
-    // If no token is provided, throw an error
+    // If no token in the header, check the cookies
+    if (!token && req.cookies.accessToken) {
+        token = req.cookies.accessToken;
+    }
+
+    // If no token is provided in both header and cookies, throw an error
     if (!token) {
         throw new AppError("You are not logged in, please log in first!", 401);
     }

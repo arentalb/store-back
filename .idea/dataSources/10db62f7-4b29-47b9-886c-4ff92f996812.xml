@@ -411,24 +411,24 @@
       <DasType>ISODate|91s</DasType>
       <Position>1</Position>
     </column>
-    <column id="115" parent="14" name="coverImage">
+    <column id="115" parent="14" name="availableStock">
       <DasType>String|12s</DasType>
       <Position>1</Position>
     </column>
-    <column id="116" parent="14" name="images">
+    <column id="116" parent="14" name="coverImage">
+      <DasType>String|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="117" parent="14" name="images">
       <DasType>Array|2003s</DasType>
       <Position>1</Position>
     </column>
-    <column id="117" parent="14" name="price">
+    <column id="118" parent="14" name="price">
       <DasType>Int32|4s</DasType>
       <Position>1</Position>
     </column>
-    <column id="118" parent="14" name="stock">
+    <column id="119" parent="14" name="stock">
       <DasType>Int32|4s</DasType>
-      <Position>1</Position>
-    </column>
-    <column id="119" parent="14" name="availableStock">
-      <DasType>String|12s</DasType>
       <Position>1</Position>
     </column>
     <column id="120" parent="14" name="averageRating">
@@ -483,40 +483,40 @@
       <DasType>ObjectId|12s</DasType>
       <Position>1</Position>
     </column>
-    <column id="133" parent="16" name="active">
-      <DasType>Boolean|12s</DasType>
-      <Position>1</Position>
-    </column>
-    <column id="134" parent="16" name="createdAt">
-      <DasType>ISODate|91s</DasType>
-      <Position>1</Position>
-    </column>
-    <column id="135" parent="16" name="email">
-      <DasType>String|12s</DasType>
-      <Position>1</Position>
-    </column>
-    <column id="136" parent="16" name="isVerified">
-      <DasType>Boolean|12s</DasType>
-      <Position>1</Position>
-    </column>
-    <column id="137" parent="16" name="password">
-      <DasType>String|12s</DasType>
-      <Position>1</Position>
-    </column>
-    <column id="138" parent="16" name="refreshToken">
-      <DasType>String|12s</DasType>
-      <Position>1</Position>
-    </column>
-    <column id="139" parent="16" name="updatedAt">
-      <DasType>ISODate|91s</DasType>
-      <Position>1</Position>
-    </column>
-    <column id="140" parent="16" name="username">
-      <DasType>String|12s</DasType>
-      <Position>1</Position>
-    </column>
-    <column id="141" parent="16" name="__v">
+    <column id="133" parent="16" name="__v">
       <DasType>Int32|4s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="134" parent="16" name="active">
+      <DasType>Boolean|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="135" parent="16" name="createdAt">
+      <DasType>ISODate|91s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="136" parent="16" name="email">
+      <DasType>String|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="137" parent="16" name="isVerified">
+      <DasType>Boolean|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="138" parent="16" name="password">
+      <DasType>String|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="139" parent="16" name="refreshToken">
+      <DasType>String|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="140" parent="16" name="updatedAt">
+      <DasType>ISODate|91s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="141" parent="16" name="username">
+      <DasType>String|12s</DasType>
       <Position>1</Position>
     </column>
     <column id="142" parent="16" name="emailVerificationExpires">

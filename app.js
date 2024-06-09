@@ -11,6 +11,7 @@ import path from "path";
 import GlobalErrorHandler from "./src/utils/AppErrorHandler.js";
 import routes from "./src/routes.js";
 import dotenv from "dotenv";
+import parseDuration from "./src/utils/parseDuration.js";
 
 dotenv.config();
 
@@ -20,9 +21,10 @@ if (process.env.NODE_ENV === "development") {
     app.use(morgan("dev"));
 }
 
+
 const limiter = rateLimit({
-    max: 100,
-    windowMs: 60 * 60 * 1000,
+    max: process.env.RATE_LIMIT_MAX,
+    windowMs: parseDuration(process.env.RATE_LIMIT_WINDOW_MS),
     message: "Too many requests from this IP, please try again in 1 hour (:",
 });
 app.use(
