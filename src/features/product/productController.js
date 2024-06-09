@@ -37,7 +37,7 @@ const searchProducts = catchAsync(async (req, res) => {
 });
 
 const createProduct = catchAsync(async (req, res) => {
-    const {name, description, category, tags, stock, price} = req.body;
+    const {name, description, category, tags, stock, price, availableStock} = req.body;
 
     // Access uploaded files and handle potential errors
     const coverImage = req.files.coverImage ? req.files.coverImage[0] : null;
@@ -55,6 +55,7 @@ const createProduct = catchAsync(async (req, res) => {
         tags,
         stock,
         price,
+        availableStock,
         coverImage: coverImage.path,
         images: otherImages,
     });
@@ -65,7 +66,7 @@ const createProduct = catchAsync(async (req, res) => {
 
 const updateProduct = catchAsync(async (req, res) => {
     const {id} = req.params;
-    const {name, description, category, tags, stock, price, deletedImages} = req.body;
+    const {name, description, category, tags, stock, price, deletedImages, availableStock} = req.body;
 
 
     // Access uploaded files and handle potential errors
@@ -86,7 +87,7 @@ const updateProduct = catchAsync(async (req, res) => {
     product.tags = tags || product.tags;
     product.stock = stock || product.stock;
     product.price = price || product.price;
-
+    product.availableStock = availableStock || product.availableStock;
     // Update cover image if provided
     if (coverImage) {
         // Delete the old cover image from the server if it exists
@@ -96,7 +97,6 @@ const updateProduct = catchAsync(async (req, res) => {
         product.coverImage = coverImage.path;
     }
 
-    console.log(deletedImages)
     // Handle deleted images
     if (deletedImages) {
 

@@ -1,83 +1,83 @@
-import CartModel from "../cart/cartModel.js";
+import Cart from "../cart/Cart.js";
 import OrderModel from "./orderModel.js";
 import orderModel from "./orderModel.js";
 
 const createOrderFromCart = async (userId, shippingAddress) => {
-  const cart = await CartModel.findOne({ userId }).populate("items.productId");
+    const cart = await Cart.findOne({userId}).populate("items.productId");
 
-  if (!cart || cart.items.length === 0) {
-    throw new Error("Cart is empty");
-  }
+    if (!cart || cart.items.length === 0) {
+        throw new Error("Cart is empty");
+    }
 
-  const orderData = {
-    userId,
-    items: cart.items.map((item) => ({
-      productId: item.productId._id,
-      name: item.productId.name,
-      quantity: item.quantity,
-      price: item.productId.price,
-      image: item.productId.image,
-    })),
-    totalPrice: cart.items.reduce(
-      (acc, item) => acc + item.quantity * item.productId.price,
-      0,
-    ),
-    shippingAddress,
-    paymentMethod: "Pay on Delivery",
-  };
+    const orderData = {
+        userId,
+        items: cart.items.map((item) => ({
+            productId: item.productId._id,
+            name: item.productId.name,
+            quantity: item.quantity,
+            price: item.productId.price,
+            image: item.productId.image,
+        })),
+        totalPrice: cart.items.reduce(
+            (acc, item) => acc + item.quantity * item.productId.price,
+            0,
+        ),
+        shippingAddress,
+        paymentMethod: "Pay on Delivery",
+    };
 
-  const order = new OrderModel(orderData);
-  await order.save();
+    const order = new OrderModel(orderData);
+    await order.save();
 
-  // Clear the cart
-  cart.items = [];
-  await cart.save();
+    // Clear the cart
+    cart.items = [];
+    await cart.save();
 
-  return order;
+    return order;
 };
 
 const getAllOrders = async () => {
-  return await orderModel.find().populate("userId", "name email");
+    return await orderModel.find().populate("userId", "name email");
 };
 
 const getOrderById = async (orderId) => {
-  return await orderModel
-    .findById(orderId)
-    .populate("userId", "name email")
-    .populate("items.productId", "name price");
+    return await orderModel
+        .findById(orderId)
+        .populate("userId", "name email")
+        .populate("items.productId", "name price");
 };
 
 const updateOrderStatus = async (orderId, updateData) => {
-  const order = await orderModel.findById(orderId);
-  if (!order) {
-    throw new Error("Order not found");
-  }
+    const order = await orderModel.findById(orderId);
+    if (!order) {
+        throw new Error("Order not found");
+    }
 
-  Object.keys(updateData).forEach((key) => {
-    order[key] = updateData[key];
-  });
+    Object.keys(updateData).forEach((key) => {
+        order[key] = updateData[key];
+    });
 
-  await order.save();
-  return order;
+    await order.save();
+    return order;
 };
 const getUserOrders = async (userId) => {
-  return await orderModel.find({ userId }).populate("items.productId");
+    return await orderModel.find({userId}).populate("items.productId");
 };
 const getUserOrderDetail = async (userId, orderId) => {
-  const order = await orderModel
-    .findOne({ userId, _id: orderId })
-    .populate("items.productId");
-  if (!order) {
-    throw new Error("Order not found");
-  }
-  return order;
+    const order = await orderModel
+        .findOne({userId, _id: orderId})
+        .populate("items.productId");
+    if (!order) {
+        throw new Error("Order not found");
+    }
+    return order;
 };
 
 export default {
-  createOrderFromCart,
-  getAllOrders,
-  getOrderById,
-  updateOrderStatus,
-  getUserOrders,
-  getUserOrderDetail,
+    createOrderFromCart,
+    getAllOrders,
+    getOrderById,
+    updateOrderStatus,
+    getUserOrders,
+    getUserOrderDetail,
 };

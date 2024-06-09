@@ -13,7 +13,7 @@ router.use("/auth", authRoutes);
 router.use("/users", userRoutes);
 router.use("/category", categoryRoutes);
 router.use("/products", productRoutes);
-router.use("/cart", cartRoutes);
+router.use("/carts", cartRoutes);
 router.use("/order", orderRoutes);
 
 router.all("*", (req, res, next) => {

@@ -1,6 +1,5 @@
 import mongoose, {Schema} from 'mongoose';
 
-
 const productSchema = new Schema({
     name: {
         type: String,
@@ -20,7 +19,7 @@ const productSchema = new Schema({
     },
     coverImage: {
         type: String,
-        required: [true, 'Cover image reqired ']
+        required: [true, 'Cover image is required']
     },
     images: [
         {
@@ -29,11 +28,15 @@ const productSchema = new Schema({
     ],
     price: {
         type: Number,
-        required: [true, "Price must be included "]
+        required: [true, "Price must be included"]
     },
     stock: {
         type: Number,
-        required: [true, "Stock psc must be included "]
+        required: [true, "Stock must be included"]
+    },
+    availableStock: {
+        type: Number,
+        required: [true, "Available stock must be included"]
     },
     tags: [{
         type: String,
@@ -49,27 +52,30 @@ const productSchema = new Schema({
     timestamps: true,
     toJSON: {virtuals: true},
     toObject: {virtuals: true},
-},);
+});
 
-//    const allProducts = await Product.findById(productId).populate("category", "name _id").populate('reviews')
-// you have to populate it
+// Virtual to calculate the average rating
 productSchema.virtual('reviews', {
     ref: 'Review',
     localField: '_id',
     foreignField: 'product'
 });
 
+// Instance method to decrement availableStock
+productSchema.methods.decrementAvailableStock = async function (quantity) {
+    if (this.availableStock < quantity) {
+        throw new Error("Insufficient available stock");
+    }
+    this.availableStock -= quantity;
+    await this.save();
+};
+
+// Instance method to increment availableStock
+productSchema.methods.incrementAvailableStock = async function (quantity) {
+    this.availableStock += quantity;
+    await this.save();
+};
+
 const Product = mongoose.model('Product', productSchema);
 
 export default Product;
-
-// Pre-save middleware to calculate the average rating
-// productSchema.pre('save', function (next) {
-//     if (this.reviews.length > 0) {
-//         this.averageRating = this.reviews.reduce((sum, review) => sum + review.rating, 0) / this.reviews.length;
-//     } else {
-//         this.averageRating = 0;
-//     }
-//
-//     next();
-// });
