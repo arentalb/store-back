@@ -4,19 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="implement all base features related to cart">
-      <change afterPath="$PROJECT_DIR$/src/features/order/checkoutController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/10db62f7-4b29-47b9-886c-4ff92f996812.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/10db62f7-4b29-47b9-886c-4ff92f996812.xml" afterDir="false" />
+    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="implement all base features related to ordering , and basic functionality  checkout with stripe">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/order/orderController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/order/orderController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/order/orderModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/order/orderModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/order/orderRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/order/orderRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/order/orderService.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middlwares/authMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middlwares/authMiddleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/resposeSender.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/resposeSender.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +161,7 @@
       <workItem from="1717758130281" duration="21214000" />
       <workItem from="1717843161906" duration="23724000" />
       <workItem from="1717892668173" duration="16478000" />
-      <workItem from="1717928132442" duration="11265000" />
+      <workItem from="1717928132442" duration="11862000" />
     </task>
     <task id="LOCAL-00001" summary="IDE configuration files">
       <option name="closed" value="true" />
@@ -413,7 +403,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717909236587</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="implement all base features related to ordering , and basic functionality  checkout with stripe">
+      <option name="closed" value="true" />
+      <created>1717946226709</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1717946226709</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -448,7 +446,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix a bug" />
     <MESSAGE value="Implement the category functionalities" />
     <MESSAGE value="Reformat files" />
     <MESSAGE value="Implement file uploading functionality" />
@@ -473,6 +470,7 @@
     <MESSAGE value="implement all base features related to product" />
     <MESSAGE value="implement all base features related to review" />
     <MESSAGE value="implement all base features related to cart" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement all base features related to cart" />
+    <MESSAGE value="implement all base features related to ordering , and basic functionality  checkout with stripe" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement all base features related to ordering , and basic functionality  checkout with stripe" />
   </component>
 </project>

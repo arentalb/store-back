@@ -1,4 +1,3 @@
-// server.js (or app.js)
 import express from "express";
 import mongoSanitize from "express-mongo-sanitize";
 import rateLimit from "express-rate-limit";
@@ -19,7 +18,6 @@ const app = express();
 
 if (process.env.NODE_ENV === "development") {
     app.use(morgan("dev"));
-    console.log("mordgan")
 }
 
 const limiter = rateLimit({
@@ -36,7 +34,7 @@ app.use(
 );
 app.use(
     cors({
-        origin: "https://supermarket-front-m1ll.onrender.com",
+        origin: process.env.CORS_ORIGIN,
         methods: ["GET", "POST", "PUT", "DELETE"],
         credentials: true,
     }),
