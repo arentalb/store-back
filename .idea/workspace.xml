@@ -4,40 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Refactor category feature">
-      <change afterPath="$PROJECT_DIR$/data/category.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/importer-script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/product.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/test.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/product/Product.js" afterDir="false" />
+    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="implement all base features related to product">
+      <change afterPath="$PROJECT_DIR$/src/features/review/Review.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/review/reviewController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/review/reviewRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/10db62f7-4b29-47b9-886c-4ff92f996812.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/10db62f7-4b29-47b9-886c-4ff92f996812.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/cart/cartService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/cart/cartService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/product/Product.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/product/Product.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/product/productController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/product/productController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/product/productModel.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/product/productRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/product/productRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/product/productService.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/fileupload.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/fileupload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/Apples.avif-1716476650005.avif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/Bananas.avif-1716477110635.avif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/Beef Steak.avif-1716477065103.avif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/Butter.avif-1716476871275.avif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/Carrots.avif-1716476691686.avif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/Cheddar Cheese.avif-1716476852044.avif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/Chicken Breast.avif-1716476999151.avif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/Croissants.avif-1716476943283.avif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/Grapes.avif-1716476669385.avif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/Greek Yogurt.avif-1716476814926.avif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/Ground Beef.avif-1716476629041.avif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/Muffins.avif-1716476964861.avif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/Multigrain Bread.avif-1716476918834.avif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/Salmon Fillet.avif-1716477031037.avif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/Whole Wheat Bread.avif-1716476890170.avif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/milk.avif-1716476784417.avif" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,11 +87,11 @@
       <recent name="C:\Users\Click\Documents\devlopment\fullstack\supermarket\supermarket-back\src\utils" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Click\Documents\devlopment\fullstack\supermarket\supermarket-back\src\features" />
+      <recent name="C:\Users\Click\Documents\devlopment\fullstack\supermarket\supermarket-back\src\features\product" />
       <recent name="C:\Users\Click\Documents\devlopment\fullstack\supermarket\supermarket-back\public\images" />
       <recent name="C:\Users\Click\Documents\devlopment\fullstack\supermarket\supermarket-back\src\utils" />
       <recent name="C:\Users\Click\Documents\devlopment\fullstack\supermarket\supermarket-back\src\features\user\auth" />
-      <recent name="C:\Users\Click\Documents\devlopment\fullstack\supermarket\supermarket-back\src" />
-      <recent name="C:\Users\Click\Documents\devlopment\fullstack\supermarket\supermarket-back\src\features\user" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start:dev">
@@ -189,7 +164,7 @@
       <workItem from="1717719400694" duration="4075000" />
       <workItem from="1717758130281" duration="21214000" />
       <workItem from="1717843161906" duration="23724000" />
-      <workItem from="1717892668173" duration="4407000" />
+      <workItem from="1717892668173" duration="9417000" />
     </task>
     <task id="LOCAL-00001" summary="IDE configuration files">
       <option name="closed" value="true" />
@@ -407,7 +382,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717850692179</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="implement all base features related to product">
+      <option name="closed" value="true" />
+      <created>1717897196934</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1717897196935</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -465,6 +448,7 @@
     <MESSAGE value="Implement authentication functionality" />
     <MESSAGE value="Implement user's data related functionalities" />
     <MESSAGE value="Refactor category feature" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor category feature" />
+    <MESSAGE value="implement all base features related to product" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement all base features related to product" />
   </component>
 </project>

@@ -3,6 +3,7 @@ import express from "express";
 import productController from "./productController.js";
 import {authenticate, authorizeTo} from "../../middlwares/authMiddleware.js";
 import upload from "../../utils/fileupload.js";
+import reviewRoutes from "../review/reviewRoutes.js";
 
 const router = express.Router();
 
@@ -44,17 +45,6 @@ router.delete(
     productController.deleteProduct
 );
 
-// Routes for managing product reviews
-router.post(
-    "/:id/reviews",
-    authenticate,
-    productController.addReview
-);
-router.delete(
-    "/:id/reviews/:reviewId",
-    authenticate,
-    authorizeTo("Admin", "SuperAdmin"),
-    productController.deleteReview
-);
+router.use('/:id/reviews', reviewRoutes);
 
 export default router;

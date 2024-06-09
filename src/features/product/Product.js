@@ -1,23 +1,5 @@
 import mongoose, {Schema} from 'mongoose';
 
-const reviewSchema = new Schema({
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: [true, 'User is required']
-    },
-    rating: {
-        type: Number,
-        required: [true, 'Rating is required'],
-        min: [0, 'Rating must be at least 0'],
-        max: [5, 'Rating cannot be more than 5']
-    },
-    comment: {
-        type: String,
-        maxlength: [500, 'Comment cannot be more than 500 characters']
-    }
-}, {timestamps: true});
-
 
 const productSchema = new Schema({
     name: {
@@ -36,7 +18,6 @@ const productSchema = new Schema({
         ref: 'Category',
         required: [true, 'Category is required']
     },
-    reviews: [reviewSchema],
     coverImage: {
         type: String,
         required: [true, 'Cover image reqired ']
@@ -64,19 +45,31 @@ const productSchema = new Schema({
         min: [0, 'Average rating must be at least 0'],
         max: [5, 'Average rating cannot be more than 5']
     }
-}, {timestamps: true});
+}, {
+    timestamps: true,
+    toJSON: {virtuals: true},
+    toObject: {virtuals: true},
+},);
 
-// Pre-save middleware to calculate the average rating
-productSchema.pre('save', function (next) {
-    if (this.reviews.length > 0) {
-        this.averageRating = this.reviews.reduce((sum, review) => sum + review.rating, 0) / this.reviews.length;
-    } else {
-        this.averageRating = 0;
-    }
-
-    next();
+//    const allProducts = await Product.findById(productId).populate("category", "name _id").populate('reviews')
+// you have to populate it
+productSchema.virtual('reviews', {
+    ref: 'Review',
+    localField: '_id',
+    foreignField: 'product'
 });
 
 const Product = mongoose.model('Product', productSchema);
 
 export default Product;
+
+// Pre-save middleware to calculate the average rating
+// productSchema.pre('save', function (next) {
+//     if (this.reviews.length > 0) {
+//         this.averageRating = this.reviews.reduce((sum, review) => sum + review.rating, 0) / this.reviews.length;
+//     } else {
+//         this.averageRating = 0;
+//     }
+//
+//     next();
+// });

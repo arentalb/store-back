@@ -13,7 +13,14 @@ const getAllProducts = catchAsync(async (req, res) => {
 const getProductById = catchAsync(async (req, res) => {
 
     const productId = req.params.id;
-    const allProducts = await Product.findById(productId).populate("category", "name _id")
+    const allProducts = await Product.findById(productId).populate({
+        path: 'reviews',
+        select: 'rating comment user createdAt',
+        populate: {
+            path: 'user',
+            select: 'username'
+        }
+    });
     sendSuccess(res, allProducts, 201);
 
 });
@@ -129,19 +136,6 @@ const deleteProduct = catchAsync(async (req, res) => {
 
 });
 
-// other
-const deleteReview = catchAsync(async (req, res) => {
-
-    sendSuccess(res, "deleteReview", 201);
-
-
-});
-const addReview = catchAsync(async (req, res) => {
-
-    sendSuccess(res, "addReview", 201);
-
-
-});
 
 export default {
     getAllProducts,
@@ -151,6 +145,5 @@ export default {
     updateProduct,
     deleteProduct,
     searchProducts,
-    addReview,
-    deleteReview,
+
 };
