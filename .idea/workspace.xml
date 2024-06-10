@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Change the option of teh jwt in production">
-      <change afterPath="$PROJECT_DIR$/src/utils/parseDuration.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/10db62f7-4b29-47b9-886c-4ff92f996812.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/10db62f7-4b29-47b9-886c-4ff92f996812.xml" afterDir="false" />
+    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Fix some bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/cart/cartRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/cart/cartRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/order/orderRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/order/orderRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/review/reviewRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/review/reviewRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/user/auth/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/user/auth/authController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/middlwares/authMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middlwares/authMiddleware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/AppErrorHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/AppErrorHandler.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,6 +140,7 @@
       <workItem from="1716484295368" duration="6782000" />
       <workItem from="1716501017168" duration="1116000" />
       <workItem from="1716502162175" duration="4002000" />
+      <workItem from="1718010629218" duration="2977000" />
     </task>
     <task id="LOCAL-00001" summary="IDE configuration files">
       <option name="closed" value="true" />
@@ -284,7 +286,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716509082174</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Fix some bug">
+      <option name="closed" value="true" />
+      <created>1717965107459</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1717965107459</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,18 +346,7 @@
     <MESSAGE value="Add test route to check if server is up" />
     <MESSAGE value="Add cors to let teh frontend access the server" />
     <MESSAGE value="Change the option of teh jwt in production" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change the option of teh jwt in production" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/features/user/auth/authController.js</url>
-          <line>23</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Fix some bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix some bug" />
   </component>
 </project>

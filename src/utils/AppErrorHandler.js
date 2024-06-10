@@ -8,7 +8,6 @@ export default (err, req, res, next) => {
     if (process.env.NODE_ENV === "development") {
         sendErrorDev(err, res);
     } else if (process.env.NODE_ENV === "production") {
-
         if (err.name === "CastError") {
             err = handelCastErrorDB(err);
 

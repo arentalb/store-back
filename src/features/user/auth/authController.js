@@ -56,7 +56,7 @@ const register = catchAsync(async (req, res) => {
         //     role: newUser.role,
         //     isVerified: newUser.isVerified
         // };
-        sendSuccess(res, "User registered please verify then login ", 201);
+        sendSuccess(res, "User registered", 201);
     }
 });
 
@@ -70,7 +70,7 @@ const login = catchAsync(async (req, res) => {
     if (existingUser) {
         const isPasswordValid = await bcrypt.compare(password, existingUser.password);
         if (isPasswordValid) {
-            if (!existingUser.isVerified) throw new AppError("User is not verified")
+            // if (!existingUser.isVerified) throw new AppError("User is not verified")
 
             const {accessToken, refreshToken} = createToken(existingUser._id);
 

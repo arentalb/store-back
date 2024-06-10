@@ -1,9 +1,10 @@
 import express from "express";
-import {authenticate, authorizeTo} from "../../middlwares/authMiddleware.js";
+import {authenticate, authorizeTo, isVerified} from "../../middlwares/authMiddleware.js";
 import reviewController from "./reviewController.js";
 
 const router = express.Router({mergeParams: true});
 
+router.use(isVerified)
 // Get all reviews for a specific product
 // URL: GET /hose/product/:id/reviews
 router.get(

@@ -56,3 +56,8 @@ export const authorizeTo = (...roles) => {
         next(); // Proceed to the next middleware or route handler
     };
 };
+
+export const isVerified = (req, res, next) => {
+    if (!req.user.isVerified) throw new AppError("User is not verified")
+    next();
+};
