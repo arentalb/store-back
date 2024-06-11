@@ -7,7 +7,7 @@ const router = express.Router();
 //everyone
 
 //user
-router.get("/", authenticate, categoryController.getCategories);
+router.get("/", categoryController.getCategories);
 
 //admin
 router.post(

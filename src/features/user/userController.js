@@ -13,6 +13,8 @@ const getProfile = catchAsync(async (req, res) => {
             username: user.username,
             email: user.email,
             role: user.role,
+            isVerified: user.isVerified,
+
         };
         sendSuccess(res, responseData, 201);
     } else {
@@ -34,7 +36,9 @@ const updateProfile = catchAsync(async (req, res) => {
     const userResponse = {
         username: updatedUser.username,
         email: updatedUser.email,
-        role: updatedUser.role
+        role: updatedUser.role,
+        isVerified: updatedUser.isVerified,
+
     };
 
     sendSuccess(res, userResponse, 200);

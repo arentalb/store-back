@@ -6,10 +6,9 @@ import fs from "fs";
 const storage = multer.diskStorage({
     destination: "./public/images/",
     filename: (req, file, cb) => {
-        cb(
-            null,
-            file.originalname.split(".")[0] + "-" + Date.now() + path.extname(file.originalname),
-        );
+        // Add a backslash in front of the file name
+        const fileName = "\\" + file.originalname.split(".")[0] + "-" + Date.now() + path.extname(file.originalname);
+        cb(null, fileName);
     },
 });
 

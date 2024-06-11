@@ -20,7 +20,7 @@ const getProductById = catchAsync(async (req, res) => {
             path: 'user',
             select: 'username'
         }
-    });
+    }).populate("category");
     sendSuccess(res, allProducts, 201);
 
 });
@@ -41,7 +41,7 @@ const createProduct = catchAsync(async (req, res) => {
 
     // Access uploaded files and handle potential errors
     const coverImage = req.files.coverImage ? req.files.coverImage[0] : null;
-    const otherImages = req.files.images ? req.files.images.map(file => file.path) : [];
+    const otherImages = req.files.images ? req.files.images.map(file => `/${file.path}`) : [];
 
     // Ensure coverImage is provided
     if (!coverImage) {
@@ -56,7 +56,7 @@ const createProduct = catchAsync(async (req, res) => {
         stock,
         price,
         availableStock,
-        coverImage: coverImage.path,
+        coverImage: `/${coverImage.path}`,
         images: otherImages,
     });
 
@@ -94,7 +94,7 @@ const updateProduct = catchAsync(async (req, res) => {
         if (product.coverImage) {
             deleteImage(product.coverImage)
         }
-        product.coverImage = coverImage.path;
+        product.coverImage = `/${coverImage.path}`;
     }
 
     // Handle deleted images
@@ -115,7 +115,9 @@ const updateProduct = catchAsync(async (req, res) => {
 
     // Add new images if provided
     if (newImages.length > 0) {
-        product.images.push(...newImages);
+        const updatedImages = newImages.map((img) => `/${img}`)
+
+        product.images.push(...updatedImages);
     }
 
     // Save the updated product
