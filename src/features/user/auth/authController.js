@@ -131,7 +131,7 @@ const refresh = catchAsync(async (req, res) => {
 
 
     setCookie(res, "accessToken", accessToken, process.env.COOKIE_EXPIRES_IN)
-    setCookie(res, "refreshToken", refreshToken, process.env.COOKIE_REFRESH_EXPIRES_IN)
+    setCookie(res, "refreshToken", newRefreshToken, process.env.COOKIE_REFRESH_EXPIRES_IN)
     sendSuccess(res, "Token refreshed successfully", 200);
 });
 
@@ -152,9 +152,9 @@ const emailVerificationRequest = catchAsync(async (req, res) => {
     await user.save();
 
 
-    const link = `${req.protocol}://${req.get("host")}/api/v1/auth/verify-email/confirm?token=${token}`;
+    // const link = `${req.protocol}://${req.get("host")}/api/v1/auth/verify-email/confirm?token=${token}`;
+    const link = `${process.env.FRONTEND_BASE_URL}/verify-email-confirm?token=${token}`;
     const message = `Please visit this link to verify your email`;
-
     await sendEmail({
         email: user.email,
         subject: "Your link for verify your email :)",
@@ -194,7 +194,9 @@ const resetPasswordRequest = catchAsync(async (req, res) => {
 
     await user.save();
 
-    const link = `${req.protocol}://${req.get("host")}/api/v1/auth/password-reset/confirm?token=${token}`;
+    // const link = `${req.protocol}://${req.get("host")}/api/v1/auth/password-reset/confirm?token=${token}`;
+    const link = `${process.env.FRONTEND_BASE_URL}/reset-password-confirm?token=${token}`;
+
     const message = `Please visit link below to verify your email `;
 
     await sendEmail({
@@ -210,6 +212,7 @@ const resetPasswordRequest = catchAsync(async (req, res) => {
 const resetPasswordConfirm = catchAsync(async (req, res) => {
     const token = req.query.token;
     const newPassword = req.body.password
+    console.log(req.body)
     if (!token) throw new AppError("Provide a token ")
     if (!newPassword) throw new AppError("Provide new password")
 

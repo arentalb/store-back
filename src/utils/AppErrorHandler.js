@@ -60,7 +60,7 @@ const handelInvalidToken = () => {
     return new AppError("Invalid Token", 400);
 };
 const handelTokenExpiration = () => {
-    return new AppError("Your token has been expired ", 400);
+    return new AppError("Your token has been expired ", 403);
 };
 const sendErrorDev = (err, res) => {
     res.status(err.statusCode).json({

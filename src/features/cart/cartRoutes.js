@@ -1,4 +1,4 @@
-import {authenticate, authorizeTo, isVerified} from "../../middlwares/authMiddleware.js";
+import {authenticate, authorizeTo} from "../../middlwares/authMiddleware.js";
 import cartController from "./cartController.js";
 import express from "express";
 
@@ -9,7 +9,6 @@ const router = express.Router();
 router.get('/',
     authenticate,
     authorizeTo('User'),
-    isVerified,
     cartController.getCart);
 
 // Add to cart, update quantity, or remove item if quantity is zero
@@ -17,7 +16,6 @@ router.get('/',
 router.post('/',
     authenticate,
     authorizeTo('User'),
-    isVerified,
     cartController.addToCart);
 
 // Update the quantity of an item in the cart
@@ -25,7 +23,6 @@ router.post('/',
 router.put('/',
     authenticate,
     authorizeTo('User'),
-    isVerified,
     cartController.updateCartItem);
 
 // Increment the quantity of an item in the cart
@@ -33,7 +30,6 @@ router.put('/',
 router.post('/increment',
     authenticate,
     authorizeTo('User'),
-    isVerified,
     cartController.incrementCartItem);
 
 // Decrement the quantity of an item in the cart
@@ -41,7 +37,6 @@ router.post('/increment',
 router.post('/decrement',
     authenticate,
     authorizeTo('User'),
-    isVerified,
     cartController.decrementCartItem);
 
 // Remove an item from the cart
@@ -49,7 +44,6 @@ router.post('/decrement',
 router.delete('/item',
     authenticate,
     authorizeTo('User'),
-    isVerified,
     cartController.removeCartItem);
 
 // Remove the entire cart
@@ -57,7 +51,6 @@ router.delete('/item',
 router.delete('/',
     authenticate,
     authorizeTo('User'),
-    isVerified,
     cartController.removeTheCart);
 
 export default router;
