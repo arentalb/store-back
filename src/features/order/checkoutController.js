@@ -3,12 +3,27 @@ import catchAsync from "../../utils/catchAsync.js";
 import OrderModel from "./orderModel.js";
 
 import dotenv from 'dotenv';
+import axios from 'axios';
 import {sendSuccess} from "../../utils/resposeSender.js";
 
 dotenv.config();
 
 // Initialize the Stripe client with the secret key from environment variables
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
+
+// Function to fetch the current exchange rate from IQD to USD
+const getExchangeRate = async () => {
+    try {
+        // You can use any exchange rate API service here
+        const response = await axios.get('https://api.exchangerate-api.com/v4/latest/USD');
+        const rates = response.data.rates;
+        const iqdToUsd = rates.IQD ? 1 / rates.IQD : null;
+        return iqdToUsd;
+    } catch (error) {
+        console.error('Error fetching exchange rate:', error);
+        throw new Error('Could not fetch exchange rate');
+    }
+};
 
 // Define the function to create a checkout session, wrapped in catchAsync to handle errors
 const getCheckoutSession = catchAsync(async (req, res) => {
@@ -26,12 +41,25 @@ const getCheckoutSession = catchAsync(async (req, res) => {
 
     console.log('Order found:', order);
 
+    // Fetch the current exchange rate from IQD to USD
+    const exchangeRate = await getExchangeRate();
+    if (!exchangeRate) {
+        return res.status(500).json({status: 'fail', message: 'Exchange rate not available'});
+    }
+
     // Map the order items to create the line items for the Stripe session
     const line_items = order.items.map(item => {
         // Construct the cover image URL and replace backslashes and spaces
-        let coverImageUrl = `${process.env.BACKEND_PUBLIC_URL}/${item.product.coverImage}`
+        let coverImageUrl = `${process.env.BACKEND_PUBLIC_URL}${item.product.coverImage}`
             .replace(/\\/g, '/') // Replace backslashes with forward slashes
             .replace(/ /g, '%20'); // Replace spaces with %20
+
+        //coverImageUrl :http://localhost:6060/public/images/Standing%20Desk%20cover-1718066903088.avif
+        //it must use the hosted image , and it dose not work with the local image
+        // in production it works fine
+
+        // Convert the price from IQD to USD
+        const priceInUsd = item.price * exchangeRate;
 
         // Return the formatted line item object
         return {
@@ -42,14 +70,14 @@ const getCheckoutSession = catchAsync(async (req, res) => {
                 // Define the product details
                 product_data: {
                     // Set the product name
-                    name: item.name,
+                    name: item.product.name,
                     // Set the product description
                     description: item.product.description,
                     // Set the product images, using the corrected URL
                     images: [coverImageUrl],
                 },
                 // Convert the product price to cents and set it
-                unit_amount: item.price * 100,
+                unit_amount: Math.round(priceInUsd * 100),
             },
             // Set the quantity of the product
             quantity: item.quantity,
@@ -72,7 +100,6 @@ const getCheckoutSession = catchAsync(async (req, res) => {
         // Define the cancel URL, using environment variable for frontend base URL
         cancel_url: `${process.env.FRONTEND_BASE_URL}/cancel`,
     });
-
 
     console.log('Checkout session created:', session.id);
 

@@ -57,7 +57,7 @@ const updateCartItem = catchAsync(async (req, res) => {
         throw new AppError("Product not found", 404);
     }
 
-    if (quantity > product.availableStock) {
+    if (quantity > product.availableStock + 1) {
         throw new AppError("Requested quantity exceeds available stock", 400);
     }
 
