@@ -1,4 +1,4 @@
-import {authenticate, authorizeTo,} from "../../middlwares/authMiddleware.js";
+import {authenticate, authorizeTo, isVerified,} from "../../middlwares/authMiddleware.js";
 import express from "express";
 import categoryController from "./categoryController.js";
 
@@ -13,19 +13,19 @@ router.get("/", categoryController.getCategories);
 router.post(
     "/",
     authenticate,
-    authorizeTo('Admin', 'SuperAdmin'),
+    authorizeTo('Admin', 'SuperAdmin'), isVerified,
     categoryController.createCategory,
 );
 router.put(
     "/:id",
     authenticate,
-    authorizeTo('Admin', 'SuperAdmin'),
+    authorizeTo('Admin', 'SuperAdmin'), isVerified,
     categoryController.updateCategory,
 );
 router.delete(
     "/:id",
     authenticate,
-    authorizeTo('Admin', 'SuperAdmin'),
+    authorizeTo('Admin', 'SuperAdmin'), isVerified,
     categoryController.deleteCategory,
 );
 

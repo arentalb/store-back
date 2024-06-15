@@ -1,6 +1,6 @@
 import express from "express";
 import userController from "./userController.js";
-import {authenticate, authorizeTo} from "../../middlwares/authMiddleware.js";
+import {authenticate, authorizeTo, isVerified} from "../../middlwares/authMiddleware.js";
 
 const router = express.Router();
 
@@ -10,10 +10,10 @@ router.put('/me', authenticate, userController.updateProfile);
 router.put('/change-password', authenticate, userController.changePassword);
 
 // Admin Routes
-router.get('/admin', authenticate, authorizeTo('Admin', 'SuperAdmin'), userController.getAllUsers);
-router.get('/admin/:id', authenticate, authorizeTo('Admin', 'SuperAdmin'), userController.getUserById);
+router.get('/admin', authenticate, authorizeTo('Admin', 'SuperAdmin'), isVerified, userController.getAllUsers);
+router.get('/admin/:id', authenticate, authorizeTo('Admin', 'SuperAdmin'), isVerified, userController.getUserById);
 
 // Super Admin Routes
-router.put('/admin/:id', authenticate, authorizeTo('SuperAdmin'), userController.updateUser);
+router.put('/admin/:id', authenticate, authorizeTo('SuperAdmin'), isVerified, userController.updateUser);
 
 export default router;

@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Fix some bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/cart/cartController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/cart/cartController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/order/checkoutController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/order/checkoutController.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +29,9 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
@@ -146,7 +145,9 @@
       <workItem from="1718237378771" duration="1253000" />
       <workItem from="1718246652395" duration="7000" />
       <workItem from="1718274050967" duration="11671000" />
-      <workItem from="1718322360895" duration="3613000" />
+      <workItem from="1718322360895" duration="5997000" />
+      <workItem from="1718372140659" duration="1857000" />
+      <workItem from="1718452328835" duration="6169000" />
     </task>
     <task id="LOCAL-00001" summary="IDE configuration files">
       <option name="closed" value="true" />
@@ -324,7 +325,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718299726321</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Fix some bug">
+      <option name="closed" value="true" />
+      <created>1718326554288</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1718326554288</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
