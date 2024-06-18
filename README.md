@@ -1,7 +1,7 @@
-# Supermarket E-Commerce  - Backend
-Also, you can check out the frontend repository for this backend at https://github.com/arentalb/supermarket-front
+# Store E-Commerce  - Backend
+Also, you can check out the frontend repository for this backend at https://github.com/arentalb/store-front
 
-Welcome to the backend repository for the Supermarket E-Commerce ! This project is developed using Node.js, Express.js, Mongoose, and MongoDB.
+Welcome to the backend repository for the Store E-Commerce ! This project is developed using Node.js, Express.js, Mongoose, and MongoDB.
 
 ## Table of Contents
 
@@ -13,7 +13,7 @@ Welcome to the backend repository for the Supermarket E-Commerce ! This project 
 
 ## Introduction
 
-This repository contains the backend code for the Supermarket E-Commerce . The application provides a comprehensive solution for online shopping, including APIs for user authentication, product management, order processing, and an admin dashboard for managing products and orders.
+This repository contains the backend code for the Store E-Commerce . The application provides a comprehensive solution for online shopping, including APIs for user authentication, product management, order processing, and an admin dashboard for managing products and orders.
 
 ## Setup Instructions
 
@@ -28,8 +28,8 @@ This repository contains the backend code for the Supermarket E-Commerce . The a
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/arentalb/e-commerce-back
-    cd e-commerce-back
+    git clone https://github.com/arentalb/store-back
+    cd store-back
     ```
 2. Install dependencies:
     ```bash
