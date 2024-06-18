@@ -54,4 +54,4 @@ To start the Node.js server:
 npm start
 ```
 
-you can see the preview of the final app in this repository https://github.com/arentalb/supermarket-front
+you can see the preview of the final app in this repository https://github.com/arentalb/store-front
