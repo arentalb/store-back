@@ -3,6 +3,7 @@ import Product from "./Product.js";
 import catchAsync from "../../utils/catchAsync.js";
 import AppError from "../../utils/AppError.js";
 import {deleteImage} from "../../utils/fileupload.js";
+import Review from "../review/Review.js";
 
 const getAllProducts = catchAsync(async (req, res) => {
     const allProducts = await Product.find()
@@ -11,9 +12,9 @@ const getAllProducts = catchAsync(async (req, res) => {
     sendSuccess(res, allProducts, 200);
 })
 const getProductById = catchAsync(async (req, res) => {
-
     const productId = req.params.id;
-    const allProducts = await Product.findById(productId).populate({
+
+    const product = await Product.findById(productId).populate({
         path: 'reviews',
         select: 'rating comment user createdAt',
         populate: {
@@ -21,9 +22,23 @@ const getProductById = catchAsync(async (req, res) => {
             select: 'username'
         }
     }).populate("category");
-    sendSuccess(res, allProducts, 201);
 
+    if (!product) {
+        return res.status(404).json({message: 'Product not found'});
+    }
+
+    const reviews = await Review.find({product: productId});
+    const totalRating = reviews.reduce((acc, review) => acc + review.rating, 0);
+    const averageRating = (totalRating / reviews.length) || 0;
+    const formattedAverageRating = averageRating.toFixed(1);
+
+    const productJson = product.toJSON();
+    productJson.averageRating = parseFloat(formattedAverageRating);
+
+    sendSuccess(res, productJson, 200);
 });
+
+
 const getNewProducts = catchAsync(async (req, res) => {
     const newProducts = await Product.find().sort({createdAt: -1}).limit(4);
     sendSuccess(res, newProducts, 201);
