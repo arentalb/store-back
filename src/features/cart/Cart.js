@@ -61,21 +61,24 @@ cartSchema.methods.addItem = async function (product, quantity) {
                 quantity: quantity,
                 coverImage: product.coverImage
             });
-            await product.decrementAvailableStock(quantity);
+            product.availableStock -= quantity;  // Decrement available stock
+            await product.save();  // Save the updated product
         }
     } else {
         const item = this.items[itemIndex];
         if (quantity === 0) {
             this.items.splice(itemIndex, 1);
-            await product.incrementAvailableStock(item.quantity);
+            product.availableStock += item.quantity;  // Increment available stock
+            await product.save();  // Save the updated product
         } else {
             const quantityChange = quantity - item.quantity;
             item.quantity = quantity;
             if (quantityChange > 0) {
-                await product.decrementAvailableStock(quantityChange);
+                product.availableStock -= quantityChange;  // Decrement available stock
             } else {
-                await product.incrementAvailableStock(-quantityChange);
+                product.availableStock += -quantityChange;  // Increment available stock
             }
+            await product.save();  // Save the updated product
         }
     }
 
@@ -100,15 +103,17 @@ cartSchema.methods.updateItemQuantity = async function (productId, quantity) {
     item.quantity = quantity;
 
     if (quantityChange > 0) {
-        await product.decrementAvailableStock(quantityChange);
+        product.availableStock -= quantityChange;  // Decrement available stock
     } else {
-        await product.incrementAvailableStock(-quantityChange);
+        product.availableStock += -quantityChange;  // Increment available stock
     }
 
+    await product.save();  // Save the updated product
     await this.save();
     return this;
 };
 
+// Instance method to remove an item from the cart
 // Instance method to remove an item from the cart
 cartSchema.methods.removeItem = async function (productId) {
     const itemIndex = this.items.findIndex(item => item.product.toString() === productId);
@@ -117,7 +122,8 @@ cartSchema.methods.removeItem = async function (productId) {
         const item = this.items[itemIndex];
         const product = await Product.findById(productId);
         if (product) {
-            await product.incrementAvailableStock(item.quantity);
+            product.availableStock += item.quantity;  // Increment available stock
+            await product.save();  // Save the updated product
         }
         this.items.splice(itemIndex, 1);
         await this.save();

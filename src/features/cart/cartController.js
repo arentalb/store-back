@@ -57,17 +57,32 @@ const updateCartItem = catchAsync(async (req, res) => {
         throw new AppError("Product not found", 404);
     }
 
-    if (quantity > product.availableStock + 1) {
-        throw new AppError("Requested quantity exceeds available stock", 400);
-    }
-
     const cart = await Cart.findOne({user: userId});
-
     if (!cart) {
         throw new AppError('Cart not found', 404);
     }
 
-    await cart.updateItemQuantity(productId, quantity);
+    const item = cart.items.find(item => item.product.toString() === productId);
+    if (!item) {
+        throw new AppError('Item not found in cart', 404);
+    }
+
+    const quantityChange = quantity - item.quantity;
+
+    if (quantityChange > 0 && quantity > product.availableStock + item.quantity) {
+        throw new AppError("Requested quantity exceeds available stock", 400);
+    }
+
+    item.quantity = quantity;
+
+    if (quantityChange > 0) {
+        product.availableStock -= quantityChange; // Decrement available stock
+    } else {
+        product.availableStock += -quantityChange; // Increment available stock
+    }
+
+    await cart.save();
+    await product.save(); // Save the updated product
     sendSuccess(res, cart, 200);
 });
 
@@ -94,10 +109,11 @@ const incrementCartItem = catchAsync(async (req, res) => {
     }
 
     item.quantity += 1;
-    product.availableStock -= 1;
+    product.availableStock -= 1;  // Decrement available stock
 
     await cart.save();
-    await product.save();
+    await product.save();  // Save the updated product
+
     sendSuccess(res, cart, 200);
 });
 
@@ -124,8 +140,8 @@ const decrementCartItem = catchAsync(async (req, res) => {
         cart.items.splice(itemIndex, 1);
         const product = await Product.findById(productId);
         if (product) {
-            product.availableStock += 1;
-            await product.save();
+            product.availableStock += 1;  // Increment available stock
+            await product.save();  // Save the updated product
         }
         await cart.save();
         return sendSuccess(res, cart, 200);
@@ -133,10 +149,11 @@ const decrementCartItem = catchAsync(async (req, res) => {
 
     item.quantity -= 1;
     const product = await Product.findById(productId);
-    product.availableStock += 1;
+    product.availableStock += 1;  // Increment available stock
 
     await cart.save();
-    await product.save();
+    await product.save();  // Save the updated product
+
     sendSuccess(res, cart, 200);
 });
 
@@ -146,12 +163,25 @@ const removeCartItem = catchAsync(async (req, res) => {
     const userId = req.user.id;
 
     const cart = await Cart.findOne({user: userId});
-
     if (!cart) {
         throw new AppError('Cart not found', 404);
     }
 
-    await cart.removeItem(productId);
+    const itemIndex = cart.items.findIndex(item => item.product.toString() === productId);
+
+    if (itemIndex === -1) {
+        throw new AppError('Item not found in cart', 404);
+    }
+
+    const item = cart.items[itemIndex];
+    const product = await Product.findById(productId);
+    if (product) {
+        product.availableStock += item.quantity; // Increment available stock
+        await product.save(); // Save the updated product
+    }
+
+    cart.items.splice(itemIndex, 1);
+    await cart.save();
     sendSuccess(res, cart, 200);
 });
 
@@ -159,11 +189,20 @@ const removeCartItem = catchAsync(async (req, res) => {
 const removeTheCart = catchAsync(async (req, res) => {
     const userId = req.user.id;
 
-    const cart = await Cart.findOneAndDelete({user: userId});
-
+    const cart = await Cart.findOne({user: userId});
     if (!cart) {
         throw new AppError('Cart not found', 404);
     }
+
+    for (const item of cart.items) {
+        const product = await Product.findById(item.product);
+        if (product) {
+            product.availableStock += item.quantity; // Increment available stock
+            await product.save(); // Save the updated product
+        }
+    }
+
+    await Cart.findOneAndDelete({user: userId});
 
     sendSuccess(res, "Cart deleted", 200);
 });
