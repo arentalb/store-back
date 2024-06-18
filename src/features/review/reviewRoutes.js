@@ -4,20 +4,25 @@ import reviewController from "./reviewController.js";
 
 const router = express.Router({mergeParams: true});
 
-router.use(isVerified)
+
 // Get all reviews for a specific product
 // URL: GET /hose/product/:id/reviews
 router.get(
     '/',
-    authenticate,
+    authenticate, isVerified,
     reviewController.getAllReviews
 );
 
+router.get(
+    '/reviewed',
+    authenticate, isVerified,
+    reviewController.hasReviewed
+);
 // Get a specific review for a specific product
 // URL: GET /hose/product/:id/reviews/:reviewId
 router.get(
     '/:reviewId',
-    authenticate,
+    authenticate, isVerified,
     reviewController.getReview
 );
 
@@ -25,7 +30,7 @@ router.get(
 // URL: POST /hose/product/:id/reviews
 router.post(
     '/',
-    authenticate,
+    authenticate, isVerified,
     reviewController.addReview
 );
 
@@ -34,7 +39,7 @@ router.post(
 router.put(
     '/:reviewId',
     authenticate,
-    authorizeTo('Admin', 'SuperAdmin', 'User'),
+    authorizeTo('Admin', 'SuperAdmin', 'User'), isVerified,
     reviewController.updateReview
 );
 
@@ -43,7 +48,7 @@ router.put(
 router.delete(
     '/:reviewId',
     authenticate,
-    authorizeTo('Admin', 'SuperAdmin'),
+    authorizeTo('Admin', 'SuperAdmin'), isVerified,
     reviewController.deleteReview
 );
 

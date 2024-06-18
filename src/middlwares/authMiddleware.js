@@ -58,6 +58,7 @@ export const authorizeTo = (...roles) => {
 };
 
 export const isVerified = (req, res, next) => {
+    console.log(req.user)
     if (!req.user.isVerified) throw new AppError("User is not verified")
     next();
 };

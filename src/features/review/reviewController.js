@@ -38,25 +38,52 @@ const getReview = catchAsync(async (req, res) => {
 // Add a new review to a specific product
 // URL: POST /hose/products/:id/reviews
 const addReview = catchAsync(async (req, res) => {
-    const {rating, comment} = req.body
+    const {rating, comment} = req.body;
 
-    const product = await Product.findById(req.params.id)
-    const user = await User.findById(req.user._id)
+    const product = await Product.findById(req.params.id);
+    const user = await User.findById(req.user._id);
 
     if (!product) {
-        throw new AppError("Inter valid product id")
+        throw new AppError("Invalid product ID");
     }
     if (!user) {
-        throw new AppError("Inter valid user id")
+        throw new AppError("Invalid user ID");
     }
+
+    // Check if user has already reviewed this product
+    const existingReview = await Review.findOne({product: product._id, user: user._id});
+    if (existingReview) {
+        throw new AppError("You have already reviewed this product", 400);
+    }
+
     const review = await Review.create({
         product: product._id,
         user: user._id,
         rating,
         comment
-    })
+    });
+
     sendSuccess(res, review, 201);
 });
+// Check if a user has already reviewed a specific product
+// URL: GET /hose/products/:id/reviewed
+const hasReviewed = catchAsync(async (req, res) => {
+    const product = await Product.findById(req.params.id);
+    const user = await User.findById(req.user._id);
+
+    if (!product) {
+        throw new AppError("Invalid product ID");
+    }
+    if (!user) {
+        throw new AppError("Invalid user ID");
+    }
+
+    const existingReview = await Review.findOne({product: product._id, user: user._id});
+    const reviewed = !!existingReview;
+
+    sendSuccess(res, {reviewed}, 200);
+});
+
 
 // Update a specific review for a specific product
 // URL: PUT /hose/products/:id/reviews/:reviewId
@@ -101,5 +128,5 @@ export default {
     addReview,
     updateReview,
     deleteReview,
-
+    hasReviewed
 };

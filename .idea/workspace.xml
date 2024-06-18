@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Fix some bug">
+    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Add isVerified middleware to those routes that need to their user to be verified">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_9_2024_9_51_PM_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_9_2024_9_51_PM__Changes_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/review/reviewController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/review/reviewController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/review/reviewRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/review/reviewRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middlwares/authMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middlwares/authMiddleware.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +152,9 @@
       <workItem from="1718274050967" duration="11671000" />
       <workItem from="1718322360895" duration="5997000" />
       <workItem from="1718372140659" duration="1857000" />
-      <workItem from="1718452328835" duration="6169000" />
+      <workItem from="1718452328835" duration="7060000" />
+      <workItem from="1718650028653" duration="3655000" />
+      <workItem from="1718710495131" duration="1774000" />
     </task>
     <task id="LOCAL-00001" summary="IDE configuration files">
       <option name="closed" value="true" />
@@ -333,7 +340,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718326554288</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Add isVerified middleware to those routes that need to their user to be verified">
+      <option name="closed" value="true" />
+      <created>1718474586142</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1718474586142</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -387,6 +402,7 @@
     <MESSAGE value="Change the option of teh jwt in production" />
     <MESSAGE value="Add some changes to not verified users" />
     <MESSAGE value="Fix some bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix some bug" />
+    <MESSAGE value="Add isVerified middleware to those routes that need to their user to be verified" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add isVerified middleware to those routes that need to their user to be verified" />
   </component>
 </project>
