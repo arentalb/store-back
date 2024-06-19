@@ -20,6 +20,7 @@ const setCookie = (res, name, token, maxAge) => {
     }
     res.cookie(name, token, {
         httpOnly: true,
+        sameSite: 'None',
         secure: process.env.NODE_ENV === 'production',
         maxAge: maxAgeInMs,
     });
