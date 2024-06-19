@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Create sample env file for production and development">
+    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Make the email design and content to vary depending on the type of the email">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/email.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/email.js" afterDir="false" />
     </list>
@@ -154,7 +154,7 @@
       <workItem from="1718731185441" duration="304000" />
       <workItem from="1718733168159" duration="49000" />
       <workItem from="1718733344167" duration="2326000" />
-      <workItem from="1718755442011" duration="5011000" />
+      <workItem from="1718755442011" duration="6497000" />
     </task>
     <task id="LOCAL-00001" summary="IDE configuration files">
       <option name="closed" value="true" />
@@ -396,7 +396,23 @@
       <option name="project" value="LOCAL" />
       <updated>1718762371134</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Change the email sender to send email to gmail instead of mailtrap">
+      <option name="closed" value="true" />
+      <created>1718763473622</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1718763473622</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Make the email design and content to vary depending on the type of the email">
+      <option name="closed" value="true" />
+      <created>1718764166364</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1718764166364</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -431,7 +447,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="IDE configuration files" />
     <MESSAGE value="Fix a bug" />
     <MESSAGE value="Implement the category functionalities" />
     <MESSAGE value="Reformat files" />
@@ -455,6 +470,8 @@
     <MESSAGE value="Add header for getting public directory images" />
     <MESSAGE value="Set same site to none on the cookie" />
     <MESSAGE value="Create sample env file for production and development" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create sample env file for production and development" />
+    <MESSAGE value="Change the email sender to send email to gmail instead of mailtrap" />
+    <MESSAGE value="Make the email design and content to vary depending on the type of the email" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make the email design and content to vary depending on the type of the email" />
   </component>
 </project>

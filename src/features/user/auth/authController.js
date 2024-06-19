@@ -155,13 +155,17 @@ const emailVerificationRequest = catchAsync(async (req, res) => {
 
     // const link = `${req.protocol}://${req.get("host")}/api/v1/auth/verify-email/confirm?token=${token}`;
     const link = `${process.env.FRONTEND_BASE_URL}/verify-email-confirm?token=${token}`;
-    const message = `Please visit this link to verify your email`;
+    const subject = 'Verify Your Email Address';
+    const message = 'Please visit this link to verify your email.';
+
     await sendEmail({
+        type: 'verifyEmail',
         email: user.email,
-        subject: "Your link for verify your email :)",
+        subject: subject,
         message: message,
         link: link
     });
+
     sendSuccess(res, "Verify email send successfully ", 200);
 
 })
@@ -197,15 +201,17 @@ const resetPasswordRequest = catchAsync(async (req, res) => {
 
     // const link = `${req.protocol}://${req.get("host")}/api/v1/auth/password-reset/confirm?token=${token}`;
     const link = `${process.env.FRONTEND_BASE_URL}/reset-password-confirm?token=${token}`;
-
-    const message = `Please visit link below to verify your email `;
+    const subject = 'Reset Your Password'
+    const message = 'Click the link below to reset your password.';
 
     await sendEmail({
+        type: 'resetPassword',
         email: user.email,
-        subject: "Your link for reset your password :)",
+        subject: subject,
         message: message,
         link: link
     });
+
     sendSuccess(res, "Reset password email send successfully ", 200);
 
 })
