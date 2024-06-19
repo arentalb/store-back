@@ -52,7 +52,11 @@ app.use(xssClean());
 app.use(helmet());
 
 const __dirname = path.resolve();
-app.use("/public/images", express.static(path.join(__dirname + "/public/images")));
+// Middleware to set the Cross-Origin-Resource-Policy header
+app.use('/public/images', (req, res, next) => {
+    res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
+    next();
+}, express.static(path.join(__dirname + "/public/images")));
 
 app.use("/api/v1", routes);
 app.get("/test", (req, res, next) => {
