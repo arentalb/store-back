@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Add header for getting public directory images">
+    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Set same site to none on the cookie">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -153,7 +154,7 @@
       <workItem from="1718731185441" duration="304000" />
       <workItem from="1718733168159" duration="49000" />
       <workItem from="1718733344167" duration="2326000" />
-      <workItem from="1718755442011" duration="3001000" />
+      <workItem from="1718755442011" duration="3800000" />
     </task>
     <task id="LOCAL-00001" summary="IDE configuration files">
       <option name="closed" value="true" />
@@ -379,7 +380,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718759891956</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Set same site to none on the cookie">
+      <option name="closed" value="true" />
+      <created>1718761559786</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1718761559786</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -436,6 +445,7 @@
     <MESSAGE value="Fix some bug" />
     <MESSAGE value="Some webstorm ide change" />
     <MESSAGE value="Add header for getting public directory images" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add header for getting public directory images" />
+    <MESSAGE value="Set same site to none on the cookie" />
+    <option name="LAST_COMMIT_MESSAGE" value="Set same site to none on the cookie" />
   </component>
 </project>
