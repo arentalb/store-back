@@ -18,12 +18,17 @@ const setCookie = (res, name, token, maxAge) => {
     } catch (error) {
         throw new Error("Invalid maxAge format. Use a format like '1h' or '2d'.");
     }
-    res.cookie(name, token, {
+    const cookieOptions = {
         httpOnly: true,
-        sameSite: 'None',
         secure: process.env.NODE_ENV === 'production',
         maxAge: maxAgeInMs,
-    });
+    };
+    if (process.env.NODE_ENV === 'production') {
+        cookieOptions.sameSite = 'None';
+    }
+    res.cookie(name, token, cookieOptions);
+
+
 };
 
 
