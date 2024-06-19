@@ -9,7 +9,6 @@ import sendEmail from "../../../utils/email.js";
 import crypto from "crypto";
 import parseDuration from "../../../utils/parseDuration.js";
 
-
 const setCookie = (res, name, token, maxAge) => {
     let maxAgeInMs;
 
@@ -21,15 +20,14 @@ const setCookie = (res, name, token, maxAge) => {
 
     const cookieOptions = {
         httpOnly: true,
-        secure: false,
+        secure: process.env.NODE_ENV === 'production',
         sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax',
-        domain: 'store-back-pqcv.onrender.com',
+        maxAge: maxAgeInMs,
         path: '/',
     };
 
     res.cookie(name, token, cookieOptions);
 };
-
 
 const register = catchAsync(async (req, res) => {
     const {username, email, password} = req.body;
@@ -41,26 +39,12 @@ const register = catchAsync(async (req, res) => {
     if (userExists) {
         throw new AppError("User already exists with that email", 409);
     } else {
-
         await User.create({
             username,
             email,
             password,
         });
 
-        // const {accessToken, refreshToken} = createToken(newUser._id);
-        //
-        // newUser.refreshToken = refreshToken;
-        // await newUser.save();
-        //
-        // setCookie(res, "accessToken", accessToken ,process.env.COOKIE_EXPIRES_IN)
-        // setCookie(res, "refreshToken", refreshToken,process.env.COOKIE_REFRESH_EXPIRES_IN)
-        // const userResponse = {
-        //     username: newUser.username,
-        //     email: newUser.email,
-        //     role: newUser.role,
-        //     isVerified: newUser.isVerified
-        // };
         sendSuccess(res, "User registered", 201);
     }
 });
@@ -75,22 +59,20 @@ const login = catchAsync(async (req, res) => {
     if (existingUser) {
         const isPasswordValid = await bcrypt.compare(password, existingUser.password);
         if (isPasswordValid) {
-            // if (!existingUser.isVerified) throw new AppError("User is not verified")
-
             const {accessToken, refreshToken} = createToken(existingUser._id);
 
             existingUser.refreshToken = refreshToken;
             await existingUser.save();
 
-            setCookie(res, "accessToken", accessToken, process.env.COOKIE_EXPIRES_IN)
-            setCookie(res, "refreshToken", refreshToken, process.env.COOKIE_REFRESH_EXPIRES_IN)
-
+            setCookie(res, "refreshToken", refreshToken, process.env.COOKIE_REFRESH_EXPIRES_IN);
 
             const userResponse = {
                 username: existingUser.username,
                 email: existingUser.email,
                 role: existingUser.role,
-                isVerified: existingUser.isVerified
+                isVerified: existingUser.isVerified,
+                accessToken,
+                refreshToken
             };
             sendSuccess(res, userResponse, 200);
         } else {
@@ -117,7 +99,7 @@ const logout = catchAsync(async (req, res) => {
 });
 
 const refresh = catchAsync(async (req, res) => {
-    const {refreshToken} = req.cookies;
+    const {refreshToken} = req.body;  // Read refreshToken from request body
     if (!refreshToken) {
         throw new AppError("Refresh token is required", 400);
     }
@@ -134,30 +116,27 @@ const refresh = catchAsync(async (req, res) => {
     existingUser.refreshToken = newRefreshToken;
     await existingUser.save();
 
-
-    setCookie(res, "accessToken", accessToken, process.env.COOKIE_EXPIRES_IN)
-    setCookie(res, "refreshToken", newRefreshToken, process.env.COOKIE_REFRESH_EXPIRES_IN)
-    sendSuccess(res, "Token refreshed successfully", 200);
+    const userResponse = {
+        accessToken,        // Include accessToken in response for local storage
+        refreshToken: newRefreshToken  // Include new refreshToken in response for local storage
+    };
+    sendSuccess(res, userResponse, 200);
 });
 
 const emailVerificationRequest = catchAsync(async (req, res) => {
-
-    if (!req.body.email) throw new AppError("Please provide email ");
+    if (!req.body.email) throw new AppError("Please provide email");
 
     const user = await User.findOne({email: req.body.email});
-    if (!user) throw new AppError("User with that email dose not exists ");
+    if (!user) throw new AppError("User with that email does not exist");
 
     const token = crypto.randomBytes(32).toString('hex');
     user.emailVerificationToken = token;
-
 
     const expiresInMs = parseDuration(process.env.EMAIL_VERIFICATION_EXPIRES_IN);
     user.emailVerificationExpires = Date.now() + expiresInMs;
 
     await user.save();
 
-
-    // const link = `${req.protocol}://${req.get("host")}/api/v1/auth/verify-email/confirm?token=${token}`;
     const link = `${process.env.FRONTEND_BASE_URL}/verify-email-confirm?token=${token}`;
     const subject = 'Verify Your Email Address';
     const message = 'Please visit this link to verify your email.';
@@ -167,34 +146,32 @@ const emailVerificationRequest = catchAsync(async (req, res) => {
         email: user.email,
         subject: subject,
         message: message,
-        link: link
+        link: link,
     });
 
-    sendSuccess(res, "Verify email send successfully ", 200);
-
-})
+    sendSuccess(res, "Verify email sent successfully", 200);
+});
 
 const emailVerificationConfirm = catchAsync(async (req, res) => {
     const token = req.query.token;
-    if (!token) throw new AppError("Provide a token ")
+    if (!token) throw new AppError("Provide a token");
     const user = await User.findOne({emailVerificationToken: token});
     if (!user || user.emailVerificationExpires < Date.now()) {
         throw new AppError("Invalid or expired token", 400);
     }
     user.isVerified = true;
-    user.emailVerificationToken = undefined
-    user.emailVerificationExpires = undefined
+    user.emailVerificationToken = undefined;
+    user.emailVerificationExpires = undefined;
     await user.save();
 
     sendSuccess(res, "Email verified successfully", 200);
 });
 
 const resetPasswordRequest = catchAsync(async (req, res) => {
-
-    if (!req.body.email) throw new AppError("Please provide email ");
+    if (!req.body.email) throw new AppError("Please provide email");
 
     const user = await User.findOne({email: req.body.email});
-    if (!user) throw new AppError("User with that email dose not exists ");
+    if (!user) throw new AppError("User with that email does not exist");
     const token = crypto.randomBytes(32).toString('hex');
     user.resetPasswordToken = token;
 
@@ -203,9 +180,8 @@ const resetPasswordRequest = catchAsync(async (req, res) => {
 
     await user.save();
 
-    // const link = `${req.protocol}://${req.get("host")}/api/v1/auth/password-reset/confirm?token=${token}`;
     const link = `${process.env.FRONTEND_BASE_URL}/reset-password-confirm?token=${token}`;
-    const subject = 'Reset Your Password'
+    const subject = 'Reset Your Password';
     const message = 'Click the link below to reset your password.';
 
     await sendEmail({
@@ -213,19 +189,17 @@ const resetPasswordRequest = catchAsync(async (req, res) => {
         email: user.email,
         subject: subject,
         message: message,
-        link: link
+        link: link,
     });
 
-    sendSuccess(res, "Reset password email send successfully ", 200);
-
-})
+    sendSuccess(res, "Reset password email sent successfully", 200);
+});
 
 const resetPasswordConfirm = catchAsync(async (req, res) => {
     const token = req.query.token;
-    const newPassword = req.body.password
-    console.log(req.body)
-    if (!token) throw new AppError("Provide a token ")
-    if (!newPassword) throw new AppError("Provide new password")
+    const newPassword = req.body.password;
+    if (!token) throw new AppError("Provide a token");
+    if (!newPassword) throw new AppError("Provide new password");
 
     const user = await User.findOne({resetPasswordToken: token});
     if (!user || user.resetPasswordExpires < Date.now()) {
@@ -233,11 +207,11 @@ const resetPasswordConfirm = catchAsync(async (req, res) => {
     }
 
     user.password = newPassword;
-    user.resetPasswordToken = undefined
-    user.resetPasswordExpires = undefined
+    user.resetPasswordToken = undefined;
+    user.resetPasswordExpires = undefined;
     await user.save({runValidators: true});
 
-    sendSuccess(res, "Password reset is done  ", 200);
+    sendSuccess(res, "Password reset is done", 200);
 });
 
 export default {

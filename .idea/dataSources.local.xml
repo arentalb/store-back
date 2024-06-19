@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="WS-231.9225.18">
-    <data-source name="supermarketDev@supermarket.f2fjmdj.mongodb.net" uuid="578046c8-5296-4f72-a0cb-a35707e3487e">
+    <data-source name="@supermarket.f2fjmdj.mongodb.net" uuid="3ff2765e-36ad-49be-871f-326df6cd312b">
       <database-info product="Mongo DB" version="7.0.11" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.18" dbms="MONGO" exact-version="7.0.11" exact-driver-version="1.18" />
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <secret-storage>master_key</secret-storage>
       <user-name>arentalb00</user-name>
       <schema-mapping>
         <introspection-scope>
-          <node kind="schema" qname="@" />
+          <node kind="schema">
+            <name qname="@" />
+            <name qname="supermarketDev" />
+          </node>
         </introspection-scope>
       </schema-mapping>
-    </data-source>
-    <data-source name="@supermarket.f2fjmdj.mongodb.net" uuid="3b2e8aaa-15c7-4437-863c-970b7ef146d4">
-      <database-info product="Mongo DB" version="7.0.11" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.18" dbms="MONGO" exact-version="7.0.11" />
-      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
-      <secret-storage>master_key</secret-storage>
-      <user-name>arentalb00</user-name>
-      <schema-mapping />
     </data-source>
   </component>
 </project>

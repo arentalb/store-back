@@ -8,10 +8,7 @@ export const authenticate = catchAsync(async (req, res, next) => {
     let token = "";
 
     // Check if the authorization header exists and starts with "Bearer "
-    if (
-        req.headers.authorization &&
-        req.headers.authorization.startsWith("Bearer ")
-    ) {
+    if (req.headers.authorization && req.headers.authorization.startsWith("Bearer ")) {
         // Extract the token from the authorization header
         token = req.headers.authorization.split(" ")[1];
     }
@@ -58,7 +55,6 @@ export const authorizeTo = (...roles) => {
 };
 
 export const isVerified = (req, res, next) => {
-    console.log(req.user)
-    if (!req.user.isVerified) throw new AppError("User is not verified")
+    if (!req.user.isVerified) throw new AppError("User is not verified");
     next();
 };
