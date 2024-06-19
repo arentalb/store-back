@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Make the email design and content to vary depending on the type of the email">
+    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Rename order model file">
+      <change afterPath="$PROJECT_DIR$/src/features/metrics/metricsController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/metrics/metricsRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/user/auth/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/user/auth/authController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +157,7 @@
       <workItem from="1718731185441" duration="304000" />
       <workItem from="1718733168159" duration="49000" />
       <workItem from="1718733344167" duration="2326000" />
-      <workItem from="1718755442011" duration="7765000" />
+      <workItem from="1718755442011" duration="10821000" />
     </task>
     <task id="LOCAL-00001" summary="IDE configuration files">
       <option name="closed" value="true" />
@@ -419,7 +423,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718765189198</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Rename order model file">
+      <option name="closed" value="true" />
+      <created>1718766695358</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1718766695358</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -454,7 +466,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix a bug" />
     <MESSAGE value="Implement the category functionalities" />
     <MESSAGE value="Reformat files" />
     <MESSAGE value="Implement file uploading functionality" />
@@ -479,6 +490,7 @@
     <MESSAGE value="Create sample env file for production and development" />
     <MESSAGE value="Change the email sender to send email to gmail instead of mailtrap" />
     <MESSAGE value="Make the email design and content to vary depending on the type of the email" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make the email design and content to vary depending on the type of the email" />
+    <MESSAGE value="Rename order model file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename order model file" />
   </component>
 </project>

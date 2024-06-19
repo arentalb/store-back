@@ -6,6 +6,7 @@ import productRoutes from "./features/product/productRoutes.js";
 import cartRoutes from "./features/cart/cartRoutes.js";
 import orderRoutes from "./features/order/orderRoutes.js";
 import AppError from "./utils/AppError.js";
+import metricsRoutes from "./features/metrics/metricsRoutes.js";
 
 const router = express.Router();
 
@@ -15,6 +16,7 @@ router.use("/category", categoryRoutes);
 router.use("/products", productRoutes);
 router.use("/carts", cartRoutes);
 router.use("/orders", orderRoutes);
+router.use("/metrics", metricsRoutes);
 
 router.all("*", (req, res, next) => {
     next(new AppError(`Cannot find ${req.originalUrl} on this server`, 404));
