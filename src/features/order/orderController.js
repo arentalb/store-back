@@ -1,7 +1,7 @@
 import {sendSuccess} from "../../utils/resposeSender.js";
 import catchAsync from "../../utils/catchAsync.js";
-import orderModel from "./orderModel.js";
-import OrderModel from "./orderModel.js";
+import orderModel from "./Order.js";
+import Order from "./Order.js";
 import Cart from "../cart/Cart.js";
 
 
@@ -51,7 +51,7 @@ const createOrderFromCart = catchAsync(async (req, res) => {
         paymentMethod: "Credit card",
     };
 
-    const order = await OrderModel.create(orderData)
+    const order = await Order.create(orderData)
 
     cart.items = [];
     await cart.save();

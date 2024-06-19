@@ -1,6 +1,6 @@
 import Stripe from 'stripe';
 import catchAsync from "../../utils/catchAsync.js";
-import OrderModel from "./orderModel.js";
+import Order from "./Order.js";
 
 import dotenv from 'dotenv';
 import axios from 'axios';
@@ -32,7 +32,7 @@ const getCheckoutSession = catchAsync(async (req, res) => {
     console.log('Creating checkout session for order:', orderId);
 
     // Find the order by its ID and populate the items with product details
-    const order = await OrderModel.findById(orderId).populate('items.product');
+    const order = await Order.findById(orderId).populate('items.product');
     if (!order) {
         console.log('Order not found');
         // If order is not found, send a 404 response
@@ -127,7 +127,7 @@ const updateOrderToPaid = catchAsync(async (req, res) => {
     }
 
     // Find the order by its ID
-    const order = await OrderModel.findById(orderId);
+    const order = await Order.findById(orderId);
     if (!order) {
         console.log('Order not found');
         // If order is not found, send a 404 response
