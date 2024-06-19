@@ -21,8 +21,7 @@ const setCookie = (res, name, token, maxAge) => {
 
     const cookieOptions = {
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        maxAge: maxAgeInMs,
+        secure: false,
         sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax',
         domain: 'store-back-pqcv.onrender.com',
         path: '/',
