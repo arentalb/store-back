@@ -18,17 +18,17 @@ const setCookie = (res, name, token, maxAge) => {
     } catch (error) {
         throw new Error("Invalid maxAge format. Use a format like '1h' or '2d'.");
     }
+
     const cookieOptions = {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         maxAge: maxAgeInMs,
+        sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax',
+        domain: 'store-back-pqcv.onrender.com',
+        path: '/',
     };
-    if (process.env.NODE_ENV === 'production') {
-        cookieOptions.sameSite = 'None';
-    }
+
     res.cookie(name, token, cookieOptions);
-
-
 };
 
 

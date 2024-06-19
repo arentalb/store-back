@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="@supermarket.f2fjmdj.mongodb.net" uuid="4e2bafe4-e256-4afc-8a30-54d2f98837d2">
+    <data-source source="LOCAL" name="supermarketDev@supermarket.f2fjmdj.mongodb.net" uuid="578046c8-5296-4f72-a0cb-a35707e3487e">
+      <driver-ref>mongo</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.dbschema.MongoJdbcDriver</jdbc-driver>
+      <jdbc-url>mongodb+srv://supermarket.f2fjmdj.mongodb.net/supermarketDev?retryWrites=true&amp;w=majority&amp;appName=supermarket</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="@supermarket.f2fjmdj.mongodb.net" uuid="3b2e8aaa-15c7-4437-863c-970b7ef146d4">
       <driver-ref>mongo</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.dbschema.MongoJdbcDriver</jdbc-driver>
