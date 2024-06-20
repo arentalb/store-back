@@ -1,7 +1,13 @@
-# Store E-Commerce  - Backend
+# Store E-Commerce - Backend
+
 Also, you can check out the frontend repository for this backend at https://github.com/arentalb/store-front
 
-Welcome to the backend repository for the Store E-Commerce ! This project is developed using Node.js, Express.js, Mongoose, and MongoDB.
+Welcome to the backend repository for the Store E-Commerce ! This project is developed using Node.js, Express.js,
+Mongoose, and MongoDB.
+
+You can see the API documentation from https://documenter.getpostman.com/view/33741807/2sA3XTffoc
+OR
+you can download the store.postman file and import it into your postman workspace
 
 ## Table of Contents
 
@@ -13,7 +19,9 @@ Welcome to the backend repository for the Store E-Commerce ! This project is dev
 
 ## Introduction
 
-This repository contains the backend code for the Store E-Commerce . The application provides a comprehensive solution for online shopping, including APIs for user authentication, product management, order processing, and an admin dashboard for managing products and orders.
+This repository contains the backend code for the Store E-Commerce . The application provides a comprehensive solution
+for online shopping, including APIs for user authentication, product management, order processing, and an admin
+dashboard for managing products and orders.
 
 ## Setup Instructions
 
@@ -40,7 +48,8 @@ This repository contains the backend code for the Store E-Commerce . The applica
 
 ### Express.js
 
-Express.js is used to build the backend APIs. Ensure all routes are properly set up in the `routes` directory and middleware is configured in the `middleware` directory.
+Express.js is used to build the backend APIs. Ensure all routes are properly set up in the `routes` directory and
+middleware is configured in the `middleware` directory.
 
 ### Mongoose
 

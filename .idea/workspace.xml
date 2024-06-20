@@ -4,22 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Refactor my backend to use the access token and refresh token from localstorage">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3b2e8aaa-15c7-4437-863c-970b7ef146d4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3ff2765e-36ad-49be-871f-326df6cd312b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3ff2765e-36ad-49be-871f-326df6cd312b.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/40b1c604-3e1a-4c7b-9d34-e5660114d645.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4e2bafe4-e256-4afc-8a30-54d2f98837d2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/578046c8-5296-4f72-a0cb-a35707e3487e.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/cart/cartController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/cart/cartController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/category/categoryController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/category/categoryController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/metrics/metricsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/metrics/metricsController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/order/checkoutController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/order/checkoutController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/order/orderController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/order/orderController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/product/productController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/product/productController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/review/reviewController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/review/reviewController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/user/auth/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/user/auth/authController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/user/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/user/userController.js" afterDir="false" />
+    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Add postman collection file for all requests">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +155,7 @@
       <workItem from="1718733344167" duration="2326000" />
       <workItem from="1718755442011" duration="10821000" />
       <workItem from="1718805981768" duration="6443000" />
-      <workItem from="1718846271391" duration="2620000" />
+      <workItem from="1718846271391" duration="2946000" />
     </task>
     <task id="LOCAL-00001" summary="IDE configuration files">
       <option name="closed" value="true" />
@@ -467,7 +453,23 @@
       <option name="project" value="LOCAL" />
       <updated>1718813610682</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Updated code with the appropriate status codes and removed console.log() statements">
+      <option name="closed" value="true" />
+      <created>1718851430378</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1718851430378</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Add postman collection file for all requests">
+      <option name="closed" value="true" />
+      <created>1718851493547</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1718851493547</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -502,8 +504,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Change file structure" />
-    <MESSAGE value="Implement file upload with CRUD operation for products" />
     <MESSAGE value="Implement getting newest products" />
     <MESSAGE value="Implement getting all products for a category" />
     <MESSAGE value="Implement CRUD for cart functionality" />
@@ -527,6 +527,8 @@
     <MESSAGE value="Add domain option to my cookies to check if it fixed not setting cookies on ios safary" />
     <MESSAGE value="Remove maxAge and set secure to false  check if it fixed not setting cookies on ios safary" />
     <MESSAGE value="Refactor my backend to use the access token and refresh token from localstorage" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor my backend to use the access token and refresh token from localstorage" />
+    <MESSAGE value="Updated code with the appropriate status codes and removed console.log() statements" />
+    <MESSAGE value="Add postman collection file for all requests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add postman collection file for all requests" />
   </component>
 </project>
