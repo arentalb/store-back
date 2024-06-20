@@ -2,7 +2,6 @@ import AppError from "./AppError.js";
 
 
 export default (err, req, res, next) => {
-    console.error(err)
     err.statusCode = err.statusCode || 500;
     err.status = err.status || "error";
     if (process.env.NODE_ENV === "development") {
@@ -10,27 +9,21 @@ export default (err, req, res, next) => {
     } else if (process.env.NODE_ENV === "production") {
         if (err.name === "CastError") {
             err = handelCastErrorDB(err);
-
-            console.log(1)
         }
         if (err.name === "ValidationError") {
             err = handelValidationErrorDB(err);
-            console.log(2)
 
         }
         if (err.code === 11000) {
             err = handleDuplicateFieldsDB(err);
-            console.log(3)
 
         }
         if (err.name === "JsonWebTokenError") {
             err = handelInvalidToken();
-            console.log(4)
 
         }
         if (err.name === "TokenExpiredError") {
             err = handelTokenExpiration();
-            console.log(5)
 
         }
 

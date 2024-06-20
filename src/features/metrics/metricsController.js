@@ -3,12 +3,11 @@ import catchAsync from "../../utils/catchAsync.js";
 import Order from "../order/Order.js";
 import User from "../user/User.js";
 
-
+// Get metrics data
 const getMetrics = catchAsync(async (req, res) => {
     const metrics = await getMetricsData();
     sendSuccess(res, metrics, 200);
 });
-
 
 const getMetricsData = async () => {
     const [totalSales, totalOrders, avgOrderValue, topSellingProducts, newUsers] = await Promise.all([
@@ -45,11 +44,10 @@ const getMetricsData = async () => {
         totalSales: totalSales[0]?.totalSales || 0,
         totalOrders: totalOrders[0]?.totalOrders || 0,
         avgOrderValue: avgOrderValue[0]?.avgOrderValue || 0,
-        topSellingProducts,
+        topSellingProducts: topSellingProducts || [],
         newUsers: newUsers[0]?.newUsers || 0
     };
 };
-
 
 export default {
     getMetrics

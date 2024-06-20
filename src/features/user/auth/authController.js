@@ -124,10 +124,10 @@ const refresh = catchAsync(async (req, res) => {
 });
 
 const emailVerificationRequest = catchAsync(async (req, res) => {
-    if (!req.body.email) throw new AppError("Please provide email");
+    if (!req.body.email) throw new AppError("Please provide email", 400);
 
     const user = await User.findOne({email: req.body.email});
-    if (!user) throw new AppError("User with that email does not exist");
+    if (!user) throw new AppError("User with that email does not exist", 404);
 
     const token = crypto.randomBytes(32).toString('hex');
     user.emailVerificationToken = token;
@@ -154,7 +154,7 @@ const emailVerificationRequest = catchAsync(async (req, res) => {
 
 const emailVerificationConfirm = catchAsync(async (req, res) => {
     const token = req.query.token;
-    if (!token) throw new AppError("Provide a token");
+    if (!token) throw new AppError("Provide a token", 400);
     const user = await User.findOne({emailVerificationToken: token});
     if (!user || user.emailVerificationExpires < Date.now()) {
         throw new AppError("Invalid or expired token", 400);
@@ -168,10 +168,10 @@ const emailVerificationConfirm = catchAsync(async (req, res) => {
 });
 
 const resetPasswordRequest = catchAsync(async (req, res) => {
-    if (!req.body.email) throw new AppError("Please provide email");
+    if (!req.body.email) throw new AppError("Please provide email", 400);
 
     const user = await User.findOne({email: req.body.email});
-    if (!user) throw new AppError("User with that email does not exist");
+    if (!user) throw new AppError("User with that email does not exist", 404);
     const token = crypto.randomBytes(32).toString('hex');
     user.resetPasswordToken = token;
 
@@ -198,8 +198,8 @@ const resetPasswordRequest = catchAsync(async (req, res) => {
 const resetPasswordConfirm = catchAsync(async (req, res) => {
     const token = req.query.token;
     const newPassword = req.body.password;
-    if (!token) throw new AppError("Provide a token");
-    if (!newPassword) throw new AppError("Provide new password");
+    if (!token) throw new AppError("Provide a token", 400);
+    if (!newPassword) throw new AppError("Provide new password", 400);
 
     const user = await User.findOne({resetPasswordToken: token});
     if (!user || user.resetPasswordExpires < Date.now()) {

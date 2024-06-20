@@ -9,7 +9,7 @@ const getCart = catchAsync(async (req, res) => {
     if (!cart) {
         throw new AppError("Cart not found", 404);
     }
-    sendSuccess(res, cart);
+    sendSuccess(res, cart, 200);
 });
 
 const addToCart = catchAsync(async (req, res) => {
@@ -43,7 +43,6 @@ const addToCart = catchAsync(async (req, res) => {
     sendSuccess(res, cart, 200);
 });
 
-// Update the quantity of an item in the cart
 const updateCartItem = catchAsync(async (req, res) => {
     const {productId, quantity} = req.body;
     const userId = req.user.id;
@@ -76,17 +75,16 @@ const updateCartItem = catchAsync(async (req, res) => {
     item.quantity = quantity;
 
     if (quantityChange > 0) {
-        product.availableStock -= quantityChange; // Decrement available stock
+        product.availableStock -= quantityChange;
     } else {
-        product.availableStock += -quantityChange; // Increment available stock
+        product.availableStock += -quantityChange;
     }
 
     await cart.save();
-    await product.save(); // Save the updated product
+    await product.save();
     sendSuccess(res, cart, 200);
 });
 
-// Increment the quantity of an item in the cart
 const incrementCartItem = catchAsync(async (req, res) => {
     const {productId} = req.body;
     const userId = req.user.id;
@@ -109,15 +107,14 @@ const incrementCartItem = catchAsync(async (req, res) => {
     }
 
     item.quantity += 1;
-    product.availableStock -= 1;  // Decrement available stock
+    product.availableStock -= 1;
 
     await cart.save();
-    await product.save();  // Save the updated product
+    await product.save();
 
     sendSuccess(res, cart, 200);
 });
 
-// Decrement the quantity of an item in the cart
 const decrementCartItem = catchAsync(async (req, res) => {
     const {productId} = req.body;
     const userId = req.user.id;
@@ -136,28 +133,28 @@ const decrementCartItem = catchAsync(async (req, res) => {
 
     if (item.quantity === 1) {
         const itemIndex = cart.items.findIndex(item => item.product.toString() === productId);
-
         cart.items.splice(itemIndex, 1);
+
         const product = await Product.findById(productId);
         if (product) {
-            product.availableStock += 1;  // Increment available stock
-            await product.save();  // Save the updated product
+            product.availableStock += 1;
+            await product.save();
         }
+
         await cart.save();
         return sendSuccess(res, cart, 200);
     }
 
     item.quantity -= 1;
     const product = await Product.findById(productId);
-    product.availableStock += 1;  // Increment available stock
+    product.availableStock += 1;
 
     await cart.save();
-    await product.save();  // Save the updated product
+    await product.save();
 
     sendSuccess(res, cart, 200);
 });
 
-// Remove an item from the cart
 const removeCartItem = catchAsync(async (req, res) => {
     const {productId} = req.body;
     const userId = req.user.id;
@@ -176,8 +173,8 @@ const removeCartItem = catchAsync(async (req, res) => {
     const item = cart.items[itemIndex];
     const product = await Product.findById(productId);
     if (product) {
-        product.availableStock += item.quantity; // Increment available stock
-        await product.save(); // Save the updated product
+        product.availableStock += item.quantity;
+        await product.save();
     }
 
     cart.items.splice(itemIndex, 1);
@@ -185,7 +182,6 @@ const removeCartItem = catchAsync(async (req, res) => {
     sendSuccess(res, cart, 200);
 });
 
-// Remove the entire cart
 const removeTheCart = catchAsync(async (req, res) => {
     const userId = req.user.id;
 
@@ -197,8 +193,8 @@ const removeTheCart = catchAsync(async (req, res) => {
     for (const item of cart.items) {
         const product = await Product.findById(item.product);
         if (product) {
-            product.availableStock += item.quantity; // Increment available stock
-            await product.save(); // Save the updated product
+            product.availableStock += item.quantity;
+            await product.save();
         }
     }
 

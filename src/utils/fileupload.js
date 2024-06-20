@@ -42,11 +42,7 @@ export const deleteImage = (filename) => {
     const filePath = path.join(__dirname, '', filename);
 
     fs.unlink(filePath, (err) => {
-        if (err) {
-            console.error('Error deleting file:', err);
-        } else {
-            console.log('File deleted successfully');
-        }
+
     });
 };
 

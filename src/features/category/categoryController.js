@@ -4,18 +4,18 @@ import catchAsync from "../../utils/catchAsync.js";
 import AppError from "../../utils/AppError.js";
 
 const getCategories = catchAsync(async (req, res) => {
-    const categories = await Category.find().select("_id name ");
+    const categories = await Category.find().select("_id name");
     sendSuccess(res, categories, 200);
-
 });
+
 const createCategory = catchAsync(async (req, res) => {
     const {name} = req.body;
     if (!name) {
-        throw new AppError("Please provide category name ", 400)
+        throw new AppError("Please provide category name", 400);
     }
     const existingCategory = await Category.findOne({name: name});
     if (existingCategory) {
-        throw new AppError("Category already exists", 400)
+        throw new AppError("Category already exists", 400);
     }
     const category = await Category.create({name});
     const responseData = {id: category._id, name: category.name};
@@ -24,31 +24,33 @@ const createCategory = catchAsync(async (req, res) => {
 
 const updateCategory = catchAsync(async (req, res) => {
     const {name} = req.body;
-    if (!name) {
-        throw new AppError("Provide category name for update", 400)
-    }
     const {id} = req.params;
-    if (!id) {
-        throw new AppError("Provide category id for update", 400)
+    if (!name) {
+        throw new AppError("Provide category name for update", 400);
     }
-    await Category.updateOne({_id: id}, {name: name});
-    const updatedCategory = await Category.findOne({_id: id});
+    if (!id) {
+        throw new AppError("Provide category id for update", 400);
+    }
+    await Category.updateOne({_id: id}, {name});
+    const updatedCategory = await Category.findById(id);
+    if (!updatedCategory) {
+        throw new AppError("Category not found", 404);
+    }
     const responseData = {_id: updatedCategory._id, name: updatedCategory.name};
-
-    sendSuccess(res, responseData, 201);
+    sendSuccess(res, responseData, 200);
 });
 
 const deleteCategory = catchAsync(async (req, res) => {
     const {id} = req.params;
     if (!id) {
-        throw new AppError("Provide category id to be deleted ", 400)
+        throw new AppError("Provide category id to be deleted", 400);
     }
     const category = await Category.findById(id);
     if (!category) {
-        throw new AppError("Could not find category to be deleted ", 400)
+        throw new AppError("Could not find category to be deleted", 404);
     }
-    await Category.deleteOne({_id: id})
-    sendSuccess(res, "Category deleted", 201);
+    await Category.deleteOne({_id: id});
+    sendSuccess(res, "Category deleted", 200);
 });
 
 export default {

@@ -4,34 +4,33 @@ import orderModel from "./Order.js";
 import Order from "./Order.js";
 import Cart from "../cart/Cart.js";
 
-
-//user
+// User
 const getUserOrders = catchAsync(async (req, res) => {
-    const orders = await orderModel.find({user: req.user._id}).select("-items")
-    sendSuccess(res, orders);
-
+    const orders = await orderModel.find({user: req.user._id}).select("-items");
+    sendSuccess(res, orders, 200);
 });
+
 const getUserOrderDetail = catchAsync(async (req, res) => {
     const orderId = req.params.id;
-    const userId = req.user._id
+    const userId = req.user._id;
 
-    const orderDetail = await orderModel
-        .findOne({user: userId, _id: orderId})
-    sendSuccess(res, orderDetail);
-
+    const orderDetail = await orderModel.findOne({user: userId, _id: orderId});
+    if (!orderDetail) {
+        throw new AppError("Order not found", 404);
+    }
+    sendSuccess(res, orderDetail, 200);
 });
+
 const createOrderFromCart = catchAsync(async (req, res) => {
     const {shippingAddress} = req.body;
-
-    const userId = req.user._id
+    const userId = req.user._id;
     const cart = await Cart.findOne({user: userId}).populate("items.product");
-    console.log(cart)
 
     if (!cart) {
-        throw new Error("Cart not found");
+        throw new AppError("Cart not found", 404);
     }
     if (cart.items.length === 0) {
-        throw new Error("Cart is empty");
+        throw new AppError("Cart is empty", 400);
     }
 
     const orderData = {
@@ -45,34 +44,32 @@ const createOrderFromCart = catchAsync(async (req, res) => {
         })),
         totalPrice: cart.items.reduce(
             (acc, item) => acc + item.quantity * item.product.price,
-            0,
+            0
         ),
         shippingAddress,
         paymentMethod: "Credit card",
     };
 
-    const order = await Order.create(orderData)
+    const order = await Order.create(orderData);
 
     cart.items = [];
     await cart.save();
 
     sendSuccess(res, order, 201);
-
 });
 
-
-//admin
+// Admin
 const getAllOrders = catchAsync(async (req, res) => {
     const orders = await orderModel.find().populate("user", "name username email").select("-items");
-    sendSuccess(res, orders);
-
+    sendSuccess(res, orders, 200);
 });
-const getOrderById = catchAsync(async (req, res) => {
-    const order = await orderModel
-        .findById(req.params.id)
-        .populate("user", "name email username")
-    sendSuccess(res, order);
 
+const getOrderById = catchAsync(async (req, res) => {
+    const order = await orderModel.findById(req.params.id).populate("user", "name email username");
+    if (!order) {
+        throw new AppError("Order not found", 404);
+    }
+    sendSuccess(res, order, 200);
 });
 
 const updateOrderStatus = catchAsync(async (req, res) => {
@@ -80,7 +77,7 @@ const updateOrderStatus = catchAsync(async (req, res) => {
     const order = await orderModel.findById(orderId);
 
     if (!order) {
-        throw new Error("Order not found");
+        throw new AppError("Order not found", 404);
     }
 
     const {isPaid, isDelivered} = req.body;
@@ -90,9 +87,8 @@ const updateOrderStatus = catchAsync(async (req, res) => {
     }
 
     await order.save();
-    sendSuccess(res, order);
+    sendSuccess(res, order, 200);
 });
-
 
 export default {
     createOrderFromCart,

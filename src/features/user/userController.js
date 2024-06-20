@@ -1,31 +1,30 @@
-import {sendSuccess,} from "../../utils/resposeSender.js";
+import {sendSuccess} from "../../utils/resposeSender.js";
 import catchAsync from "../../utils/catchAsync.js";
 import AppError from "../../utils/AppError.js";
 import userModel from "./User.js";
 import bcrypt from "bcrypt";
 
-//User Routes
+// User Routes
 const getProfile = catchAsync(async (req, res) => {
     const id = req.user.id;
-    const user = await userModel.findById(id).select("-password")
+    const user = await userModel.findById(id).select("-password");
     if (user) {
         const responseData = {
             username: user.username,
             email: user.email,
             role: user.role,
             isVerified: user.isVerified,
-
         };
-        sendSuccess(res, responseData, 201);
+        sendSuccess(res, responseData, 200);
     } else {
-        throw new AppError("User profile not found ", 404)
-
+        throw new AppError("User profile not found", 404);
     }
 });
+
 const updateProfile = catchAsync(async (req, res) => {
     const id = req.user.id;
     const {username, email} = req.body;
-    const user = await userModel.findById(id)
+    const user = await userModel.findById(id);
     if (!user) {
         throw new AppError("User profile not found", 404);
     }
@@ -38,7 +37,6 @@ const updateProfile = catchAsync(async (req, res) => {
         email: updatedUser.email,
         role: updatedUser.role,
         isVerified: updatedUser.isVerified,
-
     };
 
     sendSuccess(res, userResponse, 200);
@@ -56,32 +54,30 @@ const changePassword = catchAsync(async (req, res) => {
         throw new AppError("Incorrect old password. Please try again or request a password reset.", 401);
     }
 
-    user.password = newPassword
+    user.password = newPassword;
 
     await user.save({runValidators: true});
 
-    sendSuccess(res, "Password changed  ", 201);
-
+    sendSuccess(res, "Password changed successfully", 200);
 });
 
 // Admin Routes
 const getAllUsers = catchAsync(async (req, res) => {
     const allUsers = await userModel.find().select("username email role isVerified createdAt updatedAt active");
-
     sendSuccess(res, allUsers, 200);
 });
 
 const getUserById = catchAsync(async (req, res) => {
     const id = req.params.id;
     if (!id) {
-        throw new AppError("Provide user id", 404)
+        throw new AppError("Provide user id", 400);
     }
     const user = await userModel.findById(id).select("username email role isVerified createdAt updatedAt active");
 
     if (user) {
-        sendSuccess(res, user, 201);
+        sendSuccess(res, user, 200);
     } else {
-        throw new AppError("User not found", 404)
+        throw new AppError("User not found", 404);
     }
 });
 
@@ -90,16 +86,15 @@ const updateUser = catchAsync(async (req, res) => {
     const id = req.params.id;
     const {active, role} = req.body;
 
-    const adminUserId = req.user.id
+    const adminUserId = req.user.id;
     if (adminUserId === id) {
-        throw new AppError("You can not update your role nor your active state ", 400);
+        throw new AppError("You cannot update your role or your active state", 400);
     }
     if (active === undefined && role === undefined) {
         throw new AppError("Please provide a role or active state to be updated", 400);
     }
 
     const user = await userModel.findById(id);
-
     if (!user) {
         throw new AppError("User profile not found", 404);
     }
@@ -120,7 +115,6 @@ const updateUser = catchAsync(async (req, res) => {
 
     sendSuccess(res, message, 200);
 });
-
 
 export default {
     getProfile,
