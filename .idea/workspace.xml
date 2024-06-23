@@ -4,9 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Update README.md">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/metrics/metricsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/metrics/metricsController.js" afterDir="false" />
+    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Return more metrics to show them by chart in frontend">
+      <change beforePath="$PROJECT_DIR$/src/features/cart/Cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/cart/Cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/cart/cartRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/cart/cartRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/category/categoryRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/category/categoryRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/metrics/metricsRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/metrics/metricsRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/order/checkoutController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/order/checkoutController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/order/orderController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/order/orderController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/order/orderRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/order/orderRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/product/Product.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/product/Product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/product/productRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/product/productRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/review/reviewController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/review/reviewController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/user/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/user/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/user/auth/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/user/auth/authController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/user/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/user/userController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/user/userRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/user/userRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middlwares/authMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middlwares/authMiddleware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/AppErrorHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/AppErrorHandler.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/email.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/email.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/fileupload.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/fileupload.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +177,7 @@
       <workItem from="1718805981768" duration="6443000" />
       <workItem from="1718846271391" duration="3169000" />
       <workItem from="1718900434301" duration="93000" />
-      <workItem from="1719107088780" duration="752000" />
+      <workItem from="1719107088780" duration="1296000" />
     </task>
     <task id="LOCAL-00001" summary="IDE configuration files">
       <option name="closed" value="true" />
@@ -483,7 +499,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718851592710</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Return more metrics to show them by chart in frontend">
+      <option name="closed" value="true" />
+      <created>1719107936773</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1719107936773</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -518,7 +542,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implement getting all products for a category" />
     <MESSAGE value="Implement CRUD for cart functionality" />
     <MESSAGE value="Implement order functionality" />
     <MESSAGE value="Implement order functionality in admin" />
@@ -543,6 +566,7 @@
     <MESSAGE value="Updated code with the appropriate status codes and removed console.log() statements" />
     <MESSAGE value="Add postman collection file for all requests" />
     <MESSAGE value="Update README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update README.md" />
+    <MESSAGE value="Return more metrics to show them by chart in frontend" />
+    <option name="LAST_COMMIT_MESSAGE" value="Return more metrics to show them by chart in frontend" />
   </component>
 </project>

@@ -4,7 +4,6 @@ import AppError from "../../utils/AppError.js";
 import userModel from "./User.js";
 import bcrypt from "bcrypt";
 
-// User Routes
 const getProfile = catchAsync(async (req, res) => {
     const id = req.user.id;
     const user = await userModel.findById(id).select("-password");
@@ -61,7 +60,6 @@ const changePassword = catchAsync(async (req, res) => {
     sendSuccess(res, "Password changed successfully", 200);
 });
 
-// Admin Routes
 const getAllUsers = catchAsync(async (req, res) => {
     const allUsers = await userModel.find().select("username email role isVerified createdAt updatedAt active");
     sendSuccess(res, allUsers, 200);
@@ -81,7 +79,6 @@ const getUserById = catchAsync(async (req, res) => {
     }
 });
 
-// Super Admin Routes
 const updateUser = catchAsync(async (req, res) => {
     const id = req.params.id;
     const {active, role} = req.body;

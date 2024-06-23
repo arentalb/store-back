@@ -13,7 +13,7 @@ const setCookie = (res, name, token, maxAge) => {
     let maxAgeInMs;
 
     try {
-        maxAgeInMs = parseDuration(maxAge); // Convert human-readable duration to milliseconds
+        maxAgeInMs = parseDuration(maxAge);
     } catch (error) {
         throw new Error("Invalid maxAge format. Use a format like '1h' or '2d'.");
     }
@@ -99,7 +99,7 @@ const logout = catchAsync(async (req, res) => {
 });
 
 const refresh = catchAsync(async (req, res) => {
-    const {refreshToken} = req.body;  // Read refreshToken from request body
+    const {refreshToken} = req.body;
     if (!refreshToken) {
         throw new AppError("Refresh token is required", 400);
     }
@@ -117,8 +117,8 @@ const refresh = catchAsync(async (req, res) => {
     await existingUser.save();
 
     const userResponse = {
-        accessToken,        // Include accessToken in response for local storage
-        refreshToken: newRefreshToken  // Include new refreshToken in response for local storage
+        accessToken,
+        refreshToken: newRefreshToken
     };
     sendSuccess(res, userResponse, 200);
 });

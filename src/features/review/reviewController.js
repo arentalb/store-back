@@ -51,7 +51,6 @@ const addReview = catchAsync(async (req, res) => {
         throw new AppError("Invalid user ID", 404);
     }
 
-    // Check if user has already reviewed this product
     const existingReview = await Review.findOne({product: product._id, user: user._id});
     if (existingReview) {
         throw new AppError("You have already reviewed this product", 400);

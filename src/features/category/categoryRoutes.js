@@ -4,12 +4,9 @@ import categoryController from "./categoryController.js";
 
 const router = express.Router();
 
-//everyone
 
-//user
 router.get("/", categoryController.getCategories);
 
-//admin
 router.post(
     "/",
     authenticate,

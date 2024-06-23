@@ -7,10 +7,8 @@ import {sendSuccess} from "../../utils/resposeSender.js";
 
 dotenv.config();
 
-// Initialize the Stripe client with the secret key from environment variables
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
-// Function to fetch the current exchange rate from IQD to USD
 const getExchangeRate = async () => {
     try {
         const response = await axios.get('https://api.exchangerate-api.com/v4/latest/USD');
@@ -22,7 +20,6 @@ const getExchangeRate = async () => {
     }
 };
 
-// Define the function to create a checkout session, wrapped in catchAsync to handle errors
 const getCheckoutSession = catchAsync(async (req, res) => {
     const orderId = req.body.orderId;
 
@@ -71,7 +68,6 @@ const getCheckoutSession = catchAsync(async (req, res) => {
     });
 });
 
-// Define the function to update the order status to paid, wrapped in catchAsync to handle errors
 const updateOrderToPaid = catchAsync(async (req, res) => {
     const sessionId = req.query.session_id;
     const orderId = req.query.order_id;

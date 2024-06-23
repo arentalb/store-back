@@ -31,14 +31,12 @@ const cartSchema = new mongoose.Schema({
     items: [cartItemSchema],
 }, {timestamps: true});
 
-// Virtual to calculate the total price of items in the cart
 cartSchema.virtual('totalPrice').get(function () {
     return this.items.reduce((total, item) => {
         return total + (item.price * item.quantity);
     }, 0);
 });
 
-// Virtual to calculate the total quantity of items in the cart
 cartSchema.virtual('totalQuantity').get(function () {
     return this.items.reduce((total, item) => {
         return total + item.quantity;
@@ -48,7 +46,6 @@ cartSchema.virtual('totalQuantity').get(function () {
 cartSchema.set('toObject', {virtuals: true});
 cartSchema.set('toJSON', {virtuals: true});
 
-// Instance method to add an item to the cart
 cartSchema.methods.addItem = async function (product, quantity) {
     const itemIndex = this.items.findIndex(item => item.product.toString() === product._id.toString());
 
@@ -61,24 +58,24 @@ cartSchema.methods.addItem = async function (product, quantity) {
                 quantity: quantity,
                 coverImage: product.coverImage
             });
-            product.availableStock -= quantity;  // Decrement available stock
-            await product.save();  // Save the updated product
+            product.availableStock -= quantity;
+            await product.save();
         }
     } else {
         const item = this.items[itemIndex];
         if (quantity === 0) {
             this.items.splice(itemIndex, 1);
-            product.availableStock += item.quantity;  // Increment available stock
-            await product.save();  // Save the updated product
+            product.availableStock += item.quantity;
+            await product.save();
         } else {
             const quantityChange = quantity - item.quantity;
             item.quantity = quantity;
             if (quantityChange > 0) {
-                product.availableStock -= quantityChange;  // Decrement available stock
+                product.availableStock -= quantityChange;
             } else {
-                product.availableStock += -quantityChange;  // Increment available stock
+                product.availableStock += -quantityChange;
             }
-            await product.save();  // Save the updated product
+            await product.save();
         }
     }
 
@@ -86,7 +83,6 @@ cartSchema.methods.addItem = async function (product, quantity) {
     return this;
 };
 
-// Instance method to update the quantity of an item in the cart
 cartSchema.methods.updateItemQuantity = async function (productId, quantity) {
     const item = this.items.find(item => item.product.toString() === productId);
 
@@ -103,18 +99,16 @@ cartSchema.methods.updateItemQuantity = async function (productId, quantity) {
     item.quantity = quantity;
 
     if (quantityChange > 0) {
-        product.availableStock -= quantityChange;  // Decrement available stock
+        product.availableStock -= quantityChange;
     } else {
-        product.availableStock += -quantityChange;  // Increment available stock
+        product.availableStock += -quantityChange;
     }
 
-    await product.save();  // Save the updated product
+    await product.save();
     await this.save();
     return this;
 };
 
-// Instance method to remove an item from the cart
-// Instance method to remove an item from the cart
 cartSchema.methods.removeItem = async function (productId) {
     const itemIndex = this.items.findIndex(item => item.product.toString() === productId);
 
@@ -122,8 +116,8 @@ cartSchema.methods.removeItem = async function (productId) {
         const item = this.items[itemIndex];
         const product = await Product.findById(productId);
         if (product) {
-            product.availableStock += item.quantity;  // Increment available stock
-            await product.save();  // Save the updated product
+            product.availableStock += item.quantity;
+            await product.save();
         }
         this.items.splice(itemIndex, 1);
         await this.save();

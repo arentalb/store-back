@@ -4,7 +4,6 @@ import orderModel from "./Order.js";
 import Order from "./Order.js";
 import Cart from "../cart/Cart.js";
 
-// User
 const getUserOrders = catchAsync(async (req, res) => {
     const orders = await orderModel.find({user: req.user._id}).select("-items");
     sendSuccess(res, orders, 200);
@@ -58,7 +57,6 @@ const createOrderFromCart = catchAsync(async (req, res) => {
     sendSuccess(res, order, 201);
 });
 
-// Admin
 const getAllOrders = catchAsync(async (req, res) => {
     const orders = await orderModel.find().populate("user", "name username email").select("-items");
     sendSuccess(res, orders, 200);

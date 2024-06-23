@@ -66,7 +66,6 @@ const sendErrorDev = (err, res) => {
 
 const sendErrorProd = (err, res) => {
     if (err.isOperational) {
-        //operational error send the error message to the client
         res.status(err.statusCode).json({
             status: err.status,
             message: err.message,

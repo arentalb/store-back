@@ -54,14 +54,12 @@ const productSchema = new Schema({
     toObject: {virtuals: true},
 });
 
-// Virtual to calculate the average rating
 productSchema.virtual('reviews', {
     ref: 'Review',
     localField: '_id',
     foreignField: 'product'
 });
 
-// Instance method to decrement availableStock
 productSchema.methods.decrementAvailableStock = async function (quantity) {
     if (this.availableStock < quantity) {
         throw new Error("Insufficient available stock");
@@ -70,7 +68,6 @@ productSchema.methods.decrementAvailableStock = async function (quantity) {
     await this.save();
 };
 
-// Instance method to increment availableStock
 productSchema.methods.incrementAvailableStock = async function (quantity) {
     this.availableStock += quantity;
     await this.save();

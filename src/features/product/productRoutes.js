@@ -7,15 +7,12 @@ import reviewRoutes from "../review/reviewRoutes.js";
 
 const router = express.Router();
 
-// Public routes
-router.get("/", productController.getAllProducts); // Get all products
-router.get("/new", productController.getNewProducts); // Get new products
-router.get("/:id", authenticate, isVerified, productController.getProductById); // Get product by ID
+router.get("/", productController.getAllProducts);
+router.get("/new", productController.getNewProducts);
+router.get("/:id", authenticate, isVerified, productController.getProductById);
 
-// Routes accessible to authenticated users
-router.get("/search/:query", authenticate, productController.searchProducts); // Search products by query
+router.get("/search/:query", authenticate, productController.searchProducts);
 
-// Routes accessible to admins only
 router.post(
     "/",
     authenticate,

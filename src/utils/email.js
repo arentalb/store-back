@@ -1,7 +1,6 @@
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
 
-// Load environment variables from .env file
 dotenv.config();
 
 const emailTemplateGenerator = (type, message, link) => {
@@ -106,11 +105,10 @@ const emailTemplateGenerator = (type, message, link) => {
 
 const sendEmail = async (options) => {
     try {
-        // 1 create a transporter
         const transporter = nodemailer.createTransport({
             host: process.env.EMAIL_HOST,
             port: process.env.EMAIL_PORT,
-            secure: false, // true for 465, false for other ports
+            secure: false,
             auth: {
                 user: process.env.EMAIL_USERNAME,
                 pass: process.env.EMAIL_PASSWORD,
@@ -121,21 +119,19 @@ const sendEmail = async (options) => {
         });
 
         const htmlContent = emailTemplateGenerator(
-            options.type, // Type of email (e.g., 'resetPassword', 'orderSuccess', 'verifyEmail')
-            options.message, // Main message body
-            options.link // URL link
+            options.type,
+            options.message,
+            options.link
         );
 
-        // 2 define email options
         const mailOptions = {
             from: `Aren Talb <${process.env.EMAIL_USERNAME}>`,
             to: options.email,
-            subject: options.subject, // Correctly use options.subject
-            text: options.message, // Plain text body
-            html: htmlContent, // HTML body with inline styles
+            subject: options.subject,
+            text: options.message,
+            html: htmlContent,
         };
 
-        // 3 send email
         await transporter.sendMail(mailOptions);
     } catch (error) {
     }
