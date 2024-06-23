@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Add postman collection file for all requests">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Update README.md">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/metrics/metricsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/metrics/metricsController.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +66,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Click\Documents\devlopment\fullstack\store\store-back" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Click\Documents\devlopment\fullstack\practice\pracice-back" />
       <recent name="C:\Users\Click\Documents\devlopment\fullstack\practice\pracice-back\src\middlwares" />
@@ -155,7 +159,9 @@
       <workItem from="1718733344167" duration="2326000" />
       <workItem from="1718755442011" duration="10821000" />
       <workItem from="1718805981768" duration="6443000" />
-      <workItem from="1718846271391" duration="2946000" />
+      <workItem from="1718846271391" duration="3169000" />
+      <workItem from="1718900434301" duration="93000" />
+      <workItem from="1719107088780" duration="752000" />
     </task>
     <task id="LOCAL-00001" summary="IDE configuration files">
       <option name="closed" value="true" />
@@ -469,7 +475,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718851493547</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Update README.md">
+      <option name="closed" value="true" />
+      <created>1718851592710</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1718851592710</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -504,7 +518,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implement getting newest products" />
     <MESSAGE value="Implement getting all products for a category" />
     <MESSAGE value="Implement CRUD for cart functionality" />
     <MESSAGE value="Implement order functionality" />
@@ -529,6 +542,7 @@
     <MESSAGE value="Refactor my backend to use the access token and refresh token from localstorage" />
     <MESSAGE value="Updated code with the appropriate status codes and removed console.log() statements" />
     <MESSAGE value="Add postman collection file for all requests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add postman collection file for all requests" />
+    <MESSAGE value="Update README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update README.md" />
   </component>
 </project>
