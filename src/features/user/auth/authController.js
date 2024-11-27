@@ -154,18 +154,36 @@ const emailVerificationRequest = catchAsync(async (req, res) => {
 
 const emailVerificationConfirm = catchAsync(async (req, res) => {
     const token = req.query.token;
-    if (!token) throw new AppError("Provide a token", 400);
-    const user = await User.findOne({emailVerificationToken: token});
-    if (!user || user.emailVerificationExpires < Date.now()) {
+
+    if (!token) {
+        throw new AppError("Provide a token", 400);
+    }
+
+    const user = await User.findOne({
+        emailVerificationToken: token,
+        emailVerificationExpires: { $gt: Date.now() },
+    });
+
+    if (!user) {
         throw new AppError("Invalid or expired token", 400);
     }
-    user.isVerified = true;
-    user.emailVerificationToken = undefined;
-    user.emailVerificationExpires = undefined;
-    await user.save();
+
+    await User.updateOne(
+        { _id: user._id },
+        {
+            $set: {
+                isVerified: true,
+            },
+            $unset: {
+                emailVerificationToken: "",
+                emailVerificationExpires: "",
+            },
+        }
+    );
 
     sendSuccess(res, "Email verified successfully", 200);
 });
+
 
 const resetPasswordRequest = catchAsync(async (req, res) => {
     if (!req.body.email) throw new AppError("Please provide email", 400);
