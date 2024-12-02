@@ -4,25 +4,59 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Return more metrics to show them by chart in frontend">
-      <change beforePath="$PROJECT_DIR$/src/features/cart/Cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/cart/Cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/cart/cartRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/cart/cartRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/category/categoryRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/category/categoryRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/metrics/metricsRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/metrics/metricsRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/order/checkoutController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/order/checkoutController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/order/orderController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/order/orderController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/order/orderRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/order/orderRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/product/Product.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/product/Product.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/product/productRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/product/productRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/review/reviewController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/review/reviewController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/user/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/user/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/user/auth/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/user/auth/authController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/user/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/user/userController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/user/userRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/user/userRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middlwares/authMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middlwares/authMiddleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/AppErrorHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/AppErrorHandler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/email.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/email.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/fileupload.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/fileupload.js" afterDir="false" />
+    <list default="true" id="c54fb6a2-70de-4312-9269-ba213ad3c579" name="Changes" comment="Fix the confirm email function">
+      <change beforePath="$PROJECT_DIR$/.env.sample" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.sample.production" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3ff2765e-36ad-49be-871f-326df6cd312b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3ff2765e-36ad-49be-871f-326df6cd312b.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/4K TV 1-1718716917078.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/4K TV 2-1718716917079.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/4K TV cover-1718716917077.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/External Hard Drive 1-1718716963819.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/External Hard Drive 2-1718716963821.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/External Hard Drive 3-1718716963822.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/External Hard Drive cover-1718716963819.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/Gaming Controller 1-1718716727713.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/Gaming Controller 2-1718716727713.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/Gaming Controller 3-1718716727715.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/Gaming Controller 4-1718716727718.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/Gaming Controller cover-1718716727713.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/Gaming Desk 1-1718716777005.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/Gaming Desk 2-1718716777006.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/Gaming Desk 3-1718716777006.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/Gaming Desk cover-1718716777004.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/Gaming Headset 1-1718716487048.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/Gaming Headset 2-1718716487050.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/Gaming Headset 3-1718716487051.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/Gaming Headset 4-1718716487051.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/Gaming Headset cover-1718716487046.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/Gaming Laptop 1-1718716618816.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/Gaming Laptop 2-1718716618818.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/Gaming Laptop cover-1718716618816.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/Gaming Monitor 1-1718716566371.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/Gaming Monitor 2-1718716566372.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/Gaming Monitor cover-1718716566370.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/RGB Mouse Pad 1-1718716681829.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/RGB Mouse Pad 2-1718716681833.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/RGB Mouse Pad 3-1718716681836.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/RGB Mouse Pad cover-1718716681827.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/Smartwatch 1-1718716859229.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/Smartwatch 2-1718716859229.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/Smartwatch cover-1718716859229.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/VR Headset 1-1718716821502.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/VR Headset 2-1718716821503.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/VR Headset 3-1718716821504.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/VR Headset cover-1718716821502.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/Wireless Charger 1-1718716998408.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/Wireless Charger 2-1718716998408.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/Wireless Charger cover-1718716998407.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM_[Changes]2/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_32_PM__Changes_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_35_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_18_2024_4_35_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_18_2024_8_09_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_18_2024_8_09_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,9 +70,6 @@
       </list>
     </option>
   </component>
-  <component name="FormatOnSaveOptions">
-    <option name="myRunOnSave" value="true" />
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -47,12 +78,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2gQ7D1sP7YQWwjqrSyHYbtKEo2p" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -64,12 +101,14 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Click/Documents/devlopment/fullstack/store/store-back&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Documents/code/completed project/store/store-frontend&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.start:dev.executor&quot;: &quot;Run&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\Click\\Documents\\devlopment\\fullstack\\practice\\pracice-back\\node_modules\\prettier&quot;,
     &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
@@ -86,11 +125,11 @@
       <recent name="C:\Users\Click\Documents\devlopment\fullstack\store\store-back" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Click\AppData\Roaming\JetBrains\WebStorm2023.1\scratches\envs\backedn" />
+      <recent name="C:\Users\Click\AppData\Roaming\JetBrains\WebStorm2023.1\scratches" />
       <recent name="C:\Users\Click\Documents\devlopment\fullstack\practice\pracice-back" />
       <recent name="C:\Users\Click\Documents\devlopment\fullstack\practice\pracice-back\src\middlwares" />
       <recent name="C:\Users\Click\Documents\devlopment\fullstack\practice\pracice-back\src\features\product" />
-      <recent name="C:\Users\Click\Documents\devlopment\fullstack\practice\pracice-back\src\features" />
-      <recent name="C:\Users\Click\Documents\devlopment\fullstack\practice\pracice-back\src\user" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start:dev">
@@ -118,6 +157,13 @@
       <item itemvalue="npm.start:dev" />
       <item itemvalue="npm.start" />
     </list>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-WS-241.15989.105" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -177,7 +223,42 @@
       <workItem from="1718805981768" duration="6443000" />
       <workItem from="1718846271391" duration="3169000" />
       <workItem from="1718900434301" duration="93000" />
-      <workItem from="1719107088780" duration="1296000" />
+      <workItem from="1719107088780" duration="1599000" />
+      <workItem from="1719235505161" duration="2288000" />
+      <workItem from="1719492244889" duration="2554000" />
+      <workItem from="1719496796899" duration="3000" />
+      <workItem from="1719497091182" duration="1720000" />
+      <workItem from="1719534080412" duration="3352000" />
+      <workItem from="1719571392932" duration="11000" />
+      <workItem from="1719625356386" duration="1987000" />
+      <workItem from="1719671971872" duration="54000" />
+      <workItem from="1719749573978" duration="1309000" />
+      <workItem from="1720440331288" duration="1023000" />
+      <workItem from="1720442870941" duration="2396000" />
+      <workItem from="1720677104085" duration="10000" />
+      <workItem from="1720684265901" duration="849000" />
+      <workItem from="1720704354085" duration="8000" />
+      <workItem from="1720968147824" duration="37000" />
+      <workItem from="1721648112685" duration="404000" />
+      <workItem from="1721648771167" duration="1376000" />
+      <workItem from="1721741091826" duration="49000" />
+      <workItem from="1722084968635" duration="902000" />
+      <workItem from="1722234167791" duration="8000" />
+      <workItem from="1724167857710" duration="3452000" />
+      <workItem from="1732132411953" duration="4174000" />
+      <workItem from="1732213188316" duration="733000" />
+      <workItem from="1732281039866" duration="1705000" />
+      <workItem from="1732381628605" duration="1888000" />
+      <workItem from="1732447713502" duration="582000" />
+      <workItem from="1732537064232" duration="24000" />
+      <workItem from="1732634255509" duration="392000" />
+      <workItem from="1732634671658" duration="32000" />
+      <workItem from="1732635582745" duration="1638000" />
+      <workItem from="1732739889506" duration="1253000" />
+      <workItem from="1733082819397" duration="845000" />
+      <workItem from="1733083901073" duration="57000" />
+      <workItem from="1733165691290" duration="578000" />
+      <workItem from="1733167382051" duration="1998000" />
     </task>
     <task id="LOCAL-00001" summary="IDE configuration files">
       <option name="closed" value="true" />
@@ -507,7 +588,39 @@
       <option name="project" value="LOCAL" />
       <updated>1719107936773</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Remove some unnecessary comments">
+      <option name="closed" value="true" />
+      <created>1719108427546</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1719108427546</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Remove some unnecessary comments">
+      <option name="closed" value="true" />
+      <created>1719108433056</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1719108433056</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Fix file upload function">
+      <option name="closed" value="true" />
+      <created>1732636174691</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1732636174691</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Fix the confirm email function">
+      <option name="closed" value="true" />
+      <created>1732740660530</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1732740660530</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -533,6 +646,13 @@
                       </list>
                     </value>
                   </entry>
+                  <entry key="text">
+                    <value>
+                      <list>
+                        <option value="image" />
+                      </list>
+                    </value>
+                  </entry>
                 </map>
               </option>
             </State>
@@ -542,9 +662,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implement CRUD for cart functionality" />
-    <MESSAGE value="Implement order functionality" />
-    <MESSAGE value="Implement order functionality in admin" />
     <MESSAGE value="Implement order functionality in user" />
     <MESSAGE value="Add data and data script" />
     <MESSAGE value="Add test route to check if server is up" />
@@ -567,6 +684,9 @@
     <MESSAGE value="Add postman collection file for all requests" />
     <MESSAGE value="Update README.md" />
     <MESSAGE value="Return more metrics to show them by chart in frontend" />
-    <option name="LAST_COMMIT_MESSAGE" value="Return more metrics to show them by chart in frontend" />
+    <MESSAGE value="Remove some unnecessary comments" />
+    <MESSAGE value="Fix file upload function" />
+    <MESSAGE value="Fix the confirm email function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix the confirm email function" />
   </component>
 </project>
