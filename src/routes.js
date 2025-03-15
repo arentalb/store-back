@@ -10,6 +10,13 @@ import metricsRoutes from "./features/metrics/metricsRoutes.js";
 
 const router = express.Router();
 
+router.get("/status", (req, res) => {
+    res.status(200).json({
+        status: "success",
+        message: "Server is running"
+    });
+});
+
 router.use("/auth", authRoutes);
 router.use("/users", userRoutes);
 router.use("/category", categoryRoutes);
